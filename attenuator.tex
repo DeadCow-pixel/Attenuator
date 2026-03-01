@@ -1,0 +1,687 @@
+\documentclass[% 
+12pt,
+]{article}
+\usepackage{geometry}
+\geometry{a4paper, total={170mm,250mm},	left=20mm, top=25mm}
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\fontsize{12}{14}\selectfont\bfseries}
+  {\thesection}{1em}{}
+
+\newcommand{\ket}[1]{\ensuremath{|{#1}\rangle}}
+\newcommand{\bra}[1]{\ensuremath{\langle{#1}|}}
+\newcommand{\sca}[2]{\ensuremath{\bigl({#1}\cdot{#2}\bigr)}}
+\newcommand{\avr}[1]{\ensuremath{\langle{#1}\rangle}}
+
+\newcommand{\cnj}[1]{{#1}^{\ast}}
+\newcommand{\hcnj}[1]{{#1}^{\dagger}}
+\newcommand{\tcnj}[1]{{#1}^{\mathrm{T}}}
+
+%Differential operators
+
+\newcommand{\prt}[1]{\partial_{#1}}
+\newcommand{\pdrs}[1]{\partial_{#1}}
+\newcommand{\pdr}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\drf}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\vdr}[2]{\dfrac{\delta #1}{\delta #2}}
+
+\newcommand{\ddiv}{\mathop{\rm div}\nolimits}
+ \newcommand{\rrot}{\mathop{\rm rot}\nolimits}
+ \newcommand{\grad}{\mathop{\rm grad}\nolimits}
+\newcommand{\bnbl}{\boldsymbol{\nabla}}
+
+%Functions
+
+\newcommand{\diag}{\mathop{\rm diag}\nolimits}
+\newcommand{\sign}{\mathop{\rm sign}\nolimits}
+\renewcommand{\Re}{\mathop{\rm Re}\nolimits}
+\renewcommand{\Im}{\mathop{\rm Im}\nolimits}
+\newcommand{\Tr}{\mathop{\rm Tr}\nolimits}
+\newcommand{\ad}{\mathop{\rm ad}\nolimits}
+\renewcommand{\ker}{\mathop{\rm Ker}\nolimits}
+
+\newcommand{\cn}{\mathop{\rm cn}\nolimits}
+\newcommand{\sn}{\mathop{\rm sn}\nolimits}
+\newcommand{\dn}{\mathop{\rm dn}\nolimits}
+
+%Units
+
+\newcommand{\mum}{$\mu$m}
+\newcommand{\dega}{$^\circ$}
+\newcommand{\degc}{$^\circ$C}
+\newcommand{\myarrow}[1]{\ensuremath{\xrightarrow{{#1}^\circ\mathrm{C}}}}
+
+%Symbols
+
+ \newcommand{\bs}[1]{\boldsymbol{#1}}
+ \newcommand{\vc}[1]{\mathbf{#1}}
+ \newcommand{\mvc}[1]{\mathbf{#1}}
+ \newcommand{\uvc}[1]{\hat{\mathbf{#1}}}
+ \newcommand{\ubs}[1]{\hat{\boldsymbol{#1}}}
+ \newcommand{\ind}[1]{\mathrm{#1}}
+\newcommand{\oprt}[1]{\ensuremath{\widehat{\mathcal{#1}}}}
+
+%% 1. Math
+\newcommand{\prob}{\mathsf{P}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\DD}{\ensuremath{\mathcal{D}}}
+\newcommand{\JJ}{\ensuremath{\mathcal{J}}}
+ \newcommand{\e}{\mathrm{e}}
+ \newcommand{\ee}{\mathrm{e}}
+\newcommand{\sts}{\ensuremath{\mathcal{Z}}}
+
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\mx}{\mathrm{max}}
+\newcommand{\mn}{\mathrm{min}}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amssymb,amsmath,amsthm,mathtools,mathrsfs}
+\usepackage{graphicx}% Include figure files
+\usepackage{multirow}% Include figure files
+\usepackage{float}% Include figure files
+\usepackage{subcaption}% Include figure files
+\usepackage{bbm}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%\graphicspath{{figs/}}
+\renewcommand{\floatpagefraction}{0.8}
+
+%\selectlanguage{english}
+
+\usepackage{soul,color}
+% Bibliography (fixed)
+\usepackage[sorting=none,backend=biber]{biblatex}  % Added backend=biber
+\usepackage{csquotes}
+\addbibresource{quant.bib}      % Individual files
+\addbibresource{refs.bib}
+\addbibresource{homodyne.bib}
+\addbibresource{math.bib}
+
+\usepackage{printlen}
+\begin{document}
+\uselengthunit{pt}  % or pt, in, etc.
+\newlength{\mytw}
+\setlength{\mytw}{\textwidth}
+The textwidth is \printlength{\mytw}.
+\section{Gaussian channels}
+We consider a pure loss channel~\cite{Serafini:bk:2023} $\Phi^{(\gamma)}$, characterized by matrices
+\begin{align}
+    \label{eq:X,Y}
+    X^{(\gamma)}=\cos\theta^{(\gamma)}\mathbbm{1}, \quad Y^{(\gamma)}=\sin^2\theta^{(\gamma)}\mathbbm{1},
+\end{align}
+acting on first and second moments as follows:
+\begin{align}
+    &\boldsymbol{\bar r}\mapsto X \boldsymbol{\bar r},\\
+    &\boldsymbol{\sigma}\mapsto X \boldsymbol{\sigma}X^{\ind{T}}+Y,
+\end{align}
+dual of which, $\Phi^{*(\gamma)}$, transforms the POVM of the ideal measurement into the POVM of the noisy measurements by changing respective covariance matrix $\Sigma_{\ind{id}}^{(\gamma)}$ into $\Sigma_{m}^{(\gamma)}$ as follows:
+\begin{align}
+    \label{eq:phi_ast}
+    \Phi^{*(\gamma)}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}=\frac{1}{\cos^2\theta^{(\gamma)}}\Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta^{(\gamma)}\mathbbm{1},
+\end{align}
+where we used the expressions for the duals of $X$ and $Y$:
+\begin{align}
+    X^*=X^{-1},\quad Y^*=X^{-1}Y{X^{-1}}^{\ind{T}}
+\end{align}
+
+For homodyne detection, covariance matrices of ideal and noisy measurements are given by~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}
+\begin{align}
+    \label{eq:Sigma-H-id}
+    &\Sigma_{\ind{id}}^{(\ind{H})}=\lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r},e^{2r})\,{R}^{\ind{T}}(\phi)\\
+    \label{eq:Sigma-H-m}
+    &\Sigma_{m}^{(\ind{H})}= \lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r}+\sigma_N,e^{2r})\,{R}^{\ind{T}}(\phi)
+    =\Sigma_{\ind{id}}^{(\ind{H})}+\Sigma_{N}^{(\ind{H})},\\
+    &\label{eq:Sigma_N_H}
+    \Sigma_{N}^{(\ind{H})}=R(\phi)\,\ind{diag}(\sigma_N,0)\,{R}^{\ind{T}}(\phi).
+\end{align} 
+As the expression are taking limits, implying that
+\begin{align}
+    &\frac{1}{\cos^2\theta}\Sigma_{\ind{id}}^{(\ind{H})}\sim
+    \Sigma_{\ind{id}}^{(\ind{H})},\\
+    &e^{2r}+\text{const}\sim e^{2r},
+\end{align}
+we may write the effective excess noise covariance matrix
+\begin{align}
+    \label{eq:sigma_N_eff}
+    \Sigma_N^{(\ind{H})\, \ind{eff}}=R(\phi)\,\ind{diag}(\sigma_N,\sigma_N)\,{R}^{\ind{T}}(\phi),
+\end{align}
+and solving for $\theta^{(\ind{H})}$ yields
+\begin{align}
+    \label{eq:cos-theta-h}
+    &\cos\theta^{(\ind{H})}=\sqrt{\frac{1}{\sigma_x}},\quad
+    \sin\theta^{(\ind{H})}=\sqrt{\frac{\sigma_N}{\sigma_x}}.
+\end{align}
+
+For double homodyne detection,
+\begin{align}
+    &\Sigma_{m}^{(\ind{DH})}= R(\phi)\ind{diag}(\delta_1,\delta_2)
+    {R}^{\ind{T}}(\phi)
+    =\Sigma_{\ind{id}}^{(\ind{DH})}+\Sigma_{N}^{(\ind{DH})},\\
+    &\Sigma_{\ind{id}}^{(\ind{DH})}=R(\phi)\,\ind{diag}(e^{2r},e^{-2r})\,{R}^{\ind{T}}(\phi)\\
+    &\Sigma_{N}^{(\ind{DH})}=R(\phi)\,\ind{diag}(4\sigma_N^{(1)}(r),4 \sigma_N^{(2)}(r))\,{R}^{\ind{T}}(\phi),\\
+    &4\sigma_N^{(1)}(r) = \delta_1 - e^{2r},\\
+    &4\sigma_N^{(2)}(r) = \delta_2 - e^{-2r},\\
+    &\delta_i = 2\sigma_i - 1.
+\end{align}
+First, we note that, since $\Sigma_m^{(\ind{DH})}$ is anisotropic, i.e. $\delta_1\neq\delta_2$ generally, vacuum ancilla that defines $Y$~\eqref{eq:X,Y} will not be suitable. Instead, consider arbitrary ancilla state $\Sigma_{\ind{anc}}$, so that:
+\begin{align}
+    Y^{(\ind{DH})}=\sin^2\theta \Sigma_{\ind{anc}}.
+\end{align}
+Without loss of generality, we will consider the ancilla to be in pure state with $\det\Sigma_{\ind{anc}}=1$,
+\begin{align}
+    \Sigma_{\ind{anc}}=R(\phi)\,\ind{diag}\left(x,\frac1x\right)\,{R}^{\ind{T}}(\phi),\quad x>0,
+\end{align}
+so that the equation~\eqref{eq:phi_ast} takes the form
+\begin{align}
+    \label{eq:dh-anc}
+    \Sigma_{m}^{(\ind{DH})}=\frac{1}{\cos^2\theta} \Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta\Sigma_{\ind{anc}},
+\end{align}
+arriving at the system of equations
+\begin{align}
+    \label{eq:system}
+    \begin{cases}
+        \delta_1=\frac{e^{2r}}{\cos^2\theta}+\tan^2\theta x\\
+        \delta_2=\frac{e^{-2r}}{\cos^2\theta}+\tan^2\theta x^{-1}
+    \end{cases}.
+\end{align}
+Solving the system for the elements of the ancilla covariance matrix, we arrive at quadratic equation
+\begin{align}
+    \label{eq:x-square}
+    &x^2+bx+c=0,\\
+    &b=\frac{-\delta_1e^{-2r}+\delta_2e^{2r}}{4\sigma_N^{(2)}},\quad c=\frac{-\sigma_N^{(1)}}{\sigma_N^{(2)}},\\
+    &4\sigma_N^{(1)}=\delta_1-e^{2r},\quad 
+    4\sigma_N^{(2)}=\delta_2-e^{-2r},
+\end{align}
+with the solution given by
+\begin{align}
+    \label{eq:x_def}
+    &x(r)=
+    \frac{1}{2}\left[-b+ \sqrt{b^2-4c}\right].
+\end{align}
+It's also worth noting that beyond the $r$ interval solutions $x$ become strictly unphysical, i.e. $x>0 \Longleftrightarrow r\in(r_2,r_1)$. This is due to $\sigma_N^{(i)}$ becoming negative, so that the discriminant becomes negative as well. At $r=r_1$ or $r=r_2$ ancilla is not well-defined, i.e. $x=0$ or $x=\infty$, respectively.
+
+Returning to $\cos^2\theta^{(\ind{DH})}$:
+\begin{align}
+    \label{eq:cos-theta-dh}
+    \cos^2\theta^{(\ind{DH})}(r)={\frac{e^{2r}+x(r)}{\delta_1+x(r)}}.
+\end{align}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[c]{.45\linewidth}
+        \centering
+\includegraphics[width=.75\linewidth]{pics/double-homodyne/x, (1.666, 1.666).pdf}
+\caption[]{}
+\label{subfig:x-r}
+        \end{subfigure}
+\hfill
+    \begin{subfigure}[c]{.45\linewidth}
+        \centering
+\includegraphics[width=.75\linewidth]{pics/double-homodyne/cos, (1.666, 1.666).pdf}
+\caption[]{}
+\label{subfig:cos-r}
+        \end{subfigure}
+        \caption{Dependence of functions defining attenuator channel that describes noisy double homodyne measurements on squeezing parameter $r$, see Eq.~\eqref{eq:x_def} and Eq.~\eqref{eq:cos-theta-dh}. $\delta_1=\delta_2$.}
+        \label{fig:x-cos-r}
+\end{figure}
+
+Dependence of $x$~\eqref{eq:x_def} and $\cos^2\theta^{(\ind{DH})}$ on squeezing parameter $r$ is plotted on Fig.~\ref{fig:x-cos-r}. While $x(r_0)=1$ is a feature of $\delta_1=\delta_2$, minimum of $\cos^2\theta^{(\ind{DH})}$ is always at $r=r_0$:
+\begin{align}
+    \label{eq:cos-theta-dh-0}
+    \cos^2\theta^{(\ind{DH})}(r_0)={\frac{s + \sqrt{\frac{s - \delta_{1}}{s^{-1}- \delta_{2} }}}{\delta_{1} + \sqrt{\frac{s - \delta_{1}}{s^{-1}- \delta_{2} }}}},\quad s=\sqrt{\frac{\delta_{1}}{\delta_{2}}}. 
+\end{align}
+
+\section{GG02}
+We consider local action of dual to $\Phi^{*(\gamma)}$ channel, $\Phi^{(\gamma)}$, on second mode of TMSVS shared by Alice and Bob~\cite{laudenbach2018continuous}:
+\begin{align}
+    \label{eq:Sigma-AB-EB}
+    &\Sigma^{\ind{EB}}_{\ind{AB}}
+    =
+    \begin{pmatrix}
+        V\mathbbm{1}&c\sigma_z\\
+        c\sigma_z&V_{\ind{B}}\mathbbm{1}
+    \end{pmatrix},\\
+    &
+    V=1+4V_{\ind{A}},\\
+    &c=\sqrt{T_{\ind{ch}}(V^2-1)},
+  \\
+  &
+  \label{eq:V_B}
+    V_{\ind{B}}=T_{\ind{ch}}(V-1)+1+\xi_{\ind{ch}},
+\end{align}
+where $T_{\ind{ch}}$ and $\xi_{\ind{ch}}$ are channel transmission and noise variance, respectively.
+
+Using Eq.~\eqref{eq:X,Y}, we have
+\begin{align}
+    \label{eq:phi_action}
+    &\Phi^{(\gamma)}(\Sigma^{\ind{EB}}_{\ind{AB}})=\begin{pmatrix}
+        V\mathbbm{1}&c\cos\theta^{(\gamma)}\sigma_z\\
+     c\cos\theta^{(\gamma)}\sigma_z&\cos^2\theta^{(\gamma)}
+     \left(V_{\ind{B}}+\tan^2\theta^{(\gamma)}\Sigma_{\ind{anc}}^{(\gamma)}\right)
+    \end{pmatrix},
+\end{align}
+mutual information is given by the expressions
+\begin{align}
+  \label{eq:I_H_res}
+  &I_{\ind{AB}}^{(\ind{H})}=\frac{1}{2}\log\left[1+\frac{4TV_{\ind{A}}}{\sigma_x+\xi}\right],\\
+  \label{eq:I_DH_res}
+  &I_{\ind{AB}}^{(\ind{DH})}=\frac{1}{2}\sum_i\log\left[1+\frac{4TV_{\ind{A}}}
+    {2 \sigma_i+\xi}\right].
+\end{align}
+
+For homodyne detection, from Eq.~\eqref{eq:cos-theta-h} we have
+\begin{align}
+    \label{eq:phi-h-action}
+    &\Phi^{\ind{H}}\left(\Sigma^{\ind{EB}}_{\ind{AB}}\right)=
+    \begin{pmatrix}
+        V\mathbbm{1}&\frac{c}{\sqrt{\sigma_x}}\sigma_z\\
+        \frac{c}{\sqrt{\sigma_x}}\sigma_z&\frac{1}{{\sigma_x}}\left(V_{\ind{B}}+\sigma_N\right)\mathbbm{1}
+    \end{pmatrix}.
+\end{align}
+
+Defining total channel transmission ${T}$ that consists of channel transmission $T_{\ind{ch}}$ and detection losses $\frac{1}{\sigma_x}$, as well as scaled noise variance $\xi$,
+\begin{align}
+    \label{eq:T_tot_hom}
+    &T=T_{\ind{ch}}\cdot \frac{1}{\sigma_x},\\
+    \label{eq:xi_tot_hom}
+    &\xi\equiv\xi_{\ind{ch}}\cdot\frac{1}{\sigma_x},
+\end{align}
+so that Bob's variance takes the form
+\begin{align}
+    &\frac{V_{\ind{B}}+\sigma_N}{{\sigma_x}}=\frac{T_{\ind{ch}}(V-1)+\sigma_x+\xi_{\ind{ch}}}{\sigma_x}=
+    {T}(V-1)+1+{\xi}\equiv
+    \tilde{V}_{\ind{B}},
+\end{align}
+and correlation remains valid,
+\begin{align}
+    \frac{c}{\sqrt{\sigma_x}}=\sqrt{\frac{T_{\ind{ch}}(V^2-1)}{\sigma_x}}=\sqrt{{T}(V^2-1)}\equiv\tilde{c},
+\end{align}
+TMSVS covariance matrix~\eqref{eq:phi-h-action} can be written as:
+\begin{align}
+    \Phi^{(\ind{H})}\left(\Sigma^{\ind{EB}}_{\ind{AB}}\right)
+    =
+    \begin{pmatrix}
+        V\mathbbm{1}&\tilde{c}\sigma_z\\
+        \tilde{c}\sigma_z&\tilde{V}_{\ind{B}}\mathbbm{1}
+    \end{pmatrix}.
+\end{align}
+It follows that for homodyne detection the effect of measurement asymmetry is equivalent to scaling both channel transmission~\eqref{eq:T_tot_hom} and channel noise~\eqref{eq:xi_tot_hom} by factor $\sigma_x^{-1}$.
+
+Symplectic eigenvalues of $\Phi_{\ind{H}}\left(\Sigma^{\ind{EB}}_{\ind{AB}}\right)$, $\nu_{1,2}^{(\ind{H})}$, can be computed using formulas~\cite{Weed:rmp:2012}:
+\begin{align}
+    \nu_{1,2}^{(\ind{H})}=\frac{z\pm[\tilde{V}_{\ind{B}}-V]}2,\quad z=\sqrt{\left(V+\tilde{V}_{\ind{B}}\right)^2-4{\tilde{c}^2}}.
+\end{align}
+
+While channel noise is reduced in this setup, so is channel transmission, and, since transmission is multiplied by $V\gg1$, as well as reduction in mutual information, this channel has negative effect, as seen from Fig.~\ref{fig:homodyne-all}.
+\begin{figure}[!htp]
+    \centering
+    \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[]{pics/homodyne/IAB.pdf}
+\caption[]{}%{$I_{\ind{AB}}$}
+\label{subfig:hom-a}
+        \end{subfigure}
+\hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[]{pics/homodyne/chi.pdf}\caption[]{}%{$\chi_{\ind{EB}}$}
+\label{subfig:hom-b}
+\end{subfigure}
+\hfill
+    \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[]{pics/homodyne/r.pdf}
+\caption[]{}%{$R$}
+\label{subfig:hom-c}
+        \end{subfigure}
+        \caption{%
+          (a)~Mutual information, $I_{\ind{AB}}^{(\ind{H})}$, (b)~Holevo
+        information, $\chi_{\ind{EB}}^{(\ind{H})}$ and (c)~asymptotic
+        secret fraction, $K^{(\ind{H})}$,
+        as a function of the beam splitter
+        transmission, $C^2$, of the homodyne receiver %(see Fig.~\ref{fig:homodyne})
+        computed at different values of the detector efficiencies. The
+        parameters are:
+        $V=5$;
+        $T_{\ind{ch}}=0.95$;
+        $\xi_{\ind{ch}}=10^{-2}$; and
+        $\beta=0.95$. As it is impossible to find $r$ that maximizes $\chi^{(\ind{DH})}_{\ind{EB}}$ due to singularity, $r=r_0$.
+      }
+\label{fig:homodyne-all}
+\end{figure}
+
+From Fig.~\ref{fig:K-homodyne}, it becomes apparent that the effect of imperfect measurements on maximal transmission distance is very slight. Even using exaggerated values of $\sigma_x$ (correspond to $\eta=0.8$ and $\eta=0.5$) results in difference of about $1$ km. However, bitrate is significantly reduced at low distances. 
+\begin{figure}
+    \centering
+\includegraphics[]{pics/homodyne/KvsL_xi.pdf.pdf}
+        \caption{
+          Asymptotic
+        secret fraction $K^{(\ind{H})}$ versus channel length $l$, computed for various quadrature variances $\sigma_x$ %(see Eq.~\eqref{eq:sigma-x})
+         and channel noise variance $\xi$ (as indicated in each panel title). The losses are assumed to be $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$ and
+        $\beta=0.95$.
+        }
+      \label{fig:K-homodyne}
+      \end{figure}
+
+For double homodyne detection, from Eq.~\eqref{eq:cos-theta-dh} and Eq.~\eqref{eq:system}, we have
+\begin{align}
+    &\Phi^{(\ind{DH})}\left(\Sigma^{\ind{EB}}_{\ind{AB}}\right)=
+    \notag\\
+    &
+    \begin{pmatrix}
+        V\mathbbm{1}&{c}\cos\theta^{(\ind{DH})}\sigma_z\\
+        c\cos\theta^{(\ind{DH})}\sigma_z&
+        \begin{matrix}
+            \cos^2\theta^{(\ind{DH})}\left({V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta^{(\ind{DH})}}\right)&0\\
+            0&\cos^2\theta^{(\ind{DH})}\left({V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta^{(\ind{DH})}}\right)
+        \end{matrix}
+    \end{pmatrix}.
+    \end{align}
+Conditional entropy depends on squeezing parameter $r$, explicitly and through $\cos\theta^{(\ind{DH})}(r)$. For double homodyne detection, ideal measurements and three distinct cases of relationship between $\delta_i$ are possible, and their effect on joint entropy is illustrated by Fig.~\ref{fig:Entropy}.
+
+\begin{figure}
+    \centering
+\includegraphics[]{pics/double-homodyne/Sab.pdf}
+ \caption[]{Joint entropy, $S_{\ind{AB}}^{(\ind{DH})}$, as a function of the squeezing parameter $r$ at
+    different values of $\delta_i$.
+    The channel parameters are: $V=5$; $T_{\ind{ch}}=0.95$; and
+    $\xi_{\ind{ch}}=10^{-2}$.}
+  \label{fig:Entropy}
+\end{figure}
+
+In the symmetrical case, $\delta_1=\delta_2\equiv \delta$ ($\sigma_1=\sigma_2\equiv \sigma$), $r_2=-r_1$, so that choosing $r=0$ is possible. Doing so results in vacuum ancilla, $x=1$,and transmission becomes
+\begin{align}
+    &\cos^2\theta\mapsto
+    {\frac{1}{\sigma}},
+\end{align}
+reproducing effect of $\Phi^{(\ind{H})}$, i.e. reducing channel transmission and channel noise by a factor of $\frac{1}{\sigma}$:
+\begin{align}
+    &T\equiv T_{\ind{ch}}\cdot\frac{1}{\sigma},\\
+    &\xi\equiv \xi_{\ind{ch}}\cdot\frac{1}{\sigma},
+\end{align}
+explicitly:
+\begin{align}
+    &\frac{c}{\sqrt{\sigma}}=\sqrt{\frac{T_{\ind{ch}}(V^2-1)}{\sigma}}=\sqrt{{T}(V^2-1)}\equiv\tilde{c},\\
+    &\frac{V_{\ind{B}}+\sigma-1}{{\sigma}}=\frac{T_{\ind{ch}}(V-1)+\sigma+\xi_{\ind{ch}}}{\sigma}=
+    {T}(V-1)+1+{\xi}\equiv
+    \tilde{V}_{\ind{B}},\\
+    &\Phi_{\ind{DH}}\left(\Sigma^{\ind{EB}}_{\ind{AB}}\right)
+    =
+    \begin{pmatrix}
+        V\mathbbm{1}&\tilde{c}\sigma_z\\
+        \tilde{c}\sigma_z&\tilde{V}_{\ind{B}}\mathbbm{1}
+    \end{pmatrix}.
+\end{align}
+In this case, $r=0$ is suboptimal for Eve, i.e. it minimizes Holevo information.
+For $r\neq0$, $\cos^2\theta^{(\ind{DH})}$ becomes greater, increasing Holevo information.  
+
+In the asymmetrical case where $\delta_1>1$ and $\delta_2>1$, while setting $r = 0$ is possible, it results in greater Holevo information than in $r_{\ind{min}}$ that minimizes Holevo information. 
+
+Finally, if either $\delta_1<1$ or $\delta_2<1$, setting $r=0$ is impossible. This case corresponds to high asymmetry of measurements.
+
+
+Conditional entropy is calculated from symplectic eigenvalues of conditional covariance matrix $\Sigma^{(\gamma)}_{\ind{A|B}}$, which has the form:
+\begin{align}
+  \label{eq:serf-a|b}
+  \Sigma_{\ind{A|B}}^{(\gamma)}=
+  V\mathbbm{1}-c^2\sigma_z(V_{\ind{B}}\mathbbm{1}+\Sigma^{(\gamma)}_m)^{-1}\sigma_z.
+\end{align}
+For homodyne detection, we have
+\begin{align}
+  \label{eq:nu3-H}
+    \nu_3^{(\ind{H})}=\sqrt{V\left(V-\frac{c^2}{V_{\ind{B}}+\sigma_N}\right)},
+\end{align}
+for double homodyne detection,
+\begin{align}
+    \label{eq:nu3-DH}
+  &
+    \nu_3^{(\ind{DH})}=V
+    \sqrt{\frac{\left(V_{\ind{B}}  + \delta_1 - \frac{c^{2}}V\right) \left( V_{\ind{B}}  + \delta_2
+    - \frac{c^{2}}V\right)}{
+    \left( V_{\ind{B}} + \delta_1\right) \left(V_{\ind{B}} + \delta_2\right)}}.
+\end{align}
+
+It is not possible to compute $r_{\max}$ that maximizes $\chi_{\ind{EB}}^{(\ind{DH})}$, see Eq.~\eqref{eq:x_def}. However, due to equality between joint entropies at points $r_2$ and $r_1$ (see Fig.~\ref{fig:Sab-vs-r-q} and Fig.~\ref{fig:Sab-vs-r-q-2}), it could be estimated numerically by calculating $\chi_{\ind{EB}}^{(\ind{DH})}(r_2), \chi_{\ind{EB}}^{(\ind{DH})}(r_1)$ in classical mixing channel and comparing them.
+
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/1.0.pdf}
+\caption[]{$q=1$}
+\label{subfig:K-vs-L-q-a}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/1.5.pdf}
+\caption[]{$q=1.5$}
+\label{subfig:K-vs-L-q-b}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/2.0.pdf}
+\caption[]{$q=2$}
+\label{subfig:K-vs-L-q-c}
+        \end{subfigure}
+        \caption{Asymptotic
+        secret fraction $K^{(\ind{DH})}$ versus channel length $l$, computed for fixed $\sigma_i^{(x)}=1.05$ %(see Eq.\eqref{eq:sigm-x-i})
+         and various imbalance ratios $q$%~\eqref{eq:q-param}
+         . Black dashed lines show results with fixed squeezing parameter $r= \frac{r_2+r_1}{2}\equiv r_0$, while green shaded areas indicate computed bounds for $K^{(\ind{DH})}$. The losses are $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2}$.}
+        \label{fig:K-vs-L-q}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/IAB.pdf}
+\caption[]{}%{$I_{\ind{AB}}$}
+\label{subfig:dhom-a}
+        \end{subfigure}
+\hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/chi.pdf}
+ \caption[]{}%{$\chi_{\ind{EB}}$}
+ \label{subfig:dhom-b}
+\end{subfigure}
+\hfill
+    \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/r.pdf}
+\caption[]{}%{$R$}
+\label{subfig:dhom-c}
+        \end{subfigure}
+        \caption{%
+(a)~Mutual information, $I_{\ind{AB}}^{(\ind{DH})}$, (b)~Holevo
+        information, $\chi_{\ind{EB}}^{(\ind{DH})}$ and (c)~asymptotic
+        secret fraction, $K^{(\ind{DH})}$,
+        as a function of the signal beam splitter
+        transmission, $C_S^2$, of the double homodyne receiver %(see Fig.~\ref{fig:double-homodyne})
+        computed at different values of the detector efficiencies.
+All other beam
+splitters are assumed to be balanced
+and efficiencies not specified in the legend are taken to be unity.
+        The
+        parameters are:
+        $V=5$;
+        $T_{\ind{ch}}=0.95$;
+        $\xi_{\ind{ch}}=10^{-2}$; and
+        $\beta=0.95$.
+        }
+\label{fig:double-homodyne-all}
+\end{figure}
+
+Comparing both detection schemes, see Fig.~\ref{fig:K-comparison}, difference in maximal transmission length in very slight, however bitrate in homodyne is lower.
+\begin{figure}
+    \centering
+\includegraphics[]{pics/KvsL_both.pdf}
+        \caption{Asymptotic
+        secret fraction $K^{(\gamma)}$ versus channel length $l$, computed for homodyne and double homodyne detection. Quadrature variances of both schemes are assumed to be equal, with value being indicated in panel title. The losses are assumed to be $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2}$. For double homodyne, $r=0$ (see main text). }
+      \label{fig:K-comparison}
+      \end{figure}
+
+\section{Comparison between attenuator channel and classical mixing channel}
+In Fig.~\ref{subfig:K-vs-L-q-add-a} intervals do not intersect, confirmed by Fig.~\ref{subfig:Sab-vs-r-q-a}. 
+In Fig.~\ref{subfig:K-vs-L-q-add-b} and~\ref{subfig:K-vs-L-q-add-c}, intervals for $K^{(\ind{DH})}$ fully intersect due to relatively small $\delta$, see Fig.~\ref{subfig:Sab-vs-r-q-b} and~\ref{subfig:Sab-vs-r-q-c}. Dependence on $r$, even for symmetrical case, is greater than $15$ km. Intervals will not intersect only in symmetrical case, see Fig.~\ref{fig:K-vs-L-q-add-2} and~\ref{fig:Sab-vs-r-q-2}. 
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/SAB_1.0.pdf}
+\caption[]{$q=1$}
+\label{subfig:Sab-vs-r-q-a}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/SAB_1.5.pdf}
+\caption[]{$q=1.5$}
+\label{subfig:Sab-vs-r-q-b}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/SAB_2.0.pdf}
+\caption[]{$q=2$}
+\label{subfig:Sab-vs-r-q-c}
+        \end{subfigure}
+        \caption{Joint entropy $S_{\ind{AB}}^{(\ind{DH})}$ as a function of $r$ computed for the same parameters as in Fig.~\ref{fig:K-vs-L-q-add-2}. $T_{\ind{ch}}=0.95$.}
+        \label{fig:Sab-vs-r-q}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/1.0.pdf}
+\caption[]{$q=1$}
+\label{subfig:K-vs-L-q-add-a}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/1.5.pdf}
+\caption[]{$q=1.5$}
+\label{subfig:K-vs-L-q-add-b}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/2.0.pdf}
+\caption[]{$q=2$}
+\label{subfig:K-vs-L-q-add-c}
+        \end{subfigure}
+        \caption{Asymptotic
+        secret fraction $K^{(\ind{DH})}$ versus channel length $l$, computed for fixed $\sigma_i^{(x)}=1.05$ %(see Eq.\eqref{eq:sigm-x-i})
+         and various imbalance ratios $q$%~\eqref{eq:q-param}
+         . Green and blue shaded areas indicate computed bounds for $K^{(\ind{DH})}$, with greed for pure loss channel and blue for classical mixing channel. The losses are $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2}$.}
+        \label{fig:K-vs-L-q-add}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/SAB_1.0-2.pdf}
+\caption[]{$q=1$}
+\label{subfig:Sab-vs-r-q-a}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/SAB_1.5-2.pdf}
+\caption[]{$q=1.5$}
+\label{subfig:Sab-vs-r-q-b-2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/SAB_2.0-2.pdf}
+\caption[]{$q=2$}
+\label{subfig:Sab-vs-r-q-c-2}
+        \end{subfigure}
+        \caption{Joint entropy $S_{\ind{AB}}^{(\ind{DH})}$ as a function of $r$ computed for the same parameters as in Fig.~\ref{fig:K-vs-L-q-add-2}. $T_{\ind{ch}}=0.95$.}
+        \label{fig:Sab-vs-r-q-2}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/1.0-2.pdf}
+\caption[]{$q=1$}
+\label{subfig:K-vs-L-q-add-a-2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/1.5-2.pdf}
+\caption[]{$q=1.5$}
+\label{subfig:K-vs-L-q-add-b-2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/add/2.0-2.pdf}
+\caption[]{$q=2$}
+\label{subfig:K-vs-L-q-add-c-2}
+        \end{subfigure}
+        \caption{Asymptotic
+        secret fraction $K^{(\ind{DH})}$ versus channel length $l$, computed for fixed $\sigma_i^{(x)}=1.11$ %(see Eq.\eqref{eq:sigm-x-i})
+         and various imbalance ratios $q$%~\eqref{eq:q-param}
+         . Green and blue shaded areas indicate computed bounds for $K^{(\ind{DH})}$, with greed for pure loss channel and blue for classical mixing channel. The losses are $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2}$.}
+        \label{fig:K-vs-L-q-add-2}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/homodyne/chi_cf.pdf}
+\caption[]{}%{$q=1$}
+%\label{subfig:K-vs-L-q-add-a}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/homodyne/r_cf.pdf}
+\caption[]{}%{$q=1.5$}
+%\label{subfig:K-vs-L-q-add-b}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/homodyne/r(l)_cf.pdf}
+\caption[]{}%{$q=2$}
+%\label{subfig:K-vs-L-q-add-c}
+        \end{subfigure}
+        \caption{Comparison between pure loss and classical mixing channels. The losses are $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2}$.}
+        \label{fig:h-comparison-CM}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/chi_cf.pdf}
+\caption[]{}%{$q=1$}
+%\label{subfig:K-vs-L-q-add-a}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/r_cf.pdf}
+\caption[]{}%{$q=1.5$}
+%\label{subfig:K-vs-L-q-add-b}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{.3\linewidth}
+\includegraphics[width=\linewidth]{pics/double-homodyne/r(l)_cf.pdf}
+\caption[]{}%{$q=2$}
+%\label{subfig:K-vs-L-q-add-c}
+        \end{subfigure}
+        \caption{Comparison between pure loss and classical mixing channels. The losses are $20$ dB per $100$ km.
+        The parameters are:
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2}$. For both cases $r=r_0$, which is suboptimal for pure loss and optimal for classical mixing.}
+        \label{fig:dh-comparison-CM}
+\end{figure}
+
+\printbibliography
+\end{document}
