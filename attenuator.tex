@@ -129,7 +129,7 @@
 \end{figure}
 
 \section{Imperfect gaussian measurements}
-We begin with a brief discussion of asymmetrical coherent measurements, schematically depicted in Fig.~\ref{fig:scheme}. Asymmetry effects are induced by imbalance (unequal transmission and reflection coefficients) of the beamsplitters and unequal quantum efficiency of the detectors. For explicit derivations of the expressions in this section see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}.
+We begin with a brief discussion of asymmetrical coherent measurements, schematically depicted in Fig.~\ref{fig:scheme}. Asymmetry effects are induced by imbalance (unequal transmission and reflection coefficients) of the beamsplitters and unequal quantum efficiency of the detectors. For detailed derivations of the expressions in this section see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}.
 
 $Q$ symbol of the POVM describing noisy homodyne measurements (see Fig.~\ref{subfig:homodyne}) is given by
 \begin{align}
@@ -158,18 +158,19 @@ and $\sigma_x$ is the quadrature variance
     }.
 \end{align}
 
-It is known that POVMs of noisy measurements can be introduced using the dual of a quantum channel acting on POVMs representing perfect (noiseless) measurements~\cite{Serafini:bk:2023}. 
-From the $Q$ symbol~\eqref{eq:Pgood-w-def}, using formula for overlap of two Gaussian states~\cite{Serafini:bk:2023}, we deduce the following expression for the covariance matrix of noisy homodyne measurements
+Starting from the $Q$ symbol~\eqref{eq:Pgood-w-def} and passing through the characteristic function representation, we deduce the covariance matrix of the noisy homodyne measurements (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}):
 \begin{align}
     &\label{eq:Sigma-H-m}
     \Sigma_{m}^{(\ind{H})}= \lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r}+\sigma_N,e^{2r})\,\tcnj{R}(\phi)
-    =\Sigma_{\ind{id}}^{(\ind{H})}+\Sigma_{N}^{(\ind{H})},\\
+    %=\Sigma_{\ind{id}}^{(\ind{H})}+\Sigma_{N}^{(\ind{H})}
+    ,\\
     &\label{eq:Sigma-H-id}
-    \Sigma_{\ind{id}}^{(\ind{H})}=\lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r},e^{2r})\,{R}^{\ind{T}}(\phi)\\
-    &\label{eq:Sigma-N-H}
-    \Sigma_{N}^{(\ind{H})}=R(\phi)\,\ind{diag}(\sigma_N,0)\,\tcnj{R}(\phi),
+    \Sigma_{\ind{id}}^{(\ind{H})}=\lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r},e^{2r})\,{R}^{\ind{T}}(\phi)%\\
+    %&\label{eq:Sigma-N-H}
+    %\Sigma_{N}^{(\ind{H})}=R(\phi)\,\ind{diag}(\sigma_N,0)\,\tcnj{R}(\phi)
+    ,
 \end{align}
-where $R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi& \cos\phi\end{pmatrix}$ is the rotation matrix; $\sigma_N$ is the excess noise variance that accounts for asymmetry effects is given by
+where $\Sigma_{\ind{id}}^{(\ind{H})}$ is the covariance matrix of sharp measurement, $R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi& \cos\phi\end{pmatrix}$ is the rotation matrix; $\sigma_N$ is the excess noise variance that accounts for asymmetry effects is given by
 \begin{align}
   &
   \label{eq:sgm_N}
@@ -224,7 +225,7 @@ and relations
 \end{align}
 give the quadrature variances $\sigma_1$ and $\sigma_2$.
 
-The covariance matrix of the POVM reads
+Analogously, we obtain the covariance matrix of the double homodyne POVM as:
 \begin{align}
 \label{eq:Sigma_m-DH}
   &
@@ -235,7 +236,24 @@ The covariance matrix of the POVM reads
     \delta_i=2\sigma_i-1.
 \end{align}
 
-A distinctive feature of double homodyne detection is that the POVM describing sharp measurements uses the set of squeezed states, with covariance matrices given by
+The POVM that describes sharp double homodyne measurements uses the set of squeezed states,
+\begin{align}
+  \label{eq:squeezed-def}
+  \ket{z,r,\phi}=\hat{R}(\phi)\hat{D}(z)\hat{S}(r)\ket{0}=
+  \hat{D}(z e^{i\phi})\hat{S}(r e ^{2i\phi})\ket{0},
+\end{align}
+where $z$ is the coherent amplitude, $r$ is real-valued squeezing parameter, and $\phi$ is squeezing phase;
+$\hat{D}(\beta)$ ($\hat{S}(\zeta)$) is the displacement (squeezing) operator  given by
+\begin{align}
+      \label{eq:D-def}
+&\hat{D}(\beta) =
+e^{\beta\hcnj{\hat{a}}-\beta^*\hat{a}},\\
+\label{eq:S-def}
+&\hat{S}(\zeta)=e^{\frac{1}{2}\left(\zeta\hat{a}^{\dag2}-\zeta^*\hat{a}^2\right)},
+\end{align}
+
+
+The covariance matrix of squeezed states reads
 \begin{align}
   \label{eq:Sigma-id-DH}
   &
@@ -246,23 +264,7 @@ A distinctive feature of double homodyne detection is that the POVM describing s
     \end{pmatrix}
     \tcnj{R}(\phi),
 \end{align}
-so that excess asymmetry noise covariance matrix
-\begin{align}
-  &
-    \label{eq:Sigma-N-DH}
-    \Sigma_{N}^{(\ind{DH})}(r)=
-    \Sigma_{m}^{(\ind{DH})}-\Sigma_{\ind{id}}^{(\ind{DH})}= R(\phi)
-\begin{pmatrix}
-      4\sigma_N^{(1)}(r) &0\\0& 4 \sigma_N^{(2)}(r)
-    \end{pmatrix}
-    \tcnj{R}(\phi)\ge 0,\\
-  \label{eq:sigma_N-sq-2}
-  &
-    4\sigma_N^{(1)}(r)=\delta_1-e^{2r},
-    \quad
-    4\sigma_N^{(2)}(r)=\delta_2-e^{-2r},
-\end{align}
-is explicitly dependent on squeezing parameter that lies in the interval defined by measurement asymmetry:
+and it is explicitly dependent on squeezing parameter $r$ that lies in the interval defined by measurement asymmetry (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}):
 \begin{align}
   \label{eq:r1-r2}
   &
@@ -272,50 +274,59 @@ is explicitly dependent on squeezing parameter that lies in the interval defined
     r_2=\ln\delta_2^{-1/2}.
 \end{align}
 
-\section{Gaussians channels}
-In what follows, we shall use the attenuator quantum channel~\cite{Serafini:bk:2023},
+\section{Gaussian channels modeling imperfect measurements}
+Describing the measurement statistics of an arbitrary Gaussian state $\hat\rho_G$ with imperfect Gaussian measurements described by a noisy POVM $\hat\Pi_G$ amounts to computing the probability density of the outcome $x$, given by
+\begin{align}
+  p(x|\hat\rho_G)
+  =\Tr\left[\hat\rho_G\,\hat\Pi_G^{(x)}\right]
+  =\Tr\left[\mathcal{E}(\hat\rho_G)\,\hat\Pi_{\ind{id}}^{(x)}\right]
+  =\Tr\left[\hat\rho_G\,\mathcal{E}^{*}(\Pi_{\ind{id}}^{(x)})\right],
+\end{align}
+where $\{\Pi_{\ind{id},x}\}$ is the POVM of the corresponding ideal (perfect) Gaussian measurement, and $\hat\Pi_{G}^{(x)} = \mathcal{E}^{*}(\Pi_{\ind{id}}^{(x)})$ is the effective imperfect POVM describing the noisy measurement.
+
+An important property is that the same measurement statistics (i.e., the same probability density $p(x|\hat\rho_G)$ for all Gaussian states $\hat\rho_G$) can be described by different Gaussian channels $\mathcal{E}$, provided their dual maps $\mathcal{E}^{*}$ yield the same effective POVM $\hat\Pi_G$. Moreover, as $\hat\rho_G$, $\hat\Pi_G$, and $\mathcal{E}$ are Gaussian, everything is charactirized by the change of first and second moments.
+
+In what follows, we will consider two distinct quantum channels to describe the imperfect measurements, namely attenuator channel and additive channel.
+
+First, we shall use the attenuator quantum channel~\cite{Serafini:bk:2023},
 characterized by matrices
 \begin{align}
     \label{eq:X,Y}
-    X^{(\gamma)}=\cos\theta^{(\gamma)}\mathbbm{1}, \quad Y^{(\gamma)}=\sin^2\theta^{(\gamma)}\Sigma_{\ind{aux}}^{(\gamma)},
+    X^{(\gamma)}=\cos\theta_{\gamma}\mathbbm{1}, \quad Y^{(\gamma)}=\sin^2\theta_{\gamma}\Sigma_{\ind{aux}}^{(\gamma)}.
 \end{align}
+
+The action of the channel $\mathcal{E}_N^{(\gamma)}$ is defined as
 \begin{align}
-  \label{eq:E_gamma}
-  &
-    \mathcal{E}_N^{(\gamma)}:
-    \hat{\Pi}_{\text{id}}\mapsto
-    \hat{\Pi}_m^{(\gamma)}= \mathcal{E}_N^{*(\gamma)}(\hat{\Pi}_{\text{id}})=
-    \notag\\
-    &\frac{2}{\pi\cos\theta^{(\gamma)}\sin\theta^{(\gamma)}\sqrt{\det\Sigma_{\text{aux}}^{(\gamma)}}}
-    \int_{\mathbb{C}} \mathrm{d}^2\beta\,
-    \exp\left\{-2\mathbf{s}^T\Sigma_{\text{aux}}^{-1}\mathbf{s}\right\}
-    \hat{D}(\cos\theta^{(\gamma)}\,\beta)\,
-    \hat{\Pi}_{\text{id}}\,
-    \hat{D}(-\cos\theta^{(\gamma)}\,\beta).
+    \label{eq:E_gamma}
+    \mathcal{E}_N^{(\gamma)}(\hat{\rho}) = \Tr_{\ind{aux}} \left[ \hat{U}_{\theta}^{(\gamma)} \left( \hat{\rho} \otimes \hat{\rho}_{\ind{aux}}^{(\gamma)} \right) \hat{U}_{\theta}^{(\gamma)\dagger} \right],
 \end{align}
-where
-$\tcnj{\vc{s}}=(\cos\theta^{(\gamma)}\Re(\beta), \cos\theta^{(\gamma)}\Im(\beta))$,
-$\dd^2\beta=\dd \beta_1\dd \beta_2$
-and $\hat{D}(\beta)$ is the displacement operator given by
-\begin{align}
-    \label{eq:D-def}
-\hat{D}(\beta) =
-e^{\beta\hcnj{\hat{a}}-\beta^*\hat{a}}.
-\end{align}
+where $\hat{\rho}_{\ind{aux}}^{(\gamma)}$ is a zero-mean Gaussian state with covariance matrix $\Sigma_{\ind{aux}}^{(\gamma)}$, and $\hat{U}_{\theta}^{(\gamma)} = \exp\left[ \theta_{\gamma} (a^\dagger \hat{b} - a \hat{b}^\dagger) \right]$ is the beam-splitter unitary operator, with $\hat{a}$ and $\hat{b}$ as the annihilation operators of the system and auxiliary modes, respectively.
 
 Dual of~\eqref{eq:E_gamma}, $\mathcal{E}_N^{*(\gamma)}$, transforms the POVM of the ideal measurement into the POVM of the noisy measurements by changing respective covariance matrix $\Sigma_{\ind{id}}^{(\gamma)}$ into $\Sigma_{m}^{(\gamma)}$ as follows:
 \begin{align}
     \label{eq:psi_ast}
-    \mathcal{E}_N^{*(\gamma)}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}=\frac{1}{\cos^2\theta^{(\gamma)}}\Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta^{(\gamma)}\Sigma_{\ind{aux}}^{(\gamma)},
+    \mathcal{E}_N^{*(\gamma)}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}=\frac{1}{\cos^2\theta_{\gamma}}\Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta_{\gamma}\Sigma_{\ind{aux}}^{(\gamma)},
     \quad \gamma\in\{\ind{H},\ind{DH}\}.
 \end{align}
 
 Now we derive explicit experessions coefficients of~\eqref{eq:psi_ast} (see Eq.~\eqref{eq:X,Y}).
 
-For homodyne detection, since covariance matrices of ideal and noisy measurements (see Eq.~\eqref{eq:Sigma-H-id} and~\eqref{eq:Sigma-N-H}) are taking limits, implying that
+First, we will consider homodyne detection.
+It will be useful to put noisy POVM covariance matrices in the following form (see Eq.~\eqref{eq:Sigma-H-m} and~\eqref{eq:Sigma-H-id}):
+\begin{align}
+  &\label{eq:Sigma-H-m-dif}
+    \Sigma_{m}^{(\ind{H})}=\Sigma_{\ind{id}}^{(\ind{H})}+\Sigma_{N}^{(\ind{H})}
+    ,\\
+    &\label{eq:Sigma-N-H}
+    \Sigma_{N}^{(\ind{H})}=R(\phi)\,\ind{diag}(\sigma_N,0)\,\tcnj{R}(\phi)
+    ,
+\end{align}
+where we explicitly separated excess noise covariance matrix $\Sigma_{N}^{(\ind{H})}$ and covariance matrix of sharp measurements $\Sigma_{\ind{id}}^{(\ind{H})}$.
+
+Since covariance matrices of ideal and noisy measurements (see Eq.~\eqref{eq:Sigma-H-id}) are taken in limit, implying that
 \begin{align}
     &\frac{1}{\cos^2\theta}\Sigma_{\ind{id}}^{(\ind{H})}\sim
-    \Sigma_{\ind{id}}^{(\ind{H})}, \quad e^{2r}+\text{const}\sim e^{2r},
+    \Sigma_{\ind{id}}^{(\ind{H})}, \quad e^{2r}+\ind{const}\sim e^{2r},
 \end{align}
 we may write the effective excess noise covariance matrix
 \begin{align}
@@ -328,25 +339,49 @@ so that enviroment is decribed by vacuum, i.e.
     \Sigma_{\ind{aux}}^{(\ind{H})}=\mathbbm{1}.
 \end{align}
 
-Solving for $\theta^{(\ind{H})}$ yields
+Solving for $\theta_{\ind{H}}$ yields
 \begin{align}
     \label{eq:cos-theta-h}
-    &\cos\theta^{(\ind{H})}=\sqrt{\frac{1}{\sigma_x}},\quad
-    \sin\theta^{(\ind{H})}=\sqrt{\frac{\sigma_N}{\sigma_x}}.
+    &\cos\theta_{\ind{H}}=\sqrt{\frac{1}{\sigma_x}},\quad
+    \sin\theta_{\ind{H}}=\sqrt{\frac{\sigma_N}{\sigma_x}}.
 \end{align}
 
-For double homodyne detection, first, we note that, since $\Sigma_m^{(\ind{DH})}$ is anisotropic, as generally quadrature variances $\delta_{1,2}$ are not equal, $\delta_1\neq\delta_2$, ancilla state must be anisotropic as well. Without loss of generality, we will consider the ancilla to be in pure state with $\det\Sigma_{\ind{aux}}^{(\ind{DH})}=1$,
+For double homodyne detection, first, we will separate the covariance matrices of sharp measurement and excess noise. From Eq.~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigma-id-DH}, we have
+\begin{align}
+  &\label{eq:Sigma-DH-m-dif}
+    \Sigma_{m}^{(\ind{DH})}=\Sigma_{\ind{id}}^{(\ind{DH})}+\Sigma_{N}^{(\ind{DH})}
+    ,
+\end{align}
+where excess noise covariance matrix is given by
+\begin{align}
+  &
+    \label{eq:Sigma-N-DH}
+    \Sigma_{N}^{(\ind{DH})}(r)=
+    \Sigma_{m}^{(\ind{DH})}-\Sigma_{\ind{id}}^{(\ind{DH})}= R(\phi)
+\begin{pmatrix}
+      \sigma_N^{(1)}(r) &0\\0&\sigma_N^{(2)}(r)
+    \end{pmatrix}
+    \tcnj{R}(\phi)\ge 0,\\
+  \label{eq:sigma_N-sq-2}
+  &
+    \sigma_N^{(1)}(r)=\delta_1-e^{2r},
+    \quad
+    \sigma_N^{(2)}(r)=\delta_2-e^{-2r}.
+\end{align}
+Note that the elements of $\Sigma_{N}^{(\ind{DH})}$ are dependent on squeezing parameter that lies in the interval~\eqref{eq:r1-r2}.
+
+Now, we note that, since $\Sigma_m^{(\ind{DH})}$ is anisotropic, as generally quadrature variances $\delta_{1,2}$ are not equal, $\delta_1\neq\delta_2$, ancilla state must be anisotropic as well. Without loss of generality, we will consider the ancilla to be in pure state with $\det\Sigma_{\ind{aux}}^{(\ind{DH})}=1$,
 \begin{align}
     \Sigma_{\ind{aux}}^{(\ind{DH})}=R(\phi)\,\ind{diag}\left(a,\frac1a\right)\,{R}^{\ind{T}}(\phi),\quad a>0.
 \end{align}
 
-From Eq.~\eqref{eq:psi_ast}, we arrive at the expression for $\cos^2\theta^{(\ind{DH})}$ in the form
+From Eq.~\eqref{eq:psi_ast}, we arrive at the expression for $\cos^2\theta_{\ind{DH}}$ in the form
 \begin{align}
     \label{eq:cos-theta-dh}
-    &\cos^2\theta^{(\ind{DH})}(r)={\frac{e^{2r}+a(r)}{\delta_1+a(r)}},\\
+    &\cos^2\theta_{\ind{DH}}(r)={\frac{e^{2r}+a(r)}{\delta_1+a(r)}},\\
     \label{eq:a_def}
     &a(r)=\frac{1}{2}\left[-b+ \sqrt{b^2-4c}\right],\quad
-    b=\frac{-\delta_1e^{-2r}+\delta_2e^{2r}}{4\sigma_N^{(2)}},\quad c=\frac{-\sigma_N^{(1)}}{\sigma_N^{(2)}}.
+    b=\frac{-\delta_1e^{-2r}+\delta_2e^{2r}}{\sigma_N^{(2)}},\quad c=\frac{-\sigma_N^{(1)}}{\sigma_N^{(2)}}.
 \end{align}
 
 It's worth noting that beyond the $r$ interval ancilla becomes strictly unphysical, i.e. $a\in(0,+\infty) \Longleftrightarrow r\in(r_2,r_1)$. This is due to $\sigma_N^{(i)}$ becoming negative, so that the argument of the square root in Eq.~\eqref{eq:a_def} becomes negative as well.
@@ -359,10 +394,7 @@ We will also consider classical mixing (additive noise)  channel~\cite{Serafini:
     \hat{\Pi}_{\ind{id}}\mapsto
     \hat{\Pi}_G= \Phi_N(\hat{\Pi}_{\ind{id}})=
     \frac{2}{\pi\sqrt{\det\Sigma_N}}
-    \notag
-  \\
-  &
-    \times \int_{\mathbb{C}}\dd^2\beta
+    \int_{\mathbb{C}}\dd^2\beta
     \exp\{-2 \vc{s}^T\Sigma_N^{-1}\vc{s}\}
     \hat{D}(\beta)\hat{\Pi}_{\ind{id}}\hat{D}(-\beta),\\
   &\tcnj{\vc{s}}=(\Re(\beta), \Im(\beta))=(\beta_1,\beta_2),\quad
@@ -434,20 +466,20 @@ $\Sigma_{\ind{AB}}$ are given by
     V_{\ind{B}}=T_{\ind{ch}}(V-1)+1+\xi_{\ind{ch}}.
 \end{align}
 
-In untrusted noise scenario, where excess noise caused by asymmetry effects is assumed to be in control of Eve, channel that models the excess noise can be modeled in two equivalent ways, per Eq.~\eqref{eq:psi_ast} and Eq.~\eqref{eq:Phi_N}.
+In untrusted noise scenario, where excess noise caused by asymmetry effects is assumed to be in control of Eve, channel that models the excess noise can be modeled in two equivalent ways, per Eq.~\eqref{eq:E_gamma} and Eq.~\eqref{eq:Phi_N}.
 
-We consider local action of either attenuator channel $\mathcal{E}_N^{(\gamma)}$~\eqref{eq:psi_ast} or additive noise channel $\Psi^{(\gamma)}$~\eqref{eq:Phi_N}, on second mode of TMSVS shared by Alice and Bob~\eqref{eq:TMSVS-to-AB}. In both cases, mutual information is given by $I_{\ind{AB}}^{(\gamma)}$~\eqref{eq:I_H_res},~\eqref{eq:I_H_res}, as it is classical.
+We consider local action of either attenuator channel $\mathcal{E}_N^{(\gamma)}$~\eqref{eq:E_gamma} or additive noise channel $\Phi_N^{(\gamma)}$~\eqref{eq:Phi_N}, on second mode of TMSVS shared by Alice and Bob~\eqref{eq:TMSVS-to-AB}. In both cases, mutual information is given by $I_{\ind{AB}}^{(\gamma)}$~\eqref{eq:I_H_res},~\eqref{eq:I_DH_res}, as it is classical.
 
 It follows
 \begin{align}
     \label{eq:psi_action}
     &\mathcal{I}_A\otimes \mathcal{E}_N^{(\gamma)}:
     \Sigma_{\ind{AB}}\mapsto
-     \Sigma_{\ind{AB}}^{(\gamma;\, \mathcal{E}_N)}
+     \Sigma_{\ind{AB}}^{(\gamma;\, \mathcal{E}_N^{(\gamma)})}
      =\begin{pmatrix}
-        V\mathbbm{1}&c\cos\theta^{(\gamma)}\sigma_z\\
-     c\cos\theta^{(\gamma)}\sigma_z&\cos^2\theta^{(\gamma)}
-     \left(V_{\ind{B}}+\tan^2\theta^{(\gamma)}\Sigma_{\ind{aux}}^{(\gamma)}\right)
+        V\mathbbm{1}&c\cos\theta_{\gamma}\sigma_z\\
+     c\cos\theta_{\gamma}\sigma_z&\cos^2\theta_{\gamma}
+     \left(V_{\ind{B}}+\tan^2\theta_{\gamma}\Sigma_{\ind{aux}}^{(\gamma)}\right)
     \end{pmatrix},
 \end{align}
 \begin{align}
@@ -455,55 +487,54 @@ It follows
   \label{eq:sigma_m_cov}
 \mathcal{I}_A\otimes \Phi_{N}^{(\gamma)}:
   \Sigma_{\ind{AB}}\mapsto
-  \Sigma_{\ind{AB}}^{(\gamma;\, \Phi)}
+  \Sigma_{\ind{AB}}^{(\gamma;\, \Phi_N^{(\gamma)})}
   =\begin{pmatrix}
     V\mathbbm{1}&c\sigma_z\\
     c\sigma_z&V_{\ind{B}}\mathbbm{1}+\Sigma_N^{(\gamma)}
 \end{pmatrix},\quad \gamma\in\{\ind{H},\ind{DH}\}.
 \end{align}
 
-When the channel $C\in\{\Phi_N^{(\gamma)}, \mathcal{E}_N^{(\gamma)}\}$ is under control of the eavesdropper, 
+When the channel $C^{(\gamma)}\in\{\Phi_N^{(\gamma)}, \mathcal{E}_N^{(\gamma)}\}$ is under control of the eavesdropper, 
 Eve holds a purification of the state
-$\hat{\rho}_{\ind{AB}}^{(\gamma;\, C)}=\mathcal{I}_A\otimes C^{(\gamma)}(\hat{\rho}_{\ind{AB}})$ and the measurements performed by the receiver
+$\hat{\rho}_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}=\mathcal{I}_A\otimes C^{(\gamma)}(\hat{\rho}_{\ind{AB}})$ and the measurements performed by the receiver
 are assumed to be noiseless.
 In this scenario, 
 the difference between the joint and conditional entropies
 \begin{align}
   \label{eq:chi}
   &
-  \chi_{\ind{EB}} ^{(\gamma;\, C)}
+  \chi_{\ind{EB}} ^{(\gamma;\, C^{(\gamma)})}
     =
-    S_{\ind{E}}-S_{\ind{E}|\ind{B}}=S_{\ind{AB}}^{(\gamma;\, C)}-S_{\ind{A}|\ind{B}}^{(\gamma;\, C)}, \quad C\in\{\Phi_N^{(\gamma)}, \mathcal{E}_N^{(\gamma)}\}.
+    S_{\ind{E}}-S_{\ind{E}|\ind{B}}=S_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}-S_{\ind{A}|\ind{B}}^{(\gamma;\, C^{(\gamma)})}, \quad C^{(\gamma)}\in\{\Phi_N^{(\gamma)}, \mathcal{E}_N^{(\gamma)}\}.
 \end{align}
 gives the Holevo information.
 The joint entropy
 \begin{align}
   &
   \label{eq:S_AB-gamma}
-  S_{\ind{AB}}^{(\gamma;\, C)}=g(\nu_1^{(\gamma;\, C)})+g(\nu_2^{(\gamma;\, C)}),
+  S_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}=g(\nu_1^{(\gamma;\, C^{(\gamma)})})+g(\nu_2^{(\gamma;\, C^{(\gamma)})}),
   \\
-  &
-\label{eq:g(nu)}
+  &\notag
     g(\nu)=\frac{\nu+1}{2}\log \frac{\nu+1}{2}-
-    \frac{\nu-1}{2}\log\frac{\nu-1}{2}    
+    \frac{\nu-1}{2}\log\frac{\nu-1}{2}
 \end{align}
 then can be expressed in terms of the symplectic eigenvalues of the covariance matrix~\eqref{eq:sigma_m_cov} given by
 \begin{align}
   &
     \label{eq:nu-12-gamma}
-\nu_{1,2}^{(\gamma;\, C)}
+\nu_{1,2}^{(\gamma;\, C^{(\gamma)})}
     =\sqrt{
-\Delta_{\gamma;\, C}/2\pm \sqrt{\Delta_{\gamma;\, C}^2/4-D_{\gamma;\, C}}
+\Delta_{\gamma;\, C^{(\gamma)}}/2\pm \sqrt{\Delta_{\gamma;\, C^{(\gamma)}}^2/4-D_{\gamma;\, C^{(\gamma)}}}
     },
     \quad
-  D_{\gamma;\, C}=\det \Sigma_{\ind{AB}}^{(\gamma;\, C)},  
+  D_{\gamma;\, C^{(\gamma)}}=\det \Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})},  
     \\
   &
   \label{eq:D-gamma}
-  \Delta_{\gamma;\, C}=\det([\Sigma_{\ind{AB}}^{(\gamma;\, C)}]_{11})+\det([\Sigma_{\ind{AB}}^{(\gamma;\, C)}]_{22}) +
-  2\det([\Sigma_{\ind{AB}}^{(\gamma;\, C)}]_{12}),
+  \Delta_{\gamma;\, C^{(\gamma)}}=\det([\Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}]_{11})+\det([\Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}]_{22}) +
+  2\det([\Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}]_{12}),
 \end{align}
-where $[\Sigma_{\ind{AB}}^{(\gamma;\, C)}]_{ii}$ ($[\Sigma_{\ind{AB}}^{(\gamma;\, C)}]_{ij}$) are diagonal (off-diagonal) blocks of $\Sigma_{\ind{AB}}^{(\gamma;\, C)}$.
+where $[\Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}]_{ii}$ ($[\Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}]_{ij}$) are diagonal (off-diagonal) blocks of $\Sigma_{\ind{AB}}^{(\gamma;\, C^{(\gamma)})}$.
 
 Conditional entropies $S_{\ind{E|B}}=S_{\ind{A|B}}^{(\gamma)}$ are calculated from respective conditional covariance matrices,
 \begin{align}
@@ -530,8 +561,8 @@ Direct computations show that these conditional matrices and therefore their sym
 From mutual information and Holevo information evaluation of the asymptotic secret fraction is done per Devetak-Winter formula~\cite{Devetak:prsa:2005}
 \begin{align}
 \label{eq:r}
-K^{(\gamma;\, C)}=\beta I_{AB}^{(\gamma;\, C)}-\chi_{EB}^{(\gamma;\, C)},
-\quad \gamma\in\{\ind{H},\ind{DH}\}, C\in\{\Phi_N^{(\gamma)}, \mathcal{E}_N^{(\gamma)}\}.
+K^{(\gamma;\, C^{(\gamma)})}=\beta I_{AB}^{(\gamma;\, C^{(\gamma)})}-\chi_{EB}^{(\gamma;\, C^{(\gamma)})},
+\quad \gamma\in\{\ind{H},\ind{DH}\}, C^{(\gamma)}\in\{\Phi_N^{(\gamma)}, \mathcal{E}_N^{(\gamma)}\}.
 \end{align}
 
 As symplectic eigenvalues for additive noise channel are calculated per formulas Eq.~\eqref{eq:nu-12-gamma} and do not allow for simplification, in the following sections we focus only on analytic expressions for symplectic eigenvalues for attenuator channel model.
@@ -539,19 +570,22 @@ As symplectic eigenvalues for additive noise channel are calculated per formulas
 \begin{figure}[t]
     \centering
         \begin{subfigure}[c]{.3\linewidth}
-\includegraphics[width=\linewidth]{pics/homodyne/chi_cf.pdf}
+          \centering
+\includegraphics[height=.225\textheight]{pics/homodyne/chi_cf.pdf}
 \caption[]{}
 \label{subfig:h-cf-a}
         \end{subfigure}
         \hfill
         \begin{subfigure}[c]{.3\linewidth}
-\includegraphics[width=\linewidth]{pics/homodyne/r_cf.pdf}
+          \centering
+\includegraphics[height=.225\textheight]{pics/homodyne/r_cf.pdf}
 \caption[]{}
 \label{subfig:h-cf-b}
         \end{subfigure}
         \hfill
         \begin{subfigure}[c]{.3\linewidth}
-\includegraphics[width=\linewidth]{pics/homodyne/r(l)_cf.pdf}
+          \centering
+\includegraphics[height=.225\textheight]{pics/homodyne/r(l)_cf.pdf}
 \caption[]{}
 \label{subfig:h-cf-c}
         \end{subfigure}
@@ -568,7 +602,7 @@ As symplectic eigenvalues for additive noise channel are calculated per formulas
 For attenuator channel, from Eq.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-h} we have
 \begin{align}
     \label{eq:psi-h-action}
-    &\Sigma_{\ind{AB}}^{(\ind{H};\, \mathcal{E}_N)}=
+    &\Sigma_{\ind{AB}}^{(\ind{H};\, \mathcal{E}_N^{(\ind{H})})}=
     \begin{pmatrix}
         V\mathbbm{1}&\frac{c}{\sqrt{\sigma_x}}\sigma_z\\
         \frac{c}{\sqrt{\sigma_x}}\sigma_z&\frac{1}{{\sigma_x}}\left(V_{\ind{B}}+\sigma_N\right)\mathbbm{1}
@@ -592,12 +626,12 @@ where we defined scaled Bob's variance and scaled correlations between Alice and
 
 It follows that for homodyne detection the effect of measurement asymmetry is equivalent to scaling both channel transmission~\eqref{eq:T_tot_hom} and channel noise~\eqref{eq:xi_tot_hom} by a factor of $\sigma_x^{-1}$.
 
-Symplectic eigenvalues of $\Sigma_{\ind{AB}}^{(\ind{H};\, \mathcal{E}_N)}$, $\nu_{1,2}^{(\ind{H};\,\mathcal{E}_N)}$, can be computed using formulas~\cite{Weed:rmp:2012}:
+Symplectic eigenvalues of $\Sigma_{\ind{AB}}^{(\ind{H};\, \mathcal{E}_N)^{(\ind{H})}}$, $\nu_{1,2}^{(\ind{H};\,\mathcal{E}_N^{(\ind{H})})}$, can be computed using formulas~\cite{Weed:rmp:2012}:
 \begin{align}
     \label{eq:lambda12-h}
-    \nu_{1,2}^{(\ind{H};\, \mathcal{E}_N)}=\frac{z\pm[\tilde{V}_{\ind{B}}-V]}2,\quad z=\sqrt{\left(V+\tilde{V}_{\ind{B}}\right)^2-4{\tilde{c}^2}},
+    \nu_{1,2}^{(\ind{H};\, \mathcal{E}_N^{(\ind{H})})}=\frac{z\pm[\tilde{V}_{\ind{B}}-V]}2,\quad z=\sqrt{\left(V+\tilde{V}_{\ind{B}}\right)^2-4{\tilde{c}^2}},
 \end{align}
-and then substitued in Eq.~\eqref{eq:S_AB-gamma} to calculate joint entropy $S_{\ind{AB}}^{(\ind{H};\,\mathcal{E}_N)}$.
+and then substitued in Eq.~\eqref{eq:S_AB-gamma} to calculate joint entropy $S_{\ind{AB}}^{(\ind{H};\,\mathcal{E}_N^{(\ind{H})})}$.
 
 Fig.~\ref{fig:h-comparison-CM} illustrates the effects of homodyne measurement asymmetry on Holevo information~\eqref{eq:chi} and asymptotic secret fraction~\eqref{eq:r} versus beam splitter transmission $C^2$, as well as secret fraction versus transmission length, for both additive noise~\eqref{eq:sigma_m_cov} and attenuator~\eqref{eq:psi_action} channels.
 While channel noise is reduced in this setup~\eqref{eq:xi_tot_hom}, so is channel transmission~\eqref{eq:T_tot_hom}, and, since transmission is scaled by modulation variance $V\gg1$ in every expression, as well as reduced mutual information with greater asymmetry per Eq.~\eqref{eq:I_H_res}, attenuator channel has negative effect. 
@@ -607,10 +641,10 @@ As shown in Fig.~\ref{subfig:h-cf-a} and~\ref{subfig:h-cf-b}, the attenuator cha
 \begin{figure}[t]
     \centering
 \includegraphics[]{pics/double-homodyne/Sab.pdf}
- \caption[]{Joint entropy, $S_{\ind{AB}}^{(\ind{DH}; C)}$, as a function of the squeezing parameter $r$ at
+ \caption[]{Holevo information, $\chi_{\ind{EB}}^{(\ind{DH}; C)}$, as a function of the squeezing parameter $r$ at
     different values of $\delta_{1,2}$. Black dot corresponds to the case of perfect measurements.
     Solid and dashdotted curves correspond to additive noise channel model, while dashed and dotted curves are for attenuator channel model.
-    Color-matched white-filled dots mark points where joint entropy is undefined at the boundaries of the $r$ interval~\eqref{eq:r1-r2} (see Eq.~\eqref{eq:a_def} and main text).
+    Color-matched white-filled dots mark points where Holevo information is undefined at the boundaries of the $r$ interval~\eqref{eq:r1-r2} (see Eq.~\eqref{eq:a_def} and main text).
     Values of $\delta_{1,2}$ are: $\delta_{1,2}=1.1$ for solid and dashed curves, $\delta_1=1.75, \delta_2=1.25$ for dashdotted and dotted curves.
     The channel parameters are: $V=5$; $T_{\ind{ch}}=0.95$; and
     $\xi_{\ind{ch}}=10^{-2}$.}
@@ -619,26 +653,26 @@ As shown in Fig.~\ref{subfig:h-cf-a} and~\ref{subfig:h-cf-b}, the attenuator cha
 
 For attenuator, from Eq.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-dh} we have
 \begin{align}
-    &\Sigma_{\ind{AB}}^{(\ind{DH};\, \mathcal{E}_N)}=
+    &\Sigma_{\ind{AB}}^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}=
     \notag\\
-    &
+    &\tiny
     \begin{pmatrix}
-        V\mathbbm{1}&{c}\cos\theta^{(\ind{DH};\, \mathcal{E}_N)}\sigma_z\\
-        c\cos\theta^{(\ind{DH};\, \mathcal{E}_N)}\sigma_z&
+        V\mathbbm{1}&{c}\cos\theta^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}\sigma_z\\
+        c\cos\theta^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}\sigma_z&
         \begin{matrix}
-            \cos^2\theta^{(\ind{DH};\, \mathcal{E}_N)}\left({V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta^{(\ind{DH};\, \mathcal{E}_N)}}\right)&0\\
-            0&\cos^2\theta^{(\ind{DH};\, \mathcal{E}_N)}\left({V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta^{(\ind{DH};\, \mathcal{E}_N)}}\right)
+            \cos^2\theta^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}\left({V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}}\right)&0\\
+            0&\cos^2\theta^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}\left({V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta^{(\ind{DH};\, \mathcal{E}_N^{(\ind{DH})})}}\right)
         \end{matrix}
     \end{pmatrix}.
     \end{align}
 
 Symplectic eigenvalues of this matrix can be calculated using invariants similarly to Eq.~\eqref{eq:nu-12-gamma}. It is obvious that these symplectic eigenvalues, and thereby joint entropy, is explicitly depended on squeezing parameter $r$~\eqref{eq:r1-r2}, like in the case of additive noise channel. 
 
-Fig.~\ref{fig:Entropy} illustrates dependence of the joint entropy on the squeezing parameter, for both additive noise and attenuator channels. Referring to Fig.~\ref{fig:Entropy}, in the limiting case of ideal double homodyne with $\delta_1=\delta_2=1$, only one value of $r=0$ is allowed (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}), with matching joint entropies for both channels (black dot on plot).
+Fig.~\ref{fig:Entropy} illustrates dependence of Holevo information on the squeezing parameter, for both additive noise and attenuator channels. Referring to Fig.~\ref{fig:Entropy}, in the limiting case of ideal double homodyne with $\delta_1=\delta_2=1$, only one value of $r=0$ is allowed (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}), with equal values of Holevo information for both channels (black dot on plot).
 
-When $\delta_1=\delta_2>1$, dependence of joint entropy becomes symmetrical around $0$ for both channels. For additive noise channel, $r=0$ is the point of maximal joint entropy, while for attenuator channel $r=0$ corresponds to minimal joint entropy. Moreover, while joint entropy is unidefined at $r=r_{2,1}$ (see Eq.~\eqref{eq:cos-theta-dh}), the values tend to the same values of joint entropy in the case of additive noise channel, as signified by color-matched white-filled dots in Fig.~\ref{fig:Entropy}.
+When $\delta_1=\delta_2>1$, dependence of Holevo information on squeezing parameter is symmetrical around $r=0$ for both channels. For additive noise channel, $r=0$ is the point of maximal Holevo information, while for attenuator channel $r=0$ corresponds to minimal Holevo information. Moreover, while Holevo information is unidefined at $r=r_{2,1}$ (see Eq.~\eqref{eq:cos-theta-dh}), the values tend to the same values of joint entropy in the case of additive noise channel, as signified by color-matched white-filled dots in Fig.~\ref{fig:Entropy}.
 
-In asymmetrical case where $\delta_1\neq\delta_2$, joint entropies for both channel models become asymmetrical relative to their extrema, resulting in unequal joint entropies at $r=r_{2,1}$. For additive noise channel, joint entropy has a distintive maxima, while for attenuator channel joint entropy has a distintive minima.
+In asymmetrical case where $\delta_1\neq\delta_2$, Holevo information for both channel models become asymmetrical relative to their extrema, resulting in unequal joint entropies at $r=r_{2,1}$. For additive noise channel, Holevo information has a distintive maxima, while for attenuator channel Holevo information has a distintive minima.
 
 \begin{figure}[htb]
         \centering
@@ -668,19 +702,22 @@ As seen from Fig.~\ref{fig:K-vs-L-q-add}, difference between lower and upper bou
 \begin{figure}[htb]
     \centering
         \begin{subfigure}[c]{.3\linewidth}
-\includegraphics[width=\linewidth]{pics/double-homodyne/chi_cf.pdf}
+          \centering
+\includegraphics[height=.25\textheight]{pics/double-homodyne/chi_cf.pdf}
 \caption[]{}
 \label{subfig:dh-cf-a}
         \end{subfigure}
         \hfill
         \begin{subfigure}[c]{.3\linewidth}
-\includegraphics[width=\linewidth]{pics/double-homodyne/r_cf.pdf}
+          \centering
+\includegraphics[height=.25\textheight]{pics/double-homodyne/r_cf.pdf}
 \caption[]{}
 \label{subfig:dh-cf-b}
         \end{subfigure}
         \hfill
         \begin{subfigure}[c]{.3\linewidth}
-\includegraphics[width=\linewidth]{pics/double-homodyne/r(l)_cf.pdf}
+          \centering
+\includegraphics[height=.25\textheight]{pics/double-homodyne/r(l)_cf.pdf}
 \caption[]{}
 \label{subfig:dh-cf-c}
         \end{subfigure}
