@@ -271,17 +271,17 @@ An important point is that, for the difference between comvariance matrices of n
 \section{Gaussian channels modeling imperfect measurements}
 For arbitrary state $\hat{\rho}$ and POVM ${\hat{\Pi}^{(x)}}$, the outcome probability is
 \begin{align}
-p(x|\hat{\rho})=\Tr\left[\hat{\rho},\hat{\Pi}^{(x)}\right].
+p(x|\hat{\rho})=\Tr\left(\hat{\rho}\,\hat{\Pi}^{(x)}\right).
 \end{align}
 
 The measurement statistics of Gaussian states with noisy Gaussian measurements can be calculated by applying the noise map $\mathcal{C}$ to $\rho_G$, or the dual map $\mathcal{C}^*$ to the ideal POVM $\hat{\Pi}_{\ind{id}}$~\cite{Serafini:bk:2023}, i.e.
 \begin{align}
   \label{eq:channel-motiv}
-  p(x|\hat\rho_G)=\Tr\left[\mathcal{C}(\hat\rho_G)\,\hat\Pi_{\ind{id}}^{(x)}\right]
-  =\Tr\left[\hat\rho_G\,\mathcal{C}^{*}(\Pi_{\ind{id}}^{(x)})\right].
+  p(x|\hat\rho_G)=\Tr\left\{\mathcal{C}(\hat\rho_G)\,\hat\Pi_{\ind{id}}^{(x)}\right\}
+  =\Tr\left\{\hat\rho_G\,\mathcal{C}^{*}(\Pi_{\ind{id}}^{(x)})\right\}.
 \end{align}
 
-An important property is that the same measurement statistics can be described by different Gaussian channels $\mathcal{C}$, provided their dual maps $\mathcal{C}^{*}$ yield the same effective POVM $\hat\Pi_G^{(x)}=\mathcal{C}^{*}\hat\Pi_{\ind{id}}^{(x)}$. 
+An important property is that the same measurement statistics can be described by different Gaussian channels $\mathcal{C}$, provided their dual maps $\mathcal{C}^{*}$ yield the same effective POVM $\hat\Pi_G^{(x)}=\mathcal{C}^{*}\left(\hat\Pi_{\ind{id}}^{(x)}\right)$. 
 
 Note that, as measurements are clarified to be Gaussian, the channels $\mathcal{C}$ and $\mathcal{C}^*$ will be Gaussian as well. It follows that the channel $\mathcal{C}$ is fully characterized by matrices $X_{\mathcal{C}}$ and $Y_{\mathcal{C}}$, transforming the first and second moments of Gaussian state $\rho_G$, $\boldsymbol{r}_G$ and $\Sigma_G$ respectively, as follows
 \begin{align}
@@ -301,7 +301,7 @@ and act on $\boldsymbol{r}_G$ and $\Sigma_G$ in the same fashion as Eq.~\eqref{e
 In what follows, we will consider two distinct quantum channels to describe the imperfect measurements, namely attenuator channel and additive noise channel. In accordance with Eq.~\eqref{eq:channel-motiv}, channel $\mathcal{C}$ will be defined in a way that its' dual channel $\mathcal{C}^*$ will transform the covariance matrix of ideal measurement $\Sigma_{\ind{id}}$ into the covariance matrix of noisy Gaussian measurement $\Sigma_{m}$,
 \begin{align}
   \label{eq:C-gen}
-  \mathcal{C}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}
+  \mathcal{C}^*:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}
 \end{align}
 
 \subsection{Attenuator channel}
@@ -375,7 +375,7 @@ Note that $r\in[r_2, r_1]$~\eqref{eq:r1-r2}, so that $\sigma_N^{(1,2)}\geq0$.
 \subsection{Additive noise channel}
 We consider additive noise (classical mixing) channel~\cite{Serafini:bk:2023} $\mathcal\Phi_N^{(\gamma)}$, characterized by matrices
 \begin{align}
-    \label{eq:X,Y}
+    \label{eq:X,Y-phi}
     X^{(\gamma; \, \Phi_N^{(\gamma)})}=\mathbbm{1}, \quad Y^{(\gamma;\, \Phi_N^{(\gamma)})}>0.
 \end{align}
 This is a self-dual channel,
@@ -477,9 +477,8 @@ $\Sigma_{\ind{AB}}$ are given by
     V_{\ind{B}}=T_{\ind{ch}}(V-1)+1+\xi_{\ind{ch}}.
 \end{align}
 
-In untrusted noise scenario, where excess noise caused by asymmetry effects is assumed to be in control of Eve, channel that models the excess noise can be modeled in two equivalent ways, per Eq.~\eqref{eq:E_gamma} and Eq.~\eqref{eq:Phi_N}.
 
-We consider local action of either attenuator channel $\mathcal{E}_N^{(\gamma)}$~\eqref{eq:E_gamma} or additive noise channel $\Phi_N^{(\gamma)}$~\eqref{eq:Phi_N}, on second mode of TMSVS shared by Alice and Bob~\eqref{eq:TMSVS-to-AB}. In both cases, mutual information is given by $I_{\ind{AB}}^{(\gamma)}$~\eqref{eq:I_H_res},~\eqref{eq:I_DH_res}, as it is classical.
+We consider local action of either attenuator channel $\mathcal{E}_N^{(\gamma)}$~\eqref{eq:X,Y} or additive noise channel $\Phi_N^{(\gamma)}$~\eqref{eq:X,Y-phi}, on second mode of TMSVS shared by Alice and Bob~\eqref{eq:TMSVS-to-AB}. In both cases, mutual information is given by $I_{\ind{AB}}^{(\gamma)}$~\eqref{eq:I_H_res},~\eqref{eq:I_DH_res}, as it is classical.
 
 It follows
 \begin{align}
