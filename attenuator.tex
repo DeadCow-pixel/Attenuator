@@ -283,7 +283,7 @@ An important point is that, for the difference between comvariance matrices of n
 \end{align}
 
 \section{Gaussian channels modeling imperfect measurements}
-For arbitrary state $\hat{\rho}$ and POVM ${\hat{\Pi}^{(x)}}$, the outcome probability is
+For arbitrary state $\hat{\rho}$ and POVM ${\hat{\Pi}^{(x)}}$, the outcome probability is~\cite{Nielsen:bk:2010}
 \begin{align}
 p(x|\hat{\rho})=\Tr\left(\hat{\rho}\,\hat{\Pi}^{(x)}\right).
 \end{align}
@@ -295,119 +295,49 @@ The measurement statistics of Gaussian states with noisy Gaussian measurements c
   =\Tr\left\{\hat\rho_G\,\mathcal{C}^{*}(\Pi_{\ind{id}}^{(x)})\right\}.
 \end{align}
 
-An important property is that the same measurement statistics can be described by different Gaussian channels $\mathcal{C}$, provided their dual maps $\mathcal{C}^{*}$ yield the same effective POVM $\hat\Pi_G^{(x)}=\mathcal{C}^{*}\left(\hat\Pi_{\ind{id}}^{(x)}\right)$. 
+An important property is that the same measurement statistics can be described by different Gaussian channels $\mathcal{C}$, provided their dual maps $\mathcal{C}^{*}$ yield the same covariance matrix. While the first moments will differ, it is not as crucial due to being able to rescale them.
 
-Note that, as measurements are specified to be Gaussian, the channels $\mathcal{C}$ and $\mathcal{C}^*$ will be Gaussian as well. It follows that the channel $\mathcal{C}$ is fully characterized by matrices $X_{\mathcal{C}}$ and $Y_{\mathcal{C}}$, transforming the first and second moments of Gaussian state $\rho_G$, $\boldsymbol{r}_G$ and $\Sigma_G$ respectively, as follows
+Note that, as measurements are specified to be Gaussian, the channels $\mathcal{C}$ and $\mathcal{C}^*$ will be Gaussian as well. It follows that the channel $\mathcal{C}$ is fully characterized by matrices $X_{\mathcal{C}}$ and $Y_{\mathcal{C}}$, transforming the first and second moments of Gaussian state $\rho_G$, $\boldsymbol{r}_G$ and $\Sigma_G$ respectively, as follows~\cite{Weed:rmp:2012}
 \begin{align}
   &\boldsymbol{r}_G\mapsto X_{\mathcal{C}}\boldsymbol{r}_G,\notag\\
   \label{eq:X,Y-action}
-  &\Sigma_G\mapsto X_{\mathcal{C}}\Sigma_G X_{\mathcal{C}}^{\ind{T}}+Y,
+  &\Sigma_G\mapsto X_{\mathcal{C}}\Sigma_G X_{\mathcal{C}}^{\ind{T}}+Y_{\mathcal{C}}.
 \end{align}
 
-Matrices charactarizing the dual channel $\mathcal{C}^*$ are given by
+The dual channel $\mathcal{C}^*$ transforming the first and second moments as follows
 \begin{align}
-  &X_{\mathcal{C}^*}=X_{\mathcal{C}}^{-1},\notag\\
-  \label{eq:X,Y-dual}
-  &X_{\mathcal{C}^*}=X_{\mathcal{C}}^{-1}Y_{\mathcal{C}}{X_{\mathcal{C}}^{-1}}^{\ind{T}},
+  &\boldsymbol{r}_G\mapsto X_{\mathcal{C}}^{-1}\boldsymbol{r}_G,\notag\\
+  &\Sigma_{G}\mapsto  X_{\mathcal{C}}^{-1}\Sigma \left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}+X_{\mathcal{C}}^{-1}Y_{\mathcal{C}}\left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}.
 \end{align}
-and act on $\boldsymbol{r}_G$ and $\Sigma_G$ in the same fashion as Eq.~\eqref{eq:X,Y-action}.
 
-In what follows, we will consider two distinct quantum channels to describe the imperfect measurements, namely attenuator channel and additive noise channel. In accordance with Eq.~\eqref{eq:channel-motiv}, channel $\mathcal{C}$ will be defined in a way that its' dual channel $\mathcal{C}^*$ will transform the covariance matrix of ideal measurement $\Sigma_{\ind{id}}$ into the covariance matrix of noisy Gaussian measurement $\Sigma_{m}$,
+In what follows, we will consider two distinct quantum channels to describe the imperfect measurements, namely additive noise channel and attenuator channel. In accordance with Eq.~\eqref{eq:channel-motiv}, channel $\mathcal{C}$ will be defined in a way that its' dual channel $\mathcal{C}^*$ will transform the covariance matrix of ideal measurement $\Sigma_{\ind{id}}$ into the covariance matrix of noisy Gaussian measurement $\Sigma_{m}$,
 \begin{align}
   \label{eq:C-gen}
   \mathcal{C}^*:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}
 \end{align}
 
-\subsection{Attenuator channel}
-First, we shall use the attenuator channel $\mathcal{E}_{(\gamma)}$,
-characterized by matrices~\cite{Serafini:bk:2023}
-\begin{align}
-    \label{eq:X,Y}
-    X_{\mathcal{E}_{\gamma}}=\cos\theta_{\gamma}\mathbbm{1}, \quad Y_{\mathcal{E}_{\gamma}}=\sin^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)}, \quad \gamma \in \{\ind{H}, \ind{DH}\},
-\end{align}
-where $\Sigma_{\ind{env}}^{(\gamma)}$ is the covariance matrix of the state decribing the enviroment. This channel acts on first and second moments in accordance with Eq.~\eqref{eq:X,Y-action}.
-
-Using Eq.~\eqref{eq:C-gen} together with Eq.~\eqref{eq:X,Y-action}, we construct the dual channel $\mathcal{E}_N^{*(\gamma)}$ so that it transforms the POVM of the ideal measurement into the POVM of the noisy measurements by changing the covariance matrix $\Sigma_{\ind{id}}^{(\gamma)}$ into $\Sigma_{m}^{(\gamma)}$ as follows
-\begin{align}
-    \label{eq:psi_ast}
-    \mathcal{E}_{\gamma}^{*}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}=\frac{1}{\cos^2\theta_{\gamma}}\Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)},
-    \quad \gamma\in\{\ind{H},\ind{DH}\}.
-\end{align}
-
-Now we derive explicit experessions coefficients of~\eqref{eq:psi_ast}.
-
-First, we will consider homodyne detection. If the enviroment is decribed by vacuum, i.e.
-\begin{align}
-    \label{eq:sigma-anc-h}
-    \Sigma_{\ind{env}}^{(\ind{H})}=\mathbbm{1},
-\end{align}
-from covariance matrices of ideal~\eqref{eq:Sigma-H-id} and noisy~\eqref{eq:Sigma-H-m} measurements, we have
-\begin{align}
-  \label{eq:tan2theta-h}
-  \tan^2\theta_{\ind{H}}\mathbbm{1}=\Sigma_{\mathcal{E}_{\ind{H}}}, \quad
-    \Sigma_{\mathcal{E}_{\ind{H}}}\equiv R(\phi)\,\ind{diag}(\sigma_N,\sigma_N)\,{R}^{\ind{T}}(\phi).
-\end{align}
-
-As covariance matrices of ideal and noisy measurements are taken in limit, implying that
-\begin{align}
-    &\frac{1}{\cos^2\theta}\Sigma_{\ind{id}}^{(\ind{H})}\sim
-    \Sigma_{\ind{id}}^{(\ind{H})}, \quad e^{2r}+\ind{const}\sim e^{2r},
-\end{align}
-it is sufficient to solve for $\cos\theta_{\ind{H}}$ and $\sin\theta_{\ind{H}}$ from Eq.~\eqref{eq:tan2theta-h}.
-Doing so yields
-\begin{align}
-    \label{eq:cos-theta-h}
-    &\cos\theta_{\ind{H}}=\sqrt{\frac{1}{\sigma_x}},\quad
-    \sin\theta_{\ind{H}}=\sqrt{\frac{\sigma_N}{\sigma_x}}.
-\end{align}
-
-For double homodyne detection, first, we note that, since $\Sigma_m^{(\ind{DH})}$ is anisotropic, as generally quadrature variances $\delta_{1,2}$ are not equal, $\delta_1\neq\delta_2$, enviroment state must be anisotropic as well. Without loss of generality, we will consider the enviroment to be in pure state with $\det\Sigma_{\ind{env}}^{(\ind{DH})}=1$,
-\begin{align}
-    \Sigma_{\ind{env}}^{(\ind{DH})}=R(\phi)\,\ind{diag}\left(a,\frac1a\right)\,{R}^{\ind{T}}(\phi),\quad a>0.
-\end{align}
-Solving Eq.~\eqref{eq:psi_ast} for the case of double homodyne detection, i.e. the system of equations
-\begin{align}
-    \label{eq:system-dh}
-    \begin{cases}
-        \delta_1=\frac{e^{2r}}{\cos^2\theta_{\ind{DH}}}+\tan^2\theta_{\ind{DH}} a\\
-        \delta_2=\frac{e^{-2r}}{\cos^2\theta_{\ind{DH}}}+\tan^2\theta_{\ind{DH}} a^{-1}
-    \end{cases},
-  \end{align}
-we arrive at the expressions
-\begin{align}
-    \label{eq:cos-theta-dh}
-    &\cos^2\theta_{\ind{DH}}(r)={\frac{e^{2r}+a(r)}{\delta_1+a(r)}},\\
-    \label{eq:a_def}
-    &a(r)=\frac{\delta_{1}-e^{2 r}}{\delta_{2} e^{2 r}-1}.%\frac{1}{2}\left[-b+ \sqrt{b^2-4c}\right],\quad
-    %b=\frac{-\delta_1e^{-2r}+\delta_2e^{2r}}{\sigma_N^{(2)}},\quad c=\frac{-\sigma_N^{(1)}}{\sigma_N^{(2)}}
-    %,\\
-    %&\sigma_N^{(1)}=\delta_1-e^{2r}, \quad \sigma_N^{(2)}=\delta_2-e^{-2r}.
-\end{align}
-%Note that $r\in[r_2, r_1]$~\eqref{eq:r1-r2}, so that $\sigma_N^{(1,2)}\geq0$. 
-
-
-
 \subsection{Additive noise channel}
-We consider additive noise (classical mixing) channel~\cite{Serafini:bk:2023} $\Phi_{\gamma}$, characterized by matrices
+First, we consider additive noise (classical mixing) channel~\cite{Serafini:bk:2023} $\Phi_{\gamma}$, characterized by matrices
 \begin{align}
     \label{eq:X,Y-phi}
-    X_{\Phi_{\gamma}}=\mathbbm{1}, \quad Y_{\Phi_{\gamma}}\geq0.
+    X_{\Phi}^{(\gamma)}=\mathbbm{1}, \quad Y_{\Phi}^{(\gamma)}\geq0, \quad \gamma\in\{\ind{H}, \ind{DH}\}.
 \end{align}
 This is a self-dual channel,
 $\cnj{\Phi}_\gamma=\Phi_\gamma$, that does not affect the first moment and changes the second moment as follows
 \begin{align}
   \Phi_\gamma:
   \Sigma\mapsto
-  \Sigma+Y_{\Phi_{\gamma}}.
+  \Sigma+Y_{\Phi}^{(\gamma)}.
 \end{align}
 
-To find matrices $Y_{\Phi_{\gamma}}$ so that
+To find matrices $Y_{\Phi}^{(\gamma)}$ so that (see Eq.~\eqref{eq:C-gen})
 \begin{align}
-  \Phi_{\gamma}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_m^{(\gamma)},
+  \label{eq:add-act}
+  \Phi_{\gamma}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_m^{(\gamma)}=\Sigma_{\ind{id}}^{(\gamma)}+Y_{\Phi}^{(\gamma)},
 \end{align}
-we need to find the difference between matrices of noisy and ideal measurements, i.e.
+we need to find the difference between covariance matrices of noisy and ideal measurements, i.e.
 \begin{align}
-  Y_{\Phi_{\gamma}}=\Sigma_{m}^{(\gamma)}-\Sigma_{\ind{id}}^{(\gamma)}\equiv \Sigma_{N}^{(\gamma)},
+  Y_{\Phi}^{(\gamma)}=\Sigma_{m}^{(\gamma)}-\Sigma_{\ind{id}}^{(\gamma)}\equiv \Sigma_{N}^{(\gamma)},
 \end{align}
 where we defined the covariance matrix of excess noise $\Sigma_{N}^{(\gamma)}$.
 
@@ -420,7 +350,7 @@ For homodyne detection, from Eq.~\eqref{eq:Sigma-H-id} and~\eqref{eq:Sigma-H-m},
     \ind{diag}(\sigma_N, 0)
     \tcnj{R}(\phi)\ge 0,
 \end{align}
-where $\sigma_N$ is given by Eq.~\eqref{eq:sgm_N}. While it is possible to define this matrix in the same way as for attenuator channel (see Eq.~\eqref{eq:tan2theta-h}), it would result in lesser secure key rate (see next section).
+where $\sigma_N$ is given by Eq.~\eqref{eq:sgm_N}.
 
 For double homodyne detection, from Eq.~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigma-id-DH}, we have
 \begin{align}
@@ -438,14 +368,98 @@ For double homodyne detection, from Eq.~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigm
     \quad
     \sigma_N^{(2)}(r)=\delta_2-e^{-2r}.
 \end{align}
-Note that the elements of $\Sigma_{N}^{(\ind{DH})}$ are dependent on squeezing parameter that lies in the interval~\eqref{eq:r1-r2}.
-\section{GMCS protocol}
-In the GMCS protocol, Alice sends coherent states $\ket{\alpha=\alpha_1+i\alpha_2}$ drawn from the Gaussian prior
+Note that the elements of $\Sigma_{N}^{(\ind{DH})}$ are dependent on squeezing parameter that lies in the interval~\eqref{eq:r1-r2}. When $r\in[r_2,r_1]$, it is certain that the covariance matrix of excess noise is positive semi-definite, $\Sigma_{N}^{(\ind{DH})}(r)\geq0$.
+
+\subsection{Attenuator channel}
+We shall move on to the attenuator channel $\mathcal{E}_{\gamma}$,
+characterized by matrices~\cite{Serafini:bk:2023}
+\begin{align}
+    \label{eq:X,Y}
+    X_{\mathcal{E}}^{(\gamma)}=\cos\theta_{\gamma}\mathbbm{1}, \quad Y_{\mathcal{E}}^{(\gamma)}=\sin^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)}, \quad \gamma \in \{\ind{H}, \ind{DH}\},
+\end{align}
+where $\Sigma_{\ind{env}}^{(\gamma)}$ is the covariance matrix of the state decribing the enviroment.
+
+Using Eq.~\eqref{eq:C-gen} together with Eq.~\eqref{eq:X,Y-action}, we construct the dual channel $\mathcal{E}_N^{*(\gamma)}$ so that it transforms the POVM of the ideal measurement into the POVM of the noisy measurements by changing the covariance matrix $\Sigma_{\ind{id}}^{(\gamma)}$ into $\Sigma_{m}^{(\gamma)}$ as follows
+\begin{align}
+    \label{eq:psi_ast}
+    \mathcal{E}_{\gamma}^{*}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}=\frac{1}{\cos^2\theta_{\gamma}}\Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)},
+    \quad \gamma\in\{\ind{H},\ind{DH}\}.
+\end{align}
+
+First, we will consider homodyne detection. If the enviroment is decribed by vacuum, i.e.
+\begin{align}
+    \label{eq:sigma-anc-h}
+    \Sigma_{\ind{env}}^{(\ind{H})}=\mathbbm{1},
+\end{align}
+together with from matrices of ideal~\eqref{eq:Sigma-H-id} and noisy~\eqref{eq:Sigma-H-m} measurements, Eq.~\eqref{eq:psi_ast} takes the form
+\begin{align}
+  \Sigma_{m}^{(\ind{H})}=\lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r}+\sigma_N,e^{2r})\,\tcnj{R}(\phi)=\lim_{r\to+\infty}\left\{
+    \frac{1}{\cos^2\theta_{\ind{H}}}R(\phi)\,\ind{diag}(e^{-2r},e^{2r})\,{R}^{\ind{T}}(\phi)
+    +
+    \tan^2\theta_{\ind{H}}\mathbbm{1}
+    \right\}
+\end{align}
+due to the limit $r\to\infty$, we may write
+\begin{align}
+    &\frac{1}{\cos^2\theta}\Sigma_{\ind{id}}^{(\ind{H})}\sim
+    \Sigma_{\ind{id}}^{(\ind{H})}, \quad e^{2r}+\ind{const}\sim e^{2r},
+\end{align}
+it is sufficient to solve for $\tan^2\theta_{\ind{H}}$, i.e.
+\begin{align}
+  \label{eq:tan2theta-h}
+  \tan^2\theta_{\ind{H}}=\sigma_N, %\quad\Sigma_{\mathcal{E}_{\ind{H}}}\equiv R(\phi)\,\ind{diag}(\sigma_N,\sigma_N)\,{R}^{\ind{T}}(\phi).
+\end{align}
+where $\sigma_N$ is defined by Eq.~\eqref{eq:sgm_N}. Then, $\cos^2\theta_{\ind{H}}$ and $\sin^2\theta_{\ind{H}}$ are given by
+\begin{align}
+    \label{eq:cos-theta-h}
+    &\cos^2\theta_{\ind{H}}={\frac{1}{\sigma_x}},\quad
+    \sin^2\theta_{\ind{H}}={\frac{\sigma_N}{\sigma_x}}.
+\end{align}
+
+For double homodyne detection, first, we note that, since $\Sigma_m^{(\ind{DH})}$ is anisotropic, as generally quadrature variances $\delta_{1,2}$ are not equal, $\delta_1\neq\delta_2$, enviroment state must be anisotropic as well. Without loss of generality, we will consider the enviroment to be in pure state with $\det\Sigma_{\ind{env}}^{(\ind{DH})}=1$,
+\begin{align}
+  \label{eq:anc-dh-def}
+    \Sigma_{\ind{env}}^{(\ind{DH})}=R(\phi)\,\ind{diag}\left(a,\frac1a\right)\,{R}^{\ind{T}}(\phi),\quad a\geq0.
+\end{align}
+Solving Eq.~\eqref{eq:psi_ast} for the case of double homodyne detection, (see Eq.~\eqref{eq:Sigma-id-DH},~\eqref{eq:Sigma_m-DH}),
+\begin{align}
+  \Sigma_{m}^{(\ind{DH})}=
+  R(\phi)\diag(\delta_1,\delta_2)\tcnj{R}(\phi)
+  =R(\phi)\,\left\{
+    \frac{1}{\cos^2\theta_{\ind{DH}}}\,\ind{diag}(e^{2r},e^{-2r})
+    +
+    \tan^2\theta_{\ind{DH}}\,\ind{diag}\left(a,\frac{1}{a}\right)
+    \right\}\,{R}^{\ind{T}}(\phi),
+\end{align}
+\begin{align}
+    \label{eq:system-dh}
+    \begin{cases}
+        \delta_1=\frac{e^{2r}}{\cos^2\theta_{\ind{DH}}}+\tan^2\theta_{\ind{DH}} a\\
+        \delta_2=\frac{e^{-2r}}{\cos^2\theta_{\ind{DH}}}+\tan^2\theta_{\ind{DH}} a^{-1}
+    \end{cases}.
+  \end{align}
+Solving the system yields
+\begin{align}
+    \label{eq:cos-theta-dh}
+    &\cos^2\theta_{\ind{DH}}(r)={\frac{e^{2r}+a(r)}{\delta_1+a(r)}}=
+    \frac{\delta_1 e^{-2r}+\delta_2e^{2r}-2}{\delta_1\delta_2-1}
+    ,\\
+    \label{eq:a_def}
+    &a(r)=\frac{\delta_{1}-e^{2 r}}{\delta_{2} e^{2 r}-1}.%\frac{1}{2}\left[-b+ \sqrt{b^2-4c}\right],\quad
+    %b=\frac{-\delta_1e^{-2r}+\delta_2e^{2r}}{\sigma_N^{(2)}},\quad c=\frac{-\sigma_N^{(1)}}{\sigma_N^{(2)}}
+    %,\\
+    %&\sigma_N^{(1)}=\delta_1-e^{2r}, \quad \sigma_N^{(2)}=\delta_2-e^{-2r}.
+\end{align}
+
+Note that at the ends of the $r$-interval~\eqref{eq:r1-r2}, $r\to r_2$ or $r\to r_1$, either $a(r)$ or $1/a(r)$ tend to infinity, making the ancilla state~\eqref{eq:anc-dh-def} the eigenstate of the quadrature operator~\eqref{eq:quad-op}. By evaluating in this case the equations~\eqref{eq:system-dh}, i.e. resolving indeterminate form $\tan^2\theta_{\ind{DH}} a(r)$ for $r=r_2$ and $\tan^2\theta_{\ind{DH}}/a(r)$ for $r=r_1$, because one of noise variances~\eqref{eq:sigma_N-sq-2} would be $0$, it can be seen that the effect of this channel would be the same as the effect of the additive noise channel~\eqref{eq:add-act} modeling double homodyne detection with the same $r$. This fact will be used in numerical calculations (see next section and Fig.~\ref{fig:Entropy}).
+
+\section{Gaussian modulated coherent states}
+In the Gaussian modulated coherent states (GMCS) protocol, Alice sends coherent states $\ket{\alpha=\alpha_1+i\alpha_2}$ drawn from the Gaussian prior
 \begin{align}
   p_A(\alpha)
   =\frac{1}{\pi V_{\ind{A}}}\exp\!\left[-\frac{|\alpha|^2}{2V_{\ind{A}}}\right].
 \end{align}
-The states pass the composite Gaussian channel $\mathcal{N}_{A\to B}=\mathcal{E}_{T_{\ind{ch}}}\circ\mathcal{E}_{N}$, $N=1+\xi_{\ind{ch}}/(1-T_{\ind{ch}})$, where $T_{\ind{ch}}$ is the channel transmittance and $\xi_{\ind{ch}}$ is the channel excess noise~\cite{laudenbach2018continuous}.
+The states pass the composite Gaussian channel $\mathcal{N}_{A\to B}=\mathcal{L}_{N}\circ\mathcal{L}_{T_{\ind{ch}}}$, where index indicates pure loss channel transmission coefficient, $T_{\ind{ch}}$ is the channel transmittance, $N=1+\xi_{\ind{ch}}/(1-T_{\ind{ch}})$, and $\xi_{\ind{ch}}$ is the channel excess noise.
 Then, the receiver uses either homodyne or double homodyne detection to measure the states. Mutual information between legitimate parties in each case is then given by the following expressions (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} for derivation)
 \begin{align}
   \label{eq:I_H_res}
@@ -461,7 +475,7 @@ transmitted through the noisy channel reads
 (see Ref.~\cite{Laudenbach:aqt:2018})
 \begin{align}
   \label{eq:TMSVS-to-AB}
-  \mathcal{I}_A&\otimes \mathcal{E}_{T_{\ind{ch}}}\circ\mathcal{E}_{N}:
+  \mathcal{I}_A&\otimes \mathcal{L}_{N}\circ\mathcal{L}_{T_{\ind{ch}}}:
 \quad
     \Sigma_{\ind{TMSV}}
   =
@@ -680,15 +694,13 @@ For attenuator channel, from Eq.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-d
 \begin{align}
     &\Sigma_{\ind{AB}}^{(\mathcal{E}_{\ind{DH}})}=
     \begin{pmatrix}
-        V\mathbbm{1}&{c}\cos\theta^{(\mathcal{E}_{\ind{DH}})}\sigma_z\\
-        c\cos\theta^{(\mathcal{E}_{\ind{DH}})}\sigma_z&
-        B
-    \end{pmatrix},\\
-    \notag
-    &B=\cos^2\theta^{(\mathcal{E}_{\ind{DH}})}\begin{pmatrix}
-      {V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta^{(\mathcal{E}_{\ind{DH}})}}&0\\
-      0&{V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta^{(\mathcal{E}_{\ind{DH}})}}
-    \end{pmatrix}.
+        V\mathbbm{1}&{c}\cos\theta_{\ind{DH}}\sigma_z\\
+        c\cos\theta_{\ind{DH}}\sigma_z&
+        \begin{matrix}
+      \cos^2\theta_{\ind{DH}}\left({V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta_{\ind{DH}}}\right)&0\\
+      0&\cos^2\theta_{\ind{DH}}\left({V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta_{\ind{DH}}}\right)
+    \end{matrix}
+    \end{pmatrix}
     \end{align}
 
 Symplectic eigenvalues of this matrix can be calculated using invariants similarly to Eq.~\eqref{eq:nu-12-gamma}. It is obvious that these symplectic eigenvalues, and thereby joint entropy, is explicitly depended on squeezing parameter $r$~\eqref{eq:r1-r2}, like in the case of additive noise channel (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}). 
