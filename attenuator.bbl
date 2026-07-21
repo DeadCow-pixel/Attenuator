@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{25}%
+\begin{thebibliography}{33}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,34 +50,26 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
-\bibitem [{\citenamefont {Vogel}\ and\ \citenamefont
-  {Welsch}(2006)}]{vogel2006quantum}%
+\bibitem [{\citenamefont {Leonhardt}(1997)}]{Leonhardt:bk:1997}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
-  {Vogel}}\ and\ \bibinfo {author} {\bibfnamefont {D.-G.}\ \bibnamefont
-  {Welsch}},\ }\href@noop {} {\emph {\bibinfo {title} {Quantum optics}}}\
-  (\bibinfo  {publisher} {John Wiley \& Sons},\ \bibinfo {year}
-  {2006})\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
+  {Leonhardt}},\ }\href@noop {} {{\selectlanguage {english}\emph {\bibinfo
+  {title} {Measuring the Quantum State of Light}}}},\ Cambridge Studies in
+  Modern Optics\ (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo
+  {address} {Cambridge},\ \bibinfo {year} {1997})\ p.\ \bibinfo {pages}
+  {193}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Braunstein}\ and\ \citenamefont {van
+  Loock}(2005)}]{Braunstein:rmp:2005}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~L.}\ \bibnamefont
+  {Braunstein}}\ and\ \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {van
+  Loock}},\ }\bibfield  {title} {{\selectlanguage {english}\bibinfo {title}
+  {Quantum information with continuous variables}},\ }\href
+  {https://doi.org/10.1103/RevModPhys.77.513} {\bibfield  {journal} {\bibinfo
+  {journal} {Rev. Mod. Phys.}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo
+  {pages} {513} (\bibinfo {year} {2005})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Weedbrook}\ \emph
   {et~al.}(2012{\natexlab{a}})\citenamefont {Weedbrook}, \citenamefont
-  {Pirandola}, \citenamefont {Garc\'{\i}a-Patr\'on}, \citenamefont {Cerf},
-  \citenamefont {Ralph}, \citenamefont {Shapiro},\ and\ \citenamefont
-  {Lloyd}}]{Weed:rmp:2012}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
-  {Weedbrook}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
-  {Pirandola}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Garc\'{\i}a-Patr\'on}}, \bibinfo {author} {\bibfnamefont {N.~J.}\
-  \bibnamefont {Cerf}}, \bibinfo {author} {\bibfnamefont {T.~C.}\ \bibnamefont
-  {Ralph}}, \bibinfo {author} {\bibfnamefont {J.~H.}\ \bibnamefont {Shapiro}},\
-  and\ \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Lloyd}},\ }\bibfield
-   {title} {{\selectlanguage {english}\bibinfo {title} {Gaussian quantum
-  information}},\ }\href {https://doi.org/10.1103/RevModPhys.84.621} {\bibfield
-   {journal} {\bibinfo  {journal} {Rev. Mod. Phys.}\ }\textbf {\bibinfo
-  {volume} {84}},\ \bibinfo {pages} {621} (\bibinfo {year}
-  {2012}{\natexlab{a}})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Weedbrook}\ \emph
-  {et~al.}(2012{\natexlab{b}})\citenamefont {Weedbrook}, \citenamefont
   {Pirandola}, \citenamefont {Garc\'{\i}a-Patr\'on}, \citenamefont {Cerf},
   \citenamefont {Ralph}, \citenamefont {Shapiro},\ and\ \citenamefont
   {Lloyd}}]{RevModPhys.84.621}%
@@ -92,17 +84,7 @@
    {title} {\bibinfo {title} {Gaussian quantum information},\ }\href
   {https://doi.org/10.1103/RevModPhys.84.621} {\bibfield  {journal} {\bibinfo
   {journal} {Rev. Mod. Phys.}\ }\textbf {\bibinfo {volume} {84}},\ \bibinfo
-  {pages} {621} (\bibinfo {year} {2012}{\natexlab{b}})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Nielsen}\ and\ \citenamefont
-  {Chuang}(2010)}]{Nielsen:bk:2010}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~A.}\ \bibnamefont
-  {Nielsen}}\ and\ \bibinfo {author} {\bibfnamefont {I.~L.}\ \bibnamefont
-  {Chuang}},\ }\href@noop {} {{\selectlanguage {english}\emph {\bibinfo {title}
-  {Quantum Computation and Quantum Information}}}},\ \bibinfo {edition} {10th}\
-  ed.\ (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
-  {NY},\ \bibinfo {year} {2010})\ p.\ \bibinfo {pages} {676}\BibitemShut
-  {NoStop}%
+  {pages} {621} (\bibinfo {year} {2012}{\natexlab{a}})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Grosshans}\ and\ \citenamefont
   {Grangier}(2002{\natexlab{a}})}]{PhysRevLett.88.057902}%
   \BibitemOpen
@@ -114,32 +96,36 @@
   {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo {volume} {88}},\
   \bibinfo {pages} {057902} (\bibinfo {year} {2002}{\natexlab{a}})}\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Weedbrook}\ \emph {et~al.}(2004)\citenamefont
-  {Weedbrook}, \citenamefont {Lance}, \citenamefont {Bowen}, \citenamefont
-  {Symul}, \citenamefont {Ralph},\ and\ \citenamefont
-  {Lam}}]{Weedbrook:prl:2004}%
+\bibitem [{\citenamefont {Pirandola}\ \emph {et~al.}(2020)\citenamefont
+  {Pirandola}, \citenamefont {Andersen}, \citenamefont {Banchi}, \citenamefont
+  {Berta}, \citenamefont {Bunandar}, \citenamefont {Colbeck}, \citenamefont
+  {Englund}, \citenamefont {Gehring}, \citenamefont {Lupo}, \citenamefont
+  {Ottaviani}, \citenamefont {Pereira}, \citenamefont {Razavi}, \citenamefont
+  {Shaari}, \citenamefont {Tomamichel}, \citenamefont {Usenko}, \citenamefont
+  {Vallone}, \citenamefont {Villoresi},\ and\ \citenamefont
+  {Wallden}}]{Pirandola:20}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
-  {Weedbrook}}, \bibinfo {author} {\bibfnamefont {A.~M.}\ \bibnamefont
-  {Lance}}, \bibinfo {author} {\bibfnamefont {W.~P.}\ \bibnamefont {Bowen}},
-  \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Symul}}, \bibinfo
-  {author} {\bibfnamefont {T.~C.}\ \bibnamefont {Ralph}},\ and\ \bibinfo
-  {author} {\bibfnamefont {P.~K.}\ \bibnamefont {Lam}},\ }\bibfield  {title}
-  {{\selectlanguage {english}\bibinfo {title} {Quantum cryptography without
-  switching}},\ }\href {https://doi.org/10.1103/PhysRevLett.93.170504}
-  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf
-  {\bibinfo {volume} {93}},\ \bibinfo {pages} {170504} (\bibinfo {year}
-  {2004})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Diamanti}\ and\ \citenamefont
-  {Leverrier}(2015)}]{e17096072}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
-  {Diamanti}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Leverrier}},\ }\bibfield  {title} {\bibinfo {title} {Distributing secret
-  keys with quantum continuous variables: Principle, security and
-  implementations},\ }\href {https://doi.org/10.3390/e17096072} {\bibfield
-  {journal} {\bibinfo  {journal} {Entropy}\ }\textbf {\bibinfo {volume} {17}},\
-  \bibinfo {pages} {6072} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Pirandola}}, \bibinfo {author} {\bibfnamefont {U.~L.}\ \bibnamefont
+  {Andersen}}, \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Banchi}},
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Berta}}, \bibinfo
+  {author} {\bibfnamefont {D.}~\bibnamefont {Bunandar}}, \bibinfo {author}
+  {\bibfnamefont {R.}~\bibnamefont {Colbeck}}, \bibinfo {author} {\bibfnamefont
+  {D.}~\bibnamefont {Englund}}, \bibinfo {author} {\bibfnamefont
+  {T.}~\bibnamefont {Gehring}}, \bibinfo {author} {\bibfnamefont
+  {C.}~\bibnamefont {Lupo}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Ottaviani}}, \bibinfo {author} {\bibfnamefont {J.~L.}\ \bibnamefont
+  {Pereira}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Razavi}},
+  \bibinfo {author} {\bibfnamefont {J.~S.}\ \bibnamefont {Shaari}}, \bibinfo
+  {author} {\bibfnamefont {M.}~\bibnamefont {Tomamichel}}, \bibinfo {author}
+  {\bibfnamefont {V.~C.}\ \bibnamefont {Usenko}}, \bibinfo {author}
+  {\bibfnamefont {G.}~\bibnamefont {Vallone}}, \bibinfo {author} {\bibfnamefont
+  {P.}~\bibnamefont {Villoresi}},\ and\ \bibinfo {author} {\bibfnamefont
+  {P.}~\bibnamefont {Wallden}},\ }\bibfield  {title} {\bibinfo {title}
+  {Advances in quantum cryptography},\ }\href
+  {https://doi.org/10.1364/AOP.361502} {\bibfield  {journal} {\bibinfo
+  {journal} {Adv. Opt. Photon.}\ }\textbf {\bibinfo {volume} {12}},\ \bibinfo
+  {pages} {1012} (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Zhang}\ \emph {et~al.}(2024)\citenamefont {Zhang},
   \citenamefont {Bian}, \citenamefont {Li}, \citenamefont {Yu},\ and\
   \citenamefont {Guo}}]{Zhang:apr:2024}%
@@ -154,50 +140,6 @@
   {https://doi.org/10.1063/5.0179566} {\bibfield  {journal} {\bibinfo
   {journal} {Applied Physics Reviews}\ }\textbf {\bibinfo {volume} {11}},\
   \bibinfo {pages} {011318} (\bibinfo {year} {2024})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Rusca}\ \emph {et~al.}(2020)\citenamefont {Rusca},
-  \citenamefont {Tebyanian}, \citenamefont {Martin},\ and\ \citenamefont
-  {Zbinden}}]{rusca2020fast}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
-  {Rusca}}, \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont {Tebyanian}},
-  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Martin}},\ and\ \bibinfo
-  {author} {\bibfnamefont {H.}~\bibnamefont {Zbinden}},\ }\bibfield  {title}
-  {\bibinfo {title} {Fast self-testing quantum random number generator based on
-  homodyne detection},\ }\href@noop {} {\bibfield  {journal} {\bibinfo
-  {journal} {Applied Physics Letters}\ }\textbf {\bibinfo {volume} {116}}
-  (\bibinfo {year} {2020})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Gehring}\ \emph {et~al.}(2021)\citenamefont
-  {Gehring}, \citenamefont {Lupo}, \citenamefont {Kordts}, \citenamefont
-  {Solar~Nikolic}, \citenamefont {Jain}, \citenamefont {Rydberg}, \citenamefont
-  {Pedersen}, \citenamefont {Pirandola},\ and\ \citenamefont
-  {Andersen}}]{gehring2021homodyne}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
-  {Gehring}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Lupo}},
-  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Kordts}}, \bibinfo
-  {author} {\bibfnamefont {D.}~\bibnamefont {Solar~Nikolic}}, \bibinfo {author}
-  {\bibfnamefont {N.}~\bibnamefont {Jain}}, \bibinfo {author} {\bibfnamefont
-  {T.}~\bibnamefont {Rydberg}}, \bibinfo {author} {\bibfnamefont {T.~B.}\
-  \bibnamefont {Pedersen}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
-  {Pirandola}},\ and\ \bibinfo {author} {\bibfnamefont {U.~L.}\ \bibnamefont
-  {Andersen}},\ }\bibfield  {title} {\bibinfo {title} {Homodyne-based quantum
-  random number generator at 2.9 gbps secure against quantum
-  side-information},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
-  {Nature Communications}\ }\textbf {\bibinfo {volume} {12}},\ \bibinfo {pages}
-  {605} (\bibinfo {year} {2021})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Hu}\ \emph {et~al.}(2023)\citenamefont {Hu},
-  \citenamefont {Guo}, \citenamefont {Liu}, \citenamefont {Li},\ and\
-  \citenamefont {Guo}}]{hu2023progress}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {X.-M.}\ \bibnamefont
-  {Hu}}, \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Guo}}, \bibinfo
-  {author} {\bibfnamefont {B.-H.}\ \bibnamefont {Liu}}, \bibinfo {author}
-  {\bibfnamefont {C.-F.}\ \bibnamefont {Li}},\ and\ \bibinfo {author}
-  {\bibfnamefont {G.-C.}\ \bibnamefont {Guo}},\ }\bibfield  {title} {\bibinfo
-  {title} {Progress in quantum teleportation},\ }\href@noop {} {\bibfield
-  {journal} {\bibinfo  {journal} {Nature Reviews Physics}\ }\textbf {\bibinfo
-  {volume} {5}},\ \bibinfo {pages} {339} (\bibinfo {year} {2023})}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {D'Ariano}\ \emph {et~al.}(2003)\citenamefont
   {D'Ariano}, \citenamefont {Paris},\ and\ \citenamefont
   {Sacchi}}]{d2003quantum}%
@@ -234,17 +176,155 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Journal of Physics B: Atomic,
   Molecular and Optical Physics}\ }\textbf {\bibinfo {volume} {52}},\ \bibinfo
   {pages} {215003} (\bibinfo {year} {2019})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Pereira}\ \emph {et~al.}(2021)\citenamefont
+  {Pereira}, \citenamefont {Almeida}, \citenamefont {Facão}, \citenamefont
+  {Pinto},\ and\ \citenamefont {Silva}}]{Pereira2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Pereira}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Almeida}},
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Facão}}, \bibinfo
+  {author} {\bibfnamefont {A.~N.}\ \bibnamefont {Pinto}},\ and\ \bibinfo
+  {author} {\bibfnamefont {N.~A.}\ \bibnamefont {Silva}},\ }\bibfield  {title}
+  {\bibinfo {title} {Impact of receiver imbalances on the security of
+  continuous variables quantum key distribution},\ }\bibfield  {journal}
+  {\bibinfo  {journal} {EPJ Quantum Technology}\ }\textbf {\bibinfo {volume}
+  {8}},\ \href {https://doi.org/10.1140/epjqt/s40507-021-00112-z}
+  {10.1140/epjqt/s40507-021-00112-z} (\bibinfo {year} {2021})\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Barchielli}\ and\ \citenamefont
+  {Santamato}(2022)}]{Barchielli_2022}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Barchielli}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Santamato}},\ }\bibfield  {title} {\bibinfo {title} {Eight-port homodyne
+  detector: The effect of imperfections on quantum random-number generation and
+  on detection of quadratures},\ }\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {106}},\ \href
+  {https://doi.org/10.1103/physreva.106.022620} {10.1103/physreva.106.022620}
+  (\bibinfo {year} {2022})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lupo}\ and\ \citenamefont
+  {Ouyang}(2022)}]{PRXQuantum.3.010341}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Lupo}}\ and\ \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Ouyang}},\
+  }\bibfield  {title} {\bibinfo {title} {Quantum key distribution with nonideal
+  heterodyne detection: Composable security of discrete-modulation
+  continuous-variable protocols},\ }\href
+  {https://doi.org/10.1103/PRXQuantum.3.010341} {\bibfield  {journal} {\bibinfo
+   {journal} {PRX Quantum}\ }\textbf {\bibinfo {volume} {3}},\ \bibinfo {pages}
+  {010341} (\bibinfo {year} {2022})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hajomer}\ \emph {et~al.}(2025)\citenamefont
+  {Hajomer}, \citenamefont {Oruganti}, \citenamefont {Derkach}, \citenamefont
+  {Andersen}, \citenamefont {Usenko},\ and\ \citenamefont
+  {Gehring}}]{hajomer2025finite}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~A.}\ \bibnamefont
+  {Hajomer}}, \bibinfo {author} {\bibfnamefont {A.~N.}\ \bibnamefont
+  {Oruganti}}, \bibinfo {author} {\bibfnamefont {I.}~\bibnamefont {Derkach}},
+  \bibinfo {author} {\bibfnamefont {U.~L.}\ \bibnamefont {Andersen}}, \bibinfo
+  {author} {\bibfnamefont {V.~C.}\ \bibnamefont {Usenko}},\ and\ \bibinfo
+  {author} {\bibfnamefont {T.}~\bibnamefont {Gehring}},\ }\bibfield  {title}
+  {\bibinfo {title} {Finite-size security of continuous-variable quantum key
+  distribution with imperfect heterodyne measurement},\ }\href@noop {}
+  {\bibfield  {journal} {\bibinfo  {journal} {arXiv preprint arXiv:2501.10278}\
+  } (\bibinfo {year} {2025})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bartlett}\ \emph {et~al.}(2025)\citenamefont
+  {Bartlett}, \citenamefont {Wilson}, \citenamefont {Chunnilall},\ and\
+  \citenamefont {Kumar}}]{Bartlett:25}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~O.}\ \bibnamefont
+  {Bartlett}}, \bibinfo {author} {\bibfnamefont {A.~J.~M.}\ \bibnamefont
+  {Wilson}}, \bibinfo {author} {\bibfnamefont {C.~J.}\ \bibnamefont
+  {Chunnilall}},\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Kumar}},\ }\bibfield  {title} {\bibinfo {title} {Detector asymmetry in
+  continuous variable quantum key distribution},\ }\href
+  {https://arxiv.org/abs/2510.17419} {\bibfield  {journal} {\bibinfo  {journal}
+  {arXiv preprint arXiv:2510.17419}\ } (\bibinfo {year} {2025})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Holevo}\ and\ \citenamefont
+  {Giovannetti}(2012)}]{Holevo_2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~S.}\ \bibnamefont
+  {Holevo}}\ and\ \bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Giovannetti}},\ }\bibfield  {title} {\bibinfo {title} {Quantum channels and
+  their entropic characteristics},\ }\href
+  {https://doi.org/10.1088/0034-4885/75/4/046001} {\bibfield  {journal}
+  {\bibinfo  {journal} {Reports on Progress in Physics}\ }\textbf {\bibinfo
+  {volume} {75}},\ \bibinfo {pages} {046001} (\bibinfo {year}
+  {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Serafini}(2023)}]{Serafini:bk:2023}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Serafini}},\ }\href {https://doi.org/10.1201/9781003250975}
+  {{\selectlanguage {english}\emph {\bibinfo {title} {Quantum Continuous
+  Variables: A Primer of Theoretical Methods}}}},\ \bibinfo {edition} {2nd}\
+  ed.\ (\bibinfo  {publisher} {CRC Press, Taylor \& Francis Group},\ \bibinfo
+  {address} {Boca Raton},\ \bibinfo {year} {2023})\ p.\ \bibinfo {pages}
+  {362}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Yamano}\ \emph {et~al.}(2023)\citenamefont {Yamano},
+  \citenamefont {Matsuura}, \citenamefont {Kuramochi}, \citenamefont {Sasaki},\
+  and\ \citenamefont {Koashi}}]{Yamano2023GaussianTrustedNoise}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Yamano}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Matsuura}},
+  \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Kuramochi}}, \bibinfo
+  {author} {\bibfnamefont {T.}~\bibnamefont {Sasaki}},\ and\ \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Koashi}},\ }\href
+  {https://doi.org/10.48550/arXiv.2305.17684} {\bibinfo {title} {General
+  treatment of gaussian trusted noise in continuous variable quantum key
+  distribution}} (\bibinfo {year} {2023}),\ \Eprint
+  {https://arxiv.org/abs/2305.17684} {arXiv:2305.17684 [quant-ph]} \BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Usenko}\ and\ \citenamefont
-  {Filip}(2016{\natexlab{a}})}]{Usenko:entropy:2016}%
+  {Filip}(2016)}]{usenko2016trusted}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.~C.}\ \bibnamefont
   {Usenko}}\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {Filip}},\
-  }\bibfield  {title} {{\selectlanguage {english}\bibinfo {title} {Trusted
-  noise in continuous-variable quantum key distribution: A threat and a
-  defense}},\ }\bibfield  {journal} {\bibinfo  {journal} {Entropy}\ }\textbf
-  {\bibinfo {volume} {18}},\ \href {https://doi.org/10.3390/e18010020}
-  {10.3390/e18010020} (\bibinfo {year} {2016}{\natexlab{a}})\BibitemShut
-  {NoStop}%
+  }\bibfield  {title} {\bibinfo {title} {Trusted noise in continuous-variable
+  quantum key distribution: a threat and a defense},\ }\href@noop {} {\bibfield
+   {journal} {\bibinfo  {journal} {Entropy}\ }\textbf {\bibinfo {volume}
+  {18}},\ \bibinfo {pages} {20} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Laudenbach}\ \emph
+  {et~al.}(2018{\natexlab{a}})\citenamefont {Laudenbach}, \citenamefont
+  {Pacher}, \citenamefont {Fung}, \citenamefont {Poppe}, \citenamefont {Peev},
+  \citenamefont {Schrenk}, \citenamefont {Hentschel}, \citenamefont {Walther},\
+  and\ \citenamefont {H{\"u}bel}}]{laudenbach2018continuous}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Laudenbach}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Pacher}},
+  \bibinfo {author} {\bibfnamefont {C.-H.~F.}\ \bibnamefont {Fung}}, \bibinfo
+  {author} {\bibfnamefont {A.}~\bibnamefont {Poppe}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Peev}}, \bibinfo {author} {\bibfnamefont
+  {B.}~\bibnamefont {Schrenk}}, \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Hentschel}}, \bibinfo {author} {\bibfnamefont
+  {P.}~\bibnamefont {Walther}},\ and\ \bibinfo {author} {\bibfnamefont
+  {H.}~\bibnamefont {H{\"u}bel}},\ }\bibfield  {title} {\bibinfo {title}
+  {Continuous-variable quantum key distribution with gaussian modulation—the
+  theory of practical implementations},\ }\href@noop {} {\bibfield  {journal}
+  {\bibinfo  {journal} {Advanced Quantum Technologies}\ }\textbf {\bibinfo
+  {volume} {1}},\ \bibinfo {pages} {1800011} (\bibinfo {year}
+  {2018}{\natexlab{a}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Laudenbach}\ and\ \citenamefont
+  {Pacher}(2019)}]{laudenbach2019analysis}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Laudenbach}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Pacher}},\ }\bibfield  {title} {\bibinfo {title} {Analysis of the
+  trusted-device scenario in continuous-variable quantum key distribution},\
+  }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal} {Advanced Quantum
+  Technologies}\ }\textbf {\bibinfo {volume} {2}},\ \bibinfo {pages} {1900055}
+  (\bibinfo {year} {2019})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Pan}\ \emph {et~al.}(2025)\citenamefont {Pan},
+  \citenamefont {Monokandylos},\ and\ \citenamefont {Qi}}]{Pan_2025}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Pan}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Monokandylos}},\
+  and\ \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Qi}},\ }\bibfield
+  {title} {\bibinfo {title} {Detector noise in continuous-variable quantum key
+  distribution},\ }\bibfield  {journal} {\bibinfo  {journal} {Physical Review
+  A}\ }\textbf {\bibinfo {volume} {112}},\ \href
+  {https://doi.org/10.1103/4h84-5tsg} {10.1103/4h84-5tsg} (\bibinfo {year}
+  {2025})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Staffieri}\ \emph {et~al.}(2026)\citenamefont
   {Staffieri}, \citenamefont {Scala},\ and\ \citenamefont
   {Lupo}}]{Staffieri_2026}%
@@ -282,30 +362,63 @@
   {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo {volume} {88}},\
   \bibinfo {pages} {057902} (\bibinfo {year} {2002}{\natexlab{b}})}\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Usenko}\ and\ \citenamefont
-  {Filip}(2016{\natexlab{b}})}]{usenko2016trusted}%
+\bibitem [{\citenamefont {Navascu\'es}\ \emph {et~al.}(2006)\citenamefont
+  {Navascu\'es}, \citenamefont {Grosshans},\ and\ \citenamefont
+  {Ac\'in}}]{Navascues2006GaussianAttacks}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.~C.}\ \bibnamefont
-  {Usenko}}\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {Filip}},\
-  }\bibfield  {title} {\bibinfo {title} {Trusted noise in continuous-variable
-  quantum key distribution: a threat and a defense},\ }\href@noop {} {\bibfield
-   {journal} {\bibinfo  {journal} {Entropy}\ }\textbf {\bibinfo {volume}
-  {18}},\ \bibinfo {pages} {20} (\bibinfo {year}
-  {2016}{\natexlab{b}})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Serafini}(2023)}]{Serafini:bk:2023}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Navascu\'es}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Grosshans}},\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Ac\'in}},\ }\bibfield  {title} {\bibinfo {title} {Optimality of gaussian
+  attacks in continuous-variable quantum cryptography},\ }\href
+  {https://doi.org/10.1103/PhysRevLett.97.190502} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
+  {97}},\ \bibinfo {pages} {190502} (\bibinfo {year} {2006})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Garc\'ia-Patr\'on}\ and\ \citenamefont
+  {Cerf}(2006)}]{GarciaPatron2006GaussianAttacks}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Serafini}},\ }\href {https://doi.org/10.1201/9781003250975}
-  {{\selectlanguage {english}\emph {\bibinfo {title} {Quantum Continuous
-  Variables: A Primer of Theoretical Methods}}}},\ \bibinfo {edition} {2nd}\
-  ed.\ (\bibinfo  {publisher} {CRC Press, Taylor \& Francis Group},\ \bibinfo
-  {address} {Boca Raton},\ \bibinfo {year} {2023})\ p.\ \bibinfo {pages}
-  {362}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Laudenbach}\ \emph {et~al.}(2018)\citenamefont
-  {Laudenbach}, \citenamefont {Pacher}, \citenamefont {Fung}, \citenamefont
-  {Poppe}, \citenamefont {Peev}, \citenamefont {Schrenk}, \citenamefont
-  {Hentschel}, \citenamefont {Walther},\ and\ \citenamefont
-  {H\"ubel}}]{Laudenbach:aqt:2018}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Garc\'ia-Patr\'on}}\ and\ \bibinfo {author} {\bibfnamefont {N.~J.}\
+  \bibnamefont {Cerf}},\ }\bibfield  {title} {\bibinfo {title} {Unconditional
+  optimality of gaussian attacks against continuous-variable quantum key
+  distribution},\ }\href {https://doi.org/10.1103/PhysRevLett.97.190503}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review Letters}\
+  }\textbf {\bibinfo {volume} {97}},\ \bibinfo {pages} {190503} (\bibinfo
+  {year} {2006})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nielsen}\ and\ \citenamefont
+  {Chuang}(2010)}]{Nielsen:bk:2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~A.}\ \bibnamefont
+  {Nielsen}}\ and\ \bibinfo {author} {\bibfnamefont {I.~L.}\ \bibnamefont
+  {Chuang}},\ }\href@noop {} {{\selectlanguage {english}\emph {\bibinfo {title}
+  {Quantum Computation and Quantum Information}}}},\ \bibinfo {edition} {10th}\
+  ed.\ (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
+  {NY},\ \bibinfo {year} {2010})\ p.\ \bibinfo {pages} {676}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Weedbrook}\ \emph
+  {et~al.}(2012{\natexlab{b}})\citenamefont {Weedbrook}, \citenamefont
+  {Pirandola}, \citenamefont {Garc\'{\i}a-Patr\'on}, \citenamefont {Cerf},
+  \citenamefont {Ralph}, \citenamefont {Shapiro},\ and\ \citenamefont
+  {Lloyd}}]{Weed:rmp:2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Weedbrook}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Pirandola}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Garc\'{\i}a-Patr\'on}}, \bibinfo {author} {\bibfnamefont {N.~J.}\
+  \bibnamefont {Cerf}}, \bibinfo {author} {\bibfnamefont {T.~C.}\ \bibnamefont
+  {Ralph}}, \bibinfo {author} {\bibfnamefont {J.~H.}\ \bibnamefont {Shapiro}},\
+  and\ \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Lloyd}},\ }\bibfield
+   {title} {{\selectlanguage {english}\bibinfo {title} {Gaussian quantum
+  information}},\ }\href {https://doi.org/10.1103/RevModPhys.84.621} {\bibfield
+   {journal} {\bibinfo  {journal} {Rev. Mod. Phys.}\ }\textbf {\bibinfo
+  {volume} {84}},\ \bibinfo {pages} {621} (\bibinfo {year}
+  {2012}{\natexlab{b}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Laudenbach}\ \emph
+  {et~al.}(2018{\natexlab{b}})\citenamefont {Laudenbach}, \citenamefont
+  {Pacher}, \citenamefont {Fung}, \citenamefont {Poppe}, \citenamefont {Peev},
+  \citenamefont {Schrenk}, \citenamefont {Hentschel}, \citenamefont {Walther},\
+  and\ \citenamefont {H\"ubel}}]{Laudenbach:aqt:2018}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
   {Laudenbach}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Pacher}},
@@ -320,7 +433,8 @@
   {G}aussian modulation—the theory of practical implementations}},\ }\href
   {https://doi.org/10.1002/qute.201800011} {\bibfield  {journal} {\bibinfo
   {journal} {Advanced Quantum Technologies}\ }\textbf {\bibinfo {volume} {1}},\
-  \bibinfo {pages} {1800011} (\bibinfo {year} {2018})}\BibitemShut {NoStop}%
+  \bibinfo {pages} {1800011} (\bibinfo {year}
+  {2018}{\natexlab{b}})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Devetak}\ and\ \citenamefont
   {Winter}(2005)}]{Devetak:prsa:2005}%
   \BibitemOpen
