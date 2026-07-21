@@ -269,7 +269,7 @@ By computing inverse Forier transform of $Q$ symbol~\eqref{eq:Pgood-w-def}, we o
     %\Sigma_{N}^{(\ind{H})}=R(\phi)\,\ind{diag}(\sigma_N,0)\,\tcnj{R}(\phi)
     ,
 \end{align}
-where $\Sigma_{\ind{id}}^{(\ind{H})}$ is the covariance matrix of ideal measurement, $R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi& \cos\phi\end{pmatrix}$ is the rotation matrix; $\sigma_N$ is the excess noise variance that accounts for asymmetry effects is given by
+where $\Sigma_{\ind{id}}^{(\ind{H})}$ is the covariance matrix of ideal homodyne measurement, $R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi& \cos\phi\end{pmatrix}$ is the rotation matrix; $\sigma_N$ is the excess noise variance that accounts for asymmetry effects is given by
 \begin{align}
   &
   \label{eq:sgm_N}
@@ -575,7 +575,7 @@ Then, the receiver uses either homodyne or double homodyne detection to measure 
   &I_{\ind{AB}}^{(\ind{DH})}=\frac{1}{2}\sum_i\log\left[1+\frac{4T_{\ind{ch}}V_{\ind{A}}}
     {2 \sigma_i+\xi_{\ind{ch}}}\right],
 \end{align}
-where $\sigma_x$ and $\sigma_i$ given by Eqs.~\eqref{eq:sigma-x} and~\eqref{eq:sigm-x-i}, respectively.
+where $\sigma_x$ and $\sigma_i$ given by Eqs.~\eqref{eq:sigma-x} and~\eqref{eq:sigm-x-i}, respectively, and upper indices hereinafter stand for homodyne and double homodyne.
 
 The covariance matrix of TMSV state with the Bob's mode
 transmitted through the noisy channel reads
