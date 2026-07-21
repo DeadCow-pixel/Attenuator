@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.3)  21 JUL 2026 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.3)  21 JUL 2026 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -812,6 +812,9 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count319
 ) (attenuator.aux
 
+LaTeX Warning: Label `fig:K-vs-L-q-add' multiply defined.
+
+
 LaTeX Warning: Label `eq:sigma_G' multiply defined.
 
 
@@ -939,11 +942,14 @@ File: pics/double-homodyne/r(l)_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/r(l)_cf.pdf>
 Package pdftex.def Info: pics/double-homodyne/r(l)_cf.pdf  used on input line 867.
 (pdftex.def)             Requested size: 146.87213pt x 168.0pt.
- [10 <./pics/double-homodyne/1.0.pdf> <./pics/double-homodyne/1.25.pdf>] [11 <./pics/double-homodyne/chi_cf.pdf> <./pics/double-homodyne/r_cf.pdf> <./pics/double-homodyne/r(l)_cf.pdf>]
+ [10 <./pics/double-homodyne/1.0.pdf> <./pics/double-homodyne/1.25.pdf>] [11 <./pics/double-homodyne/chi_cf.pdf> <./pics/double-homodyne/r_cf.pdf> <./pics/double-homodyne/r(l)_cf.pdf>] [12]
 
-LaTeX Warning: Reference `fig:lossy-bs' on page 12 undefined on input line 912.
+LaTeX Warning: Reference `fig:lossy-bs' on page 13 undefined on input line 1024.
 
-[12] [13] (attenuator.bbl [14]) [15] (attenuator.aux)
+
+LaTeX Warning: Reference `eq:F-def' on page 13 undefined on input line 1127.
+
+[13] [14] (attenuator.bbl [15]) [16] (attenuator.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
@@ -958,16 +964,16 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  9193 strings out of 468132
- 150080 string characters out of 5430208
- 599487 words of memory out of 5000000
+ 150062 string characters out of 5430208
+ 599455 words of memory out of 5000000
  37641 multiletter control sequences out of 15000+600000
  648455 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,22n,79p,1414b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Ася\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0600.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on attenuator.pdf (15 pages, 1203732 bytes).
+Output written on attenuator.pdf (16 pages, 1208194 bytes).
 PDF statistics:
- 536 PDF objects out of 1000 (max. 8388607)
+ 539 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
