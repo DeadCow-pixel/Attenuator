@@ -834,7 +834,7 @@ In asymmetrical case where $\delta_1\neq\delta_2$, Holevo information for both c
             \centering
 \includegraphics[width=\linewidth]{pics/double-homodyne/1.25.pdf}
 \caption[]{$q=1.25$}
-\label{subfig:K-vs-L-q-add-b}
+\label{fig:K-vs-L-q-add}
         \end{subfigure}
         \caption{Asymptotic secret fraction $K^{(C_{\ind{DH}})}$ versus channel length $l$, computed for fixed $\sigma_x^{(i)}=1.05$ (see Eq.\eqref{eq:sigm-x-i}) and various imbalance ratios $q\equiv\frac{S_S^2}{C_S^2}$ for additive noise and attenuator channel models (see Fig.~\ref{fig:Entropy}).
         The parameters are:
@@ -886,18 +886,130 @@ High difference in Holevo information is due to the dependence of joint entropy 
 Analogously to homodyne detection case (see Fig.~\ref{subfig:h-cf-c}), in double homodyne detection case the attenuator channel has greater reach than the additive noise channel, as illustated by Fig.~\ref{subfig:dh-cf-c}.
 
 %\printbibliography
-\section{Conclusion}\label{sec:conclusion}
+\section{Discussion and conclusion}
+\label{sec:conclusion}
 
-In this paper, we have studied two Gaussian channels that model measurement asymmetry in the untrusted-noise CV-QKD -- the additive noise channel and the attenuator channel. 
-Using the fact the action of the dual channel on the covariance matrix of the POVM of the ideal measurement must return the covariance matrix of the imperfect measurement (see Eq.~\eqref{eq:C-gen}) to ensure that the measured statistics are equivalent~\eqref{eq:channel-motiv}, we have derived the coefficients that connect the models to the parameters of the scheme. %These results were applied to the GMCS protocol. 
-This work directly addresses the methodological limitations of our previous study~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, where only the additive noise channel was considered.
+In this paper, we have constructed and compared additive-noise and
+attenuator channel representations of noisy homodyne and
+double-homodyne measurements affected by receiver asymmetry. Our approach requires the dual Gaussian channel, together with a
+deterministic invertible rescaling of the measurement outcomes, to
+reproduce the target noisy Gaussian measurement. For covariance matrix, this condition is expressed by
+Eq.~\eqref{eq:C-gen}. It determines the channel parameters from the receiver
+parameters and, for double-homodyne detection, also from the selected Gaussian seed.
 
-Our comparative analysis reveals that the choice of the channel model significantly affects the evaluated bounds for the secure key rate of the GMCS protocol (see Fig.~\ref{fig:h-comparison-CM} and~\ref{fig:dh-comparison-CM}). While in both cases asymmetry is detrimental, the attenuator channel yields less pessimistic bounds and significantly greater reach (maximum transmission distance) that the additive noise channel. For homodyne detection, attenuator channel simply scales both the effective channel transmission and the excess noise by a factor of $\sigma _{x}^{-1}$~\eqref{eq:tot_hom}.
+After the deterministic invertible rescaling of the measurement
+outcomes, the two realizations reproduce the same conditional
+statistics of Bob's outcomes. They therefore give the same Alice-Bob mutual information.
+For fixed source and channel parameters, the conditional
+covariance matrix in Eq.~\eqref{eq:serf-a|b}, and hence the conditional
+entropy $S_{A|B}$, are the same for the two realizations because the
+detector imperfections enter the conditional state through the same
+noisy measurement. The difference between the security estimates originates from the joint state of Alice and Bob. The additive-noise and attenuator channels generally produce different joint covariance matrices and, consequently, different joint entropies. In the untrusted-noise scenario considered here, the environment associated with the detector and channel is assigned to Eve. The corresponding Holevo information, $\chi_{EB}=S_{AB}-S_{A|B}$, therefore depends on the selected channel realization even when Bob's observed statistics remain unchanged.
 
-For double-homodyne detection, an inherent ambiguity arises due to the dependence of the double homodyne POVM on the squeezing parameter, which we thoroughly discussed in Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. Consequently, for both models, the channel coefficients depend on the squeezing parameter~\eqref{eq:r1-r2}. Due to this dependency, the joint entropy, and therefore the Holevo information, depend on the squeezing parameter as well. Moreover, the dependence of the Holevo information on the squeezing parameter is drastically different for the two channel models (see Fig.~\ref{fig:Entropy}). For additive channel, Holevo information is convex in $r$, whereas for attenuator channel it is concave in $r$.% The curvature of this dependency is preserved for all parameters of the scheme. 
-Due to this, the choices of both the channel model and the value of $r$ yield significantly different results for the case of double-homodyne detection.
+For homodyne detection, we take the attenuator environment to be in the
+vacuum state, so that the detector imperfections are represented by a
+pure-loss channel. Within the combined channel-detector model, this
+realization rescales both the effective transmission and the
+output-referred excess noise by the same factor, as shown in
+Eq.~\eqref{eq:tot_hom}.
 
-Our concluding remarks concern the generalization of our results. \textcolor{red}{As shown in Appendix~\ref{sec:lossy-bs}}
+The numerical results in Fig.~\ref{fig:h-comparison-CM} show that the additive-noise and
+attenuator realizations are not uniformly ordered. At high channel
+transmittance and for the parameters considered, the attenuator
+realization gives a larger Holevo information and a lower asymptotic
+secret fraction. At longer distances, however, the secret fraction remains positive up
+to a greater channel length than in the additive-noise realization. Therefore, neither realization can be described as
+uniformly more or less pessimistic. Their ordering is therefore not uniform over the parameter regimes
+considered.
+
+A distinguishing feature of double-homodyne detection is the
+nonuniqueness of the representation of its noisy POVM. The covariance
+matrix of the physical double-homodyne measurement is fixed
+by the receiver parameters and does not depend on the squeezing
+parameter $r$. The parameter $r$ labels the ideal pure Gaussian seed
+measurement used in the decomposition of this fixed POVM into an ideal
+measurement and a preceding Gaussian channel. The requirement that the excess-noise covariance matrix be positive
+semidefinite restricts $r$ to the interval given by
+Eq.~\eqref{eq:r1-r2}.
+
+For the additive-noise realization, variation of $r$ redistributes the
+measurement noise between the two conjugate quadratures according to
+Eq.~\eqref{eq:sigma_N-sq-2}. For the attenuator realization, the same variation changes
+both the attenuation coefficient and
+the covariance matrix of the environmental state, as described by
+Eqs.~\eqref{eq:cos-theta-dh} and~\eqref{eq:a_def}. In the attenuator construction adopted here, the generally anisotropic
+measurement noise is reproduced by an anisotropic Gaussian
+environment, which was chosen to be pure.
+
+At the boundaries of the admissible interval of the squeezing parameter
+$r$, one of the additive-noise quadrature variances vanishes. In the
+attenuator realization, the environmental state approaches an
+infinitely squeezed limit: one quadrature variance tends to zero,
+whereas the conjugate variance diverges. The boundary points are
+therefore understood as limiting realizations in which the attenuator
+result approaches the corresponding additive-noise result.
+
+Figure~\ref{fig:Entropy} shows that the Holevo information depends on
+$r$ in qualitatively different ways for the two channel realizations.
+For the parameter regimes considered, this dependence is concave for
+the additive-noise realization and convex for the attenuator
+realization. When the measurement noise is symmetric between the two
+quadratures, both curves are symmetric about $r=0$. In this case, the unsqueezed seed, $r=0$, maximizes the Holevo
+information for the additive-noise realization and minimizes it for the
+attenuator realization.
+For the asymmetric case considered, this symmetry is lost and the
+extrema are shifted away from $r=0$.
+
+The lower and upper secret-fraction curves in Fig.~\ref{fig:K-vs-L-q-add} describe the range
+obtained by varying $r$ over its admissible interval for each channel realization. For the near-ideal quadrature variances used in
+Fig.~\ref{fig:K-vs-L-q-add}, the lower bounds of the two realizations nearly coincide
+because the Holevo-information maximum occurs at, or close to, the
+interval boundaries. The upper bounds become more clearly separated
+when the imbalance of the signal beam splitter is increased.
+
+The comparison shown in Fig.~\ref{fig:dh-comparison-CM} was performed at
+the midpoint of the admissible interval of $r$. In the symmetric case, this value coincides with the
+maximum of the additive-noise Holevo information and the minimum of
+the attenuator Holevo information. The pronounced separation between
+the secret fractions in Fig.~\ref{fig:dh-comparison-CM} therefore reflects both the selected
+channel realization and the selected seed parameter.
+
+These results clarify the role of the detector-channel representation
+in the untrusted-noise model. Although the additive-noise and
+attenuator descriptions reproduce the same receiver statistics after
+outcome rescaling, they generally yield different joint states of Alice
+and Bob and different outputs assigned to Eve. The
+selected representation therefore introduces a physical assumption
+about the coupling between the optical signal and the inaccessible
+degrees of freedom.
+
+A security estimate should not be based on a particular representation
+solely because it gives a larger secret fraction. The selected
+detector-channel model should either be justified from the physical
+structure of the receiver or treated conservatively over the
+realizations included in the analysis. The present comparison is
+restricted to the additive-noise realization and to attenuator
+realizations with pure Gaussian environmental states. Mixed
+environmental states and other Gaussian channel constructions
+compatible with the same receiver statistics were not considered.
+
+Appendix~\ref{sec:lossy-bs} extends the receiver model to include
+independent pure losses at the output ports of a lossless beam splitter.
+These losses can be incorporated into the effective photodetector
+efficiencies. By contrast, a general lossy asymmetric beam splitter
+with unequal complex transmission and reflection amplitudes does not,
+in general, preserve the simple quadrature form of the receiver
+response and cannot be included by merely replacing the detector
+efficiencies.
+
+The security analysis was performed for the asymptotic GMCS CV-QKD protocol under collective attacks,
+with receiver equipment treated as untrusted. Trusted receiver noise,
+finite-size corrections, active detector attacks, and uncertainties in
+the calibration parameters require separate treatment. Within these
+assumptions, equivalent receiver statistics can lead to different
+estimates of Eve's information when they are represented by different
+untrusted detector channels.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 The work was supported by the Russian Science Foundation (project No. \textcolor{red}{24-11-00398}).
@@ -915,23 +1027,27 @@ The lossless unbalanced beam splitter mixing the input signal mode $\hat{a}$ and
     \begin{pmatrix}
         \hat a_{1}\\
         \hat a_{2}
-    \end{pmatrix}=
+    \end{pmatrix}
+    &=
     \vc{U}_{\ind{BS}}
     \begin{pmatrix}
         \hat a\\
         \hat a_{L}
-    \end{pmatrix}=
+    \end{pmatrix}
+    =
     \begin{pmatrix}
-        C & -S \\
-        S & C
+        C & S \\
+        -S & C
     \end{pmatrix}
     \begin{pmatrix}
         \hat a\\
         \hat a_{L}
-    \end{pmatrix}=
+    \end{pmatrix}
+    \nonumber\\
+    &=
     \begin{pmatrix}
-        C\hat{a}-S\hat{a}_L\\
-        S\hat{a}+C\hat{a}_L
+        C\hat{a}+S\hat{a}_L\\
+        -S\hat{a}+C\hat{a}_L
     \end{pmatrix},
 \end{align}
 where $C$ and $S$ are the transmission and reflection coefficients of the beamsplitter BS, resplectively.
@@ -967,35 +1083,30 @@ Tracing out the lost environmental modes $\hat{c}_{1,2}$, the remaining physical
     \begin{pmatrix}
         \hat b_{1}\\
         \hat b_{2}
-    \end{pmatrix}=
+    \end{pmatrix}
+    =
     \begin{pmatrix}
-        \sqrt{\tau_1}C & -S\sqrt{\tau_1}\\
-        \sqrt{\tau_2}S & C\sqrt{\tau_2}
+        \sqrt{\tau_1}C & \sqrt{\tau_1}S\\
+        -\sqrt{\tau_2}S & \sqrt{\tau_2}C
     \end{pmatrix}
     \begin{pmatrix}
-        \hat{a}\\\hat{a}_L
-    \end{pmatrix}+
+        \hat{a}\\
+        \hat{a}_L
+    \end{pmatrix}
+    +
     \begin{pmatrix}
-        -\sqrt{1-\tau_1}\hat{v}_1\\\\
+        -\sqrt{1-\tau_1}\hat{v}_1\\
         -\sqrt{1-\tau_2}\hat{v}_2
     \end{pmatrix}.
 \end{align}
 From Eq.~\eqref{eq:b1b2-out}, we extract the effective scattering matrix $\vc{T}_{\ind{BS}}$ and the fluctuation noise operators $\hat{F}_{1,2}$ representing the device excitations
 \begin{align}
     \label{eq:T_eff_extract}
-    \vc{T}_{\ind{BS}} = 
+    \vc{T}_{\ind{BS}}
+    =
     \begin{pmatrix}
-        \sqrt{\tau_1}C & -S\sqrt{\tau_1}\\\\
-        \sqrt{\tau_2}S & C\sqrt{\tau_2}
-    \end{pmatrix},\\
-    \label{eq:F-def}
-    \begin{pmatrix}
-        \hat F_1\\\\
-        \hat F_2
-    \end{pmatrix}=
-    \begin{pmatrix}
-        -\sqrt{1-\tau_1}\hat{v}_1\\\\
-        -\sqrt{1-\tau_2}\hat{v}_2
+        \sqrt{\tau_1}C & \sqrt{\tau_1}S\\
+        -\sqrt{\tau_2}S & \sqrt{\tau_2}C
     \end{pmatrix}.
 \end{align}
 
@@ -1019,19 +1130,23 @@ which matches the commutators calculated from definitions~\eqref{eq:F-def}.
 We now connect this setup to the formal, standard mathematical treatment of lossy beam splitters~\cite{Barnett1998,Knll1999}. This framework models loss via an interaction matrix $\vc{A}$ acting on ancillary modes, which must obey the positivity condition $\vc{1}-\vc{A}\hcnj{\vc{A}}\ge 0$ to satisfy unitarity. Note that the extracted scattering matrix $\vc{T}_{\ind{BS}}$~\eqref{eq:T_eff_extract} can be factored into a product of a diagonal scaling matrix and the lossless unitary,
 \begin{align}
     \label{eq:R_eff}
-    \vc{T}_{\ind{BS}}=
+    \vc{T}_{\ind{BS}}
+    &=
     \begin{pmatrix}
-        \sqrt{\tau_1} & 0\\\\
+        \sqrt{\tau_1} & 0\\
         0 & \sqrt{\tau_2}
     \end{pmatrix}
     \begin{pmatrix}
-        C & -S\\\\
-        S & C
-    \end{pmatrix} =
+        C & S\\
+        -S & C
+    \end{pmatrix}
+    \nonumber\\
+    &=
     \begin{pmatrix}
-        \sqrt{\tau_1} & 0\\\\
+        \sqrt{\tau_1} & 0\\
         0 & \sqrt{\tau_2}
-    \end{pmatrix} \vc{U}_{\ind{BS}}.
+    \end{pmatrix}
+    \vc{U}_{\ind{BS}}.
 \end{align}
 By defining the positive semi-definite matrix representing the loss properties as $\vc{A}\hcnj{\vc{A}}=\diag(1-\tau_1,1-\tau_2)$, it follows that:
 \begin{align}
@@ -1042,16 +1157,18 @@ Substituting this back into Eq.~\eqref{eq:R_eff} yields the polar decomposition 
   \label{eq:lossy-T}
   \vc{T}_{\ind{BS}}=\sqrt{\vc{1}-\vc{A}\hcnj{\vc{A}}}\,\vc{U}_{\ind{BS}}.
 \end{align}
-Because the matrix $\vc{A}\hcnj{\vc{A}}$ representing the losses is diagonal, it is straightforward to see that to account for lossy beamsplitter in a homodyne setup it is sufficient to simply rescale the quantum efficiencies of detection: $\eta_{1,2}\to\sqrt{\tau_{1,2}}\eta_{1,2}$. The same argument would apply in the case of double homodyne detection.
+Because the matrix $\vc{A}\hcnj{\vc{A}}$ representing the losses is diagonal, it is straightforward to see that to account for lossy beamsplitter in a homodyne setup it is sufficient to simply rescale the quantum efficiencies of detection: $\eta_{1,2}\to\tau_{1,2}\eta_{1,2}$. The same argument would apply in the case of double homodyne detection.
 
 We conclude this appendix by discussing the generalized (asymmetrical) beamsplitter model where input ports of the beamsplitter are characterized by different set of transmission and reflection coefficients. In this case, the non-unitary scattering matrix is written in the form~\cite{Uppu_2016}
 \begin{align}
-  \vc{S}=\begin{pmatrix}
-    t&\rho% e^{i\phi_2}
-    \\
-    r% e^{i\phi_1}
-    &\tau
+  \vc{S}
+  =
+  \begin{pmatrix}
+    t & \rho\\
+    r & \tau
   \end{pmatrix},
+  \qquad
+  \vc{S}\hcnj{\vc{S}}\leq\vc{1},
 \end{align}
 where $t, \tau$ ($r, \rho$) are complex transmission (reflection) coefficients.%, and $\phi_{1,2}$ are the phase shifts. 
 While it can be factored into lossy and unitary parts similarly to~\eqref{eq:lossy-T}, \textcolor{red}{this case cannot be covered by the formulas after some replacement, because it ruins quadrature representation:}
@@ -1071,18 +1188,87 @@ While it can be factored into lossy and unitary parts similarly to~\eqref{eq:los
   %\label{eq:Gaussian}
     \prob_G(\mu)=G(\mu-\mu_G;\sigma_G),
     \\
-  &
     \label{eq:sigma_G}
-    \sigma_G=\eta_1|\alpha_1|^2+\eta_2|\alpha_2|^2
-    \approx
-    (\eta_1\rho^2+\eta_2\tau^2) \left|\alpha_L\right|^2 \textcolor{red}{+\frac{\eta_1t\rho+\eta_2\tau r}{2}\left|\alpha_L\right| \avr{\hat{x}_\phi}},
-  \\
-  &
+    \sigma_G
+    &=
+    \eta_1|\alpha_1|^2+\eta_2|\alpha_2|^2
+    \nonumber\\
+    &=
+    \left(
+        \eta_1|\rho|^2+\eta_2|\tau|^2
+    \right)|\alpha_L|^2
+    +
+    \left(
+        \eta_1|t|^2+\eta_2|r|^2
+    \right)|\alpha|^2
+    \nonumber\\
+    &\quad
+    +
+    2\operatorname{Re}
+    \left[
+        \left(
+            \eta_1t\rho^*
+            +
+            \eta_2r\tau^*
+        \right)
+        \alpha\alpha_L^*
+    \right]
+    \nonumber\\
+    &\approx
+    \left(
+        \eta_1|\rho|^2+\eta_2|\tau|^2
+    \right)|\alpha_L|^2
+    +
+    2\operatorname{Re}
+    \left[
+        \left(
+            \eta_1t\rho^*
+            +
+            \eta_2r\tau^*
+        \right)
+        \alpha\alpha_L^*
+    \right],
+    \\
     \label{eq:mu_G}
-    \mu_G=\eta_1|\alpha_1|^2-\eta_2|\alpha_2|^2
-    \approx
-    (\eta_1\rho^2+\eta_2\tau^2) \left|\alpha_L\right|^2
-    +\frac{\eta_1t\rho-\eta_2\tau r}{2}\left|\alpha_L\right| \avr{\hat{x}_\phi}
+    \mu_G
+    &=
+    \eta_1|\alpha_1|^2-\eta_2|\alpha_2|^2
+    \nonumber\\
+    &=
+    \left(
+        \eta_1|\rho|^2-\eta_2|\tau|^2
+    \right)|\alpha_L|^2
+    +
+    \left(
+        \eta_1|t|^2-\eta_2|r|^2
+    \right)|\alpha|^2
+    \nonumber\\
+    &\quad
+    +
+    2\operatorname{Re}
+    \left[
+        \left(
+            \eta_1t\rho^*
+            -
+            \eta_2r\tau^*
+        \right)
+        \alpha\alpha_L^*
+    \right]
+    \nonumber\\
+    &\approx
+    \left(
+        \eta_1|\rho|^2-\eta_2|\tau|^2
+    \right)|\alpha_L|^2
+    +
+    2\operatorname{Re}
+    \left[
+        \left(
+            \eta_1t\rho^*
+            -
+            \eta_2r\tau^*
+        \right)
+        \alpha\alpha_L^*
+    \right].
 \end{align}
 
 \section{Fluctuating Local Oscillator} \label{sec:fluc-LO}
