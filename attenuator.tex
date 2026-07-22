@@ -893,7 +893,7 @@ In this paper, we have constructed and compared additive-noise and
 attenuator channel representations of noisy homodyne and
 double-homodyne measurements affected by receiver asymmetry. Our approach requires the dual Gaussian channel, together with a
 deterministic invertible rescaling of the measurement outcomes, to
-reproduce the target noisy Gaussian measurement. For covariance matrix, this condition is expressed by
+reproduce the target noisy Gaussian measurement. For the covariance matrix, this condition is expressed by
 Eq.~\eqref{eq:C-gen}. It determines the channel parameters from the receiver
 parameters.
 
@@ -904,12 +904,12 @@ For fixed source and channel parameters, the conditional
 covariance matrix in Eq.~\eqref{eq:serf-a|b}, and hence the conditional
 entropy $S_{A|B}^{(\gamma)}$, are the same for the two channels because the
 detector imperfections enter the conditional state through the same
-noisy measurement. The difference between the security estimates originates from the joint state of Alice and Bob. The additive-noise and attenuator channels generally produce different joint covariance matrices and, consequently, different joint entropies. In the untrusted-noise scenario considered in this paper, the environment associated with the detector and channel is assigned to Eve. The corresponding Holevo information~\eqref{eq:chi} therefore depends on the selected channel model even when Bob's observed statistics remain unchanged.
+noisy measurement. The difference between the security estimates originates from the joint state of Alice and Bob. The additive-noise and attenuator channels generally produce different joint covariance matrices and, consequently, different joint entropies. In the untrusted-noise scenario considered in this paper, the environment associated with the detector and channel is assigned to Eve. The corresponding Holevo information~\eqref{eq:chi}, therefore, depends on the selected channel model even when Bob's observed statistics remain unchanged.
 
 For homodyne detection, we take the attenuator environment to be in the
 vacuum state, so that the detector imperfections are represented by a
 pure-loss channel. This
-channel rescales both the effective transmission and the
+channel rescales both the effective transmittance and the
 output-referred excess noise by the same factor, as shown in
 Eq.~\eqref{eq:tot_hom}.
 
@@ -925,7 +925,7 @@ A distinguishing feature of double-homodyne detection is the
 nonuniqueness of the representation of its noisy POVM. The covariance
 matrix of the physical double-homodyne measurement is fixed
 by the receiver parameters and does not depend on the squeezing
-parameter $r$. The parameter $r$ arises from the ideal projective squeezed-state measurement, and the noisy POVM is given by action of a chosen Gaussian channel on this projector. The requirement that the excess-noise covariance matrix be positive
+parameter $r$. The parameter $r$ arises from the ideal projective squeezed-state measurement, and the noisy POVM is given by the action of a chosen Gaussian channel on this projector. The requirement that the excess-noise covariance matrix be positive
 semidefinite restricts $r$ to the interval given by
 Eq.~\eqref{eq:r1-r2}.
 
@@ -934,7 +934,7 @@ measurement noise between the two conjugate quadratures according to
 Eq.~\eqref{eq:sigma_N-sq-2}. For the attenuator channel, the same variation changes
 both the attenuation coefficient and
 the covariance matrix of the environmental state, as described by
-Eqs.~\eqref{eq:cos-theta-dh} and~\eqref{eq:a_def}. In the attenuator construction adopted here, the generally anisotropic
+Eqs.~\eqref{eq:cos-theta-dh} and~\eqref{eq:a_def}. In the attenuator model adopted here, the generally anisotropic
 measurement noise is reproduced by an anisotropic Gaussian
 environment, which was chosen to be pure.
 
@@ -954,7 +954,7 @@ channel. When the measurement noise is symmetric between the two
 quadratures, both curves are symmetric about $r=0$. In this case, the coherent state, given by $r=0$, maximizes the Holevo
 information for the additive-noise channel and minimizes it for the
 attenuator channel.
-For the asymmetric case considered, this symmetry is lost and the
+For the asymmetric case considered, this symmetry is lost, and the
 extrema are shifted away from $r=0$.
 
 The lower and upper secret-fraction curves in Fig.~\ref{fig:K-vs-L-q-add} describe the range
@@ -965,14 +965,14 @@ interval boundaries. The upper bounds become more clearly separated
 when the imbalance of the signal beam splitter is increased.
 
 The comparison shown in Fig.~\ref{fig:dh-comparison-CM} was performed at
-the midpoint of the admissible interval of $r$. In the symmetric case, this value coincides with the
-maximum of the additive-noise Holevo information and the minimum of
-the attenuator Holevo information. The pronounced separation between
+the midpoint of the admissible interval of $r$. In the symmetric case, this midpoint is $r=0$, where the Holevo
+information reaches its maximum for the additive-noise channel and its
+minimum for the attenuator channel. The pronounced separation between
 the secret fractions in Fig.~\ref{fig:dh-comparison-CM} therefore reflects both the selected
 channel model and the selected squeezing parameter.
 
-These results clarify the role of the channel realization in the untrusted-noise model. Although the additive-noise and attenuator descriptions reproduce the same receiver statistics after outcome rescaling, they generally yield different joint states of Alice and Bob and different outputs assigned to Eve. The selected representation therefore introduces a physical assumption about the coupling between the optical signal and the inaccessible degrees of freedom.
-A security estimate should not be based on a particular representation solely because it gives a larger secret fraction. The selected model should either be justified from the physical structure of the receiver or treated conservatively over the channels included in the analysis. The present comparison is restricted to the additive-noise channel and to attenuator channels with pure Gaussian environmental states. Mixed environmental states and other Gaussian channel constructions compatible with the same receiver statistics were not considered.
+These results clarify the role of the channel in the untrusted-noise model. Although the additive-noise and attenuator descriptions reproduce the same receiver statistics after outcome rescaling, they generally yield different joint states of Alice and Bob and different outputs assigned to Eve. The selected representation therefore introduces a physical assumption about the coupling between the optical signal and the inaccessible degrees of freedom.
+A security estimate should not be based on a particular representation solely because it gives a larger secret fraction. The selected model should either be justified from the physical structure of the receiver or treated conservatively over the channels included in the analysis. The present comparison is restricted to the additive-noise channel and to the attenuator channel with pure Gaussian environmental states. Mixed environmental states and other Gaussian channel constructions compatible with the same receiver statistics were not considered.
 
 Appendix~\ref{sec:lossy-bs} extends the receiver model to include
 independent pure losses at the output ports of a lossless beam splitter.
@@ -985,7 +985,7 @@ efficiencies.
 
 The security analysis was performed for the asymptotic GMCS CV-QKD protocol under collective attacks,
 with receiver equipment treated as untrusted. Trusted receiver noise,
-finite-size corrections, active detector attacks, and uncertainties in
+finite-key effects, active detector attacks, and uncertainties in
 the calibration parameters require separate treatment. Within these
 assumptions, equivalent receiver statistics can lead to different
 estimates of Eve's information when they are represented by different
