@@ -1,17 +1,17 @@
 # Fdb version 4
-["bibtex attenuator"] 1786469467.45144 "attenuator.aux" "attenuator.bbl" "attenuator" 1786469467.83927 0
-  "./attenuatorNotes.bib" 1786469037 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex attenuator"] 1786469702.7228 "attenuator.aux" "attenuator.bbl" "attenuator" 1786469741.37079 0
+  "./attenuatorNotes.bib" 1786469738 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "./homodyne.bib" 1751645257 45879 1269261e30caa5aa8600d70e932367e8 ""
   "./math.bib" 1751645257 28710 3b9b5a701feb6e90ee46f59bfc0b2618 ""
   "./quant.bib" 1766770529 362918 170362417a4a193971949685ab3dc72a ""
   "./refs.bib" 1786469466 40603 d18a436c5958764be4825ca1de414253 ""
   "C:/Users/РђСЃСЏ/AppData/Local/Programs/MiKTeX/bibtex/bst/revtex/apsrev4-2.bst" 0 -1 0 ""
-  "attenuator.aux" 1786469037 13365 f85b29f1694ac326989241d48f5a2713 "pdflatex"
+  "attenuator.aux" 1786469738 15032 6e659d688b6eef131d48f760c4357b3b "pdflatex"
   (generated)
   "attenuator.bbl"
   "attenuator.blg"
   (rewritten before read)
-["pdflatex"] 1786469034.67479 "c:/Attenuator/attenuator.tex" "attenuator.pdf" "attenuator" 1786469467.83979 0
+["pdflatex"] 1786469735.17195 "c:/Attenuator/attenuator.tex" "attenuator.pdf" "attenuator" 1786469741.37196 0
   "C:/Users/Ася/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1782742441 364441 d431f974a2116ed0377af2de845a40b7 ""
   "C:/Users/Ася/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm10.pk" 1765158983 6984 a42b1e6a44da9c1d62857131064736ee ""
   "C:/Users/Ася/AppData/Local/MiKTeX/fonts/tfm/public/bbm/bbm10.tfm" 1765158717 560 39fd35b5e4a6aca3672660cc548ba860 ""
@@ -25,7 +25,6 @@
   "C:/Users/Ася/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1756892093 13257867 49b560978dab1d7347aa0497a50a1189 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1001775420 2971 def0b6c1f0b107b3b936def894055589 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbx0900.tfm" 993061954 3200 f959f56c26f697d341ba38dba18fe1f8 ""
-  "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbx1000.tfm" 993061956 3200 328792ff19833a39406f06fa0555a6dc ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbx1200.tfm" 993061958 3200 b8d69bc738e5ef3e08cefeef3109ff56 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm0500.tfm" 993062114 3160 7643a152c0e9200a0a8161b2bb3a452d ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm0600.tfm" 993062116 3160 116e21835795bb29209ae8bb4682382f ""
@@ -51,7 +50,9 @@
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbsy10.tfm" 1136765053 1116 4e6ba9d7914baa6482fd69f67d126380 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx5.tfm" 1136765053 1332 f817c21a1ba54560425663374f1b651a ""
+  "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx6.tfm" 1136765053 1344 8a0be4fe4d376203000810ad4dc81558 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx7.tfm" 1136765053 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx9.tfm" 1136765053 1328 5442e22a7072966dbaf88ca900acf3f0 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi8.tfm" 1136765053 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi9.tfm" 1136765053 1524 d89e2d087a9828407a196f428428ef4a ""
@@ -89,7 +90,6 @@
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1247596666 32442 c975af247b6702f7ca0c299af3616b80 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx0900.pfb" 1215618300 143961 fe73b0de40bc9eebafe5b31a39c455e0 ""
-  "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1000.pfb" 1215618300 145408 bcd327f112f643a875638eafb48d1d8b ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb" 1215618300 140176 d0f50dba675c56d445f84a32c1f93a79 ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0600.pfb" 1215618300 162624 077de688981132fb8efe9feeb03a998c ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb" 1215618300 154599 111aa29c1b43dc5b4a8516224bf12bac ""
@@ -153,10 +153,10 @@
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1749468414 10374 2ffd4f27c7f90b8a300608069537743c ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/tex/latex/ucs/utf8x.def" 1700127473 8944 e3433baec74c4b7b278c6b6a547ff9ec ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "attenuator.aux" 1786469037 13365 f85b29f1694ac326989241d48f5a2713 "pdflatex"
-  "attenuator.bbl" 1786469467 32068 85e416ad2ddbbf9683169c6f98485116 "bibtex attenuator"
-  "attenuator.tex" 1786469143 84706 4e49995c8541dd7e99eb7cbfd36c23e7 ""
-  "c:/Attenuator/attenuator.tex" 1786469143 84706 4e49995c8541dd7e99eb7cbfd36c23e7 ""
+  "attenuator.aux" 1786469738 15032 6e659d688b6eef131d48f760c4357b3b "pdflatex"
+  "attenuator.bbl" 1786469703 41267 0fc087d6c465a0cb85b377655f9e80b6 "bibtex attenuator"
+  "attenuator.tex" 1786469734 87836 1a5d3827cf331b066d3870b2e50b3a65 ""
+  "c:/Attenuator/attenuator.tex" 1786469734 87836 1a5d3827cf331b066d3870b2e50b3a65 ""
   "pics/double-homodyne/1.0.pdf" 1782743785 259778 ff9bcca0d1f1a2c7618ed97b6144564b ""
   "pics/double-homodyne/1.25.pdf" 1782743788 260017 ec91a3a55bbbe9999dbebc6c94f98fb1 ""
   "pics/double-homodyne/Sab.pdf" 1782743612 262294 d61748e891c0e9384f03d1bad77a2b1f ""
