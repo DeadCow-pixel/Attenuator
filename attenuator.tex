@@ -177,7 +177,7 @@ To describe these imperfect measurements, the formalism of quantum channels is e
 
 %^add more 
 Channel representation is particularly useful in CV-QKD because it incorporates sender (Alice) and receiver (Bob) imperfections into the same formalism used to model quantum signal propagation and to evaluate the information leaked to an eavesdropper (Eve). To this end, various channel models are available~\cite{Caruso2006}, with the most prominent being the attenuator channel~\cite{laudenbach2018continuous} and additive-noise channel~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. The former models the interaction by mixing the input mode with an environmental mode at a beam splitter, whereas the latter introduces a zero-mean Gaussian random displacement whose quadratures are uncorrelated with the input state. %Notably, the attenuator channel reduces to a pure-loss channel when the environment is in the vacuum state~\cite{RevModPhys.84.621,Yamano2023GaussianTrustedNoise}.
-With suitable channel parameters, the two channels reproduce the same conditional outcome distributions after the outcome rescaling.
+With suitable channel parameters, both channels reproduce the same conditional outcome distributions after the outcome rescaling.
  %we consider remove
 %However, equivalence at the level of measurement statistics does not make different channels interchangeable. With suitable parameter choices and, where necessary, a deterministic invertible rescaling of the outcomes, distinct channels may reproduce the same calibrated receiver statistics% and hence the same Alice-Bob mutual information
 %. Nevertheless, these channels need not be equivalent, so the environmental systems available to an eavesdropper may differ. This distinction is relevant to both untrusted- and trusted-receiver models. In an untrusted-receiver model, the environmental output of the channel is conservatively included in Eve's system. In a trusted-receiver model, the corresponding environmental modes remain inside Bob's laboratory and are inaccessible to Eve. Thus, the trust assignment can change the Holevo information even when the observed receiver statistics remain unchanged~\cite{usenko2016trusted,laudenbach2018continuous,laudenbach2019analysis,Yamano2023GaussianTrustedNoise,Pan_2025}. As has been highlighted in a recent work~\cite{Staffieri_2026}, the channel choice, while describing the same physical reality, will significantly alter security estimates.
@@ -210,7 +210,7 @@ Yamano2023GaussianTrustedNoise,Wu2026OneTimeCalibration}. Such equivalence at th
 whether the corresponding environmental mode is accessible to Eve.
 
 In the present work, we construct and analyze an attenuator channel of the imperfect homodyne and double-homodyne POVMs and compare it with the additive-noise channel. The channel parameters are obtained by requiring the dual channel to map the ideal POVM onto the target noisy POVM. For homodyne detection, the environmental mode is chosen to be in the vacuum state, so the attenuator takes the form of a pure-loss channel. For double-homodyne detection, the generally anisotropic measurement noise is reproduced using a pure Gaussian environmental state with unequal quadrature variances.% The channels considered here, therefore, serve as a representation of a fixed noisy measurement rather than as alternatives to the physical communication link.
-We compare the two channels within the Gaussian-modulated coherent-state (GMCS) protocol~\cite{Grosshans:prl:2002} with reverse reconciliation in the asymptotic regime and evaluate the asymptotic secret fraction under collective Gaussian attacks~\cite{Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}. In the security model adopted here, receiver asymmetry is treated as untrusted; accordingly, the environmental output of the selected channel is assigned to Eve. %Finite-size effects, composable-security corrections, active detector attacks, and uncertainties in equipment calibration are outside the scope of the present work.
+We compare both channels within the Gaussian-modulated coherent-state (GMCS) protocol~\cite{Grosshans:prl:2002} with reverse reconciliation in the asymptotic regime and evaluate the asymptotic secret fraction under collective Gaussian attacks~\cite{Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}. In the security model adopted here, receiver asymmetry is treated as untrusted; accordingly, the environmental output of the selected channel is assigned to Eve. %Finite-size effects, composable-security corrections, active detector attacks, and uncertainties in equipment calibration are outside the scope of the present work.
 
 This paper is organized as follows. In Sec.~\ref{sec:POVMs}, we briefly discuss the formalism behind POVMs of imperfect homodyne and double homodyne measurement schemes.  In Sec.~\ref{sec:channels}, we model these noisy coherent detection schemes using the attenuator and additive-noise quantum channels.
 %we establish equivalence between the attenuator-channel model and the additive-noise channel model, and derive the coefficients of those Gaussian channels. 
@@ -267,7 +267,7 @@ In Sec.~\ref{sec:protocol}, we calculate informational quantities defining asymp
 \section{Imperfect Gaussian measurements}\label{sec:POVMs}
 We begin with a brief discussion of asymmetrical coherent measurements, schematically depicted in Fig.~\ref{fig:scheme}. Asymmetry effects are induced by imbalance (unequal transmission and reflection coefficients) of the beam splitters and unequal quantum efficiency of the detectors. For detailed derivations of the expressions in this section see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}.
 
-$Q$ symbol of the POVM describing noisy homodyne measurements (see Fig.~\ref{subfig:homodyne}) is given by
+The $Q$ symbol of the POVM describing noisy homodyne measurements (see Fig.~\ref{subfig:homodyne}) is
 \begin{align}
   &\label{eq:Pgood-w-def}
     {\prob}_G^{(\ind{H})}(x)=\frac{1}{\sqrt{2\pi\sigma_G}}
@@ -351,7 +351,7 @@ For double homodyne detection, $Q$ symbol is given by
     (\eta_1^{(i)}S_i^2+\eta_2^{(i)}C_i^2) |\alpha_L^{(i)}|^2,\quad
     \alpha_L^{(1)}=C_L\alpha_L,\quad \alpha_L^{(2)}=-iS_L\alpha_L,
 \end{align}
-where $x_i$ are the quadrature variables given by
+where $\sigma_G^{(i)}$ is the variance of the photon count difference before rescaling and $x_i$ are the quadrature variables given by
 \begin{align}
   \label{eq:x-1}
   x_1&=
@@ -378,7 +378,7 @@ and relations
   &
     \label{eq:sigm-x-i}
     \sigma_x^{(i)}=\frac{\eta_1^{(i)}S_i^2+\eta_2^{(i)}C_i^2}{
-    \left[(\eta_1^{(i)}+\eta_2^{(i)})C_iS_i\right]^2
+    \left[(\eta_1^{(i)}+\eta_2^{(i)})C_i S_i\right]^2
     }
 \end{align}
 give the quadrature variances $\sigma_1$ and $\sigma_2$.
@@ -451,7 +451,7 @@ Note that, as measurements are specified to be Gaussian, the channels $\mathcal{
 The dual channel $\mathcal{C}^*$ transforming the first and second moments as follows
 \begin{align}
   &\boldsymbol{r}_G\mapsto X_{\mathcal{C}}^{-1}\boldsymbol{r}_G,\notag\\
-  &\Sigma_{G}\mapsto  X_{\mathcal{C}}^{-1}\Sigma \left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}+X_{\mathcal{C}}^{-1}Y_{\mathcal{C}}\left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}.
+  &\Sigma_{G}\mapsto  X_{\mathcal{C}}^{-1}\Sigma_{G} \left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}+X_{\mathcal{C}}^{-1}Y_{\mathcal{C}}\left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}.
 \end{align}
 
 In what follows, we will consider two distinct quantum channels to describe the imperfect measurements, namely additive-noise channel and attenuator channel. In accordance with Eq.~\eqref{eq:channel-motiv}, channel $\mathcal{C}$ will be defined in a way that its' dual channel $\mathcal{C}^*$ will transform the covariance matrix of ideal measurement $\Sigma_{\ind{id}}$ into the covariance matrix of noisy Gaussian measurement $\Sigma_{m}$,
@@ -654,7 +654,7 @@ $\Sigma_{\ind{AB}}$ are given by
 
 We consider local action of either attenuator channel $\mathcal{E}_{\gamma}$~\eqref{eq:X,Y} or additive-noise channel $\Phi_{\gamma}$~\eqref{eq:X,Y-phi}, on second mode of TMSVS shared by Alice and Bob~\eqref{eq:TMSVS-to-AB}. In both cases, mutual information is given by $I_{\ind{AB}}^{(\gamma)}$~\eqref{eq:I_H_res},~\eqref{eq:I_DH_res}, as it is classical.
 
-It follows
+It follows that
 \begin{align}
     \label{eq:psi_action}
     &\mathcal{I}_A\otimes \mathcal{E}_{\gamma}:
@@ -689,7 +689,7 @@ the difference between the joint and conditional entropies
   &
   \chi_{\ind{EB}} ^{\left(\mathcal{C}_{\gamma}\right)}
     =
-    S_{\ind{E}}-S_{\ind{E}|\ind{B}}=S_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}-S_{\ind{A}|\ind{B}}^{\left(\mathcal{C}_{\gamma}\right)}, \quad \mathcal{C}_{\gamma}\in\{\Phi_{\gamma}, \mathcal{E}_{\gamma}\}.
+    S_{\ind{E}}-S_{\ind{E}|\ind{B}}=S_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}-S_{\ind{A}|\ind{B}}^{\left(\mathcal{C}_{\gamma}\right)}, \quad \mathcal{C}_{\gamma}\in\{\Phi_{\gamma}, \mathcal{E}_{\gamma}\}
 \end{align}
 gives the Holevo information.
 The joint entropy
@@ -711,7 +711,7 @@ then can be expressed in terms of the symplectic eigenvalues of the covariance m
 \Delta_{\mathcal{C}_{\gamma}}/2\pm \sqrt{\Delta_{\mathcal{C}_{\gamma}}^2/4-D_{\mathcal{C}_{\gamma}}}
     },
     \quad
-  D_{\mathcal{C}_{\gamma}}=\det \Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)},  
+  D_{\mathcal{C}_{\gamma}}=\det \Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)},
     \\
   &
   \label{eq:D-gamma}
@@ -876,7 +876,7 @@ For the asymmetric parameter sets considered, where $\delta_1\neq\delta_2$, the 
         \end{subfigure}
         \caption{Asymptotic secret fraction $K^{(C_{\ind{DH}})}$ versus channel length $l$, computed for fixed $\sigma_x^{(i)}=1.05$ (see Eq.\eqref{eq:sigm-x-i}) and various imbalance ratios $q\equiv\frac{S_S^2}{C_S^2}$ for additive-noise and attenuator channel models (see Fig.~\ref{fig:Entropy}).
         The parameters are:
-        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2};$ losses are $20$ dB per $100$ km.}
+        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2};$ the fiber loss is $20$ dB per $100$ km.}
         \label{fig:K-vs-L-q-add}
 \end{figure}
 
@@ -932,15 +932,15 @@ attenuator channel representations of noisy homodyne and
 double-homodyne measurements affected by receiver asymmetry. Our approach requires the dual of the selected Gaussian channel, together with a
 deterministic invertible rescaling of the measurement outcomes, to
 reproduce the target noisy Gaussian measurement. At the level of covariance matrices, this condition is expressed by
-Eq.~\eqref{eq:C-gen}. These conditions constrain the channel parameters; under the assumptions adopted here, the parameters are then determined by the receiver parameters and, for double-homodyne detection, by $r$.
+Eq.~\eqref{eq:C-gen}. It constrains the channel parameters, which are then determined by the receiver parameters and, for double-homodyne detection, by the squeezing parameter $r$.
 
 
 After the deterministic invertible rescaling of the measurement
-outcomes, the two channels reproduce the same conditional
+outcomes, both channels reproduce the same conditional
 statistics of Bob's outcomes. They therefore give the same Alice-Bob mutual information.
 For fixed source and channel parameters, the conditional
 covariance matrix in Eq.~\eqref{eq:serf-a|b}, and hence the conditional
-entropy $S_{A|B}^{(\gamma)}$, are the same for the two channels because the
+entropy $S_{A|B}^{(\gamma)}$, are the same for both channels because the
 detector imperfections enter the conditional state through the same
 noisy measurement. The difference between the security estimates originates from the joint state of Alice and Bob. The additive-noise and attenuator channels generally produce different joint covariance matrices and, consequently, different joint entropies. In the untrusted-detector model considered in this paper, the environmental output of the selected channel is assigned to Eve. The corresponding Holevo information~\eqref{eq:chi} therefore depends on the selected channel even when Bob's observed statistics remain unchanged.
 
@@ -953,7 +953,7 @@ output-referred excess noise by the same factor, as shown in
 Eq.~\eqref{eq:tot_hom}.
 
 The numerical results in Fig.~\ref{fig:h-comparison-CM} show that the additive-noise and
-attenuator channels give significantly different security estimates. At high channel
+attenuator channels give different security estimates. At high channel
 transmittance and for the parameters considered, the attenuator
 channel gives a larger Holevo information and a lower asymptotic
 secret fraction. At longer distances, however, the secret fraction remains positive up
@@ -998,7 +998,7 @@ extrema are shifted away from $r=0$.
 
 The lower and upper secret-fraction curves in Fig.~\ref{fig:K-vs-L-q-add} describe the range
 obtained by varying $r$ over its admissible interval for each channel model. For the near-ideal quadrature variances used in
-Fig.~\ref{fig:K-vs-L-q-add}, the lower bounds of the two channels nearly coincide
+Fig.~\ref{fig:K-vs-L-q-add}, the lower bounds of both channels nearly coincide
 because the Holevo-information maximum occurs at, or close to, the
 interval boundaries. The upper bounds become more clearly separated
 when the imbalance of the signal beam splitter is increased.
