@@ -1,38 +1,26 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: attenuator.aux
-Reallocating 'name_of_file' (item size: 1) to 16 items.
-Reallocating 'name_of_file' (item size: 1) to 6 items.
-Reallocating 'name_of_file' (item size: 1) to 5 items.
-Reallocating 'name_of_file' (item size: 1) to 9 items.
-Reallocating 'name_of_file' (item size: 1) to 5 items.
-Reallocating 'name_of_file' (item size: 1) to 10 items.
 The style file: apsrev4-2.bst
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: attenuatorNotes.bib
 Database file #2: quant.bib
 Database file #3: refs.bib
-Warning--string name "july" is undefined
---line 1257 of file refs.bib
-Warning--string name "june" is undefined
---line 1281 of file refs.bib
-Warning--string name "sept" is undefined
---line 1589 of file refs.bib
 Database file #4: homodyne.bib
 Database file #5: math.bib
 control{REVTEX42Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{N/A}, control.pages{N/A}, control.year{N/A}, control.eprint{N/A}, 
 control{apsrev42Control}, control.key{N/A}, control.author{08}, control.editor{1}, control.title{0}, control.pages{0}, control.year{1}, control.eprint{N/A}, 
 Warning--jnrlst (dependency: not reversed) set 1
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 apsrev4-2.bst 2019-01-14 (MD) hand-edited version of apsrev4-1.bst
 Control: key (0) 
 Control: author (8) initials jnrlst
@@ -41,45 +29,45 @@ Control: production of article title (0) allowed
 Control: page (0) single
 Control: year (1) truncated
 Control: production of eprint (0) enabled
-You've used 49 entries,
+You've used 36 entries,
             6079 wiz_defined-function locations,
-            2036 strings with 26580 characters,
-and the built_in function-call counts, 56441 in all, are:
-= -- 3941
-> -- 1535
-< -- 326
-+ -- 465
-- -- 378
-* -- 8775
-:= -- 5205
-add.period$ -- 47
-call.type$ -- 49
-change.case$ -- 237
-chr.to.int$ -- 74
-cite$ -- 49
-duplicate$ -- 5140
-empty$ -- 4015
-format.name$ -- 875
-if$ -- 11590
-int.to.chr$ -- 4
-int.to.str$ -- 56
-missing$ -- 787
-newline$ -- 193
-num.names$ -- 141
-pop$ -- 1935
+            1946 strings with 23734 characters,
+and the built_in function-call counts, 41158 in all, are:
+= -- 2883
+> -- 1102
+< -- 249
++ -- 330
+- -- 274
+* -- 6374
+:= -- 3785
+add.period$ -- 34
+call.type$ -- 36
+change.case$ -- 175
+chr.to.int$ -- 64
+cite$ -- 36
+duplicate$ -- 3777
+empty$ -- 2911
+format.name$ -- 628
+if$ -- 8433
+int.to.chr$ -- 1
+int.to.str$ -- 43
+missing$ -- 585
+newline$ -- 154
+num.names$ -- 102
+pop$ -- 1424
 preamble$ -- 1
-purify$ -- 235
+purify$ -- 170
 quote$ -- 0
-skip$ -- 2452
+skip$ -- 1791
 stack$ -- 0
-substring$ -- 1387
-swap$ -- 5023
-text.length$ -- 184
+substring$ -- 984
+swap$ -- 3683
+text.length$ -- 131
 text.prefix$ -- 0
 top$ -- 10
-type$ -- 705
+type$ -- 511
 warning$ -- 1
-while$ -- 150
+while$ -- 114
 width$ -- 0
-write$ -- 476
-(There were 4 warnings)
+write$ -- 362
+(There was 1 warning)
