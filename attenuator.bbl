@@ -243,7 +243,7 @@
   {https://doi.org/10.1103/PRXQuantum.3.010341} {\bibfield  {journal} {\bibinfo
    {journal} {PRX Quantum}\ }\textbf {\bibinfo {volume} {3}},\ \bibinfo {pages}
   {010341} (\bibinfo {year} {2022})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Hajomer}\ \emph {et~al.}(2025)\citenamefont
+\bibitem [{\citenamefont {Hajomer}\ \emph {et~al.}(2026)\citenamefont
   {Hajomer}, \citenamefont {Oruganti}, \citenamefont {Derkach}, \citenamefont
   {Andersen}, \citenamefont {Usenko},\ and\ \citenamefont
   {Gehring}}]{hajomer2025finite}%
@@ -253,11 +253,10 @@
   {Oruganti}}, \bibinfo {author} {\bibfnamefont {I.}~\bibnamefont {Derkach}},
   \bibinfo {author} {\bibfnamefont {U.~L.}\ \bibnamefont {Andersen}}, \bibinfo
   {author} {\bibfnamefont {V.~C.}\ \bibnamefont {Usenko}},\ and\ \bibinfo
-  {author} {\bibfnamefont {T.}~\bibnamefont {Gehring}},\ }\bibfield  {title}
-  {\bibinfo {title} {Finite-size security of continuous-variable quantum key
-  distribution with imperfect heterodyne measurement},\ }\href@noop {}
-  {\bibfield  {journal} {\bibinfo  {journal} {arXiv preprint arXiv:2501.10278}\
-  } (\bibinfo {year} {2025})}\BibitemShut {NoStop}%
+  {author} {\bibfnamefont {T.}~\bibnamefont {Gehring}},\ }\href
+  {https://doi.org/10.1364/PRJ.559136} {\bibfield  {journal} {\bibinfo
+  {journal} {Photonics Research}\ }\textbf {\bibinfo {volume} {14}},\ \bibinfo
+  {pages} {99} (\bibinfo {year} {2026})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Bartlett}\ \emph {et~al.}(2025)\citenamefont
   {Bartlett}, \citenamefont {Wilson}, \citenamefont {Chunnilall},\ and\
   \citenamefont {Kumar}}]{Bartlett:25}%
@@ -311,6 +310,15 @@
   {journal} {\bibinfo  {journal} {Reports on Mathematical Physics}\ }\textbf
   {\bibinfo {volume} {12}},\ \bibinfo {pages} {273} (\bibinfo {year}
   {1977})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Holevo}(1973)}]{Holevo1973Statistical}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~S.}\ \bibnamefont
+  {Holevo}},\ }\bibfield  {title} {\bibinfo {title} {{Statistical Problems in
+  Quantum Physics}},\ }in\ \href {https://doi.org/10.1007/BFb0061483} {\emph
+  {\bibinfo {booktitle} {Proceedings of the Second Japan--USSR Symposium on
+  Probability Theory}}},\ \bibinfo {series} {Lecture Notes in Mathematics},
+  Vol.\ \bibinfo {volume} {330}\ (\bibinfo  {publisher} {Springer},\ \bibinfo
+  {year} {1973})\ pp.\ \bibinfo {pages} {104--119}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ozawa}(1984)}]{Ozawa1984}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
@@ -319,6 +327,16 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Journal of Mathematical Physics}\
   }\textbf {\bibinfo {volume} {25}},\ \bibinfo {pages} {79–87} (\bibinfo
   {year} {1984})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nielsen}\ and\ \citenamefont
+  {Chuang}(2010)}]{Nielsen:bk:2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~A.}\ \bibnamefont
+  {Nielsen}}\ and\ \bibinfo {author} {\bibfnamefont {I.~L.}\ \bibnamefont
+  {Chuang}},\ }\href@noop {} {{\selectlanguage {english}\emph {\bibinfo {title}
+  {Quantum Computation and Quantum Information}}}},\ \bibinfo {edition} {10th}\
+  ed.\ (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
+  {NY},\ \bibinfo {year} {2010})\ p.\ \bibinfo {pages} {676}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Caruso}\ \emph {et~al.}(2006)\citenamefont {Caruso},
   \citenamefont {Giovannetti},\ and\ \citenamefont {Holevo}}]{Caruso2006}%
   \BibitemOpen
@@ -364,15 +382,6 @@
   {journal} {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume}
   {114}},\ \bibinfo {pages} {012614} (\bibinfo {year} {2026})}\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Holevo}(1973)}]{Holevo1973Statistical}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~S.}\ \bibnamefont
-  {Holevo}},\ }\bibfield  {title} {\bibinfo {title} {{Statistical Problems in
-  Quantum Physics}},\ }in\ \href {https://doi.org/10.1007/BFb0061483} {\emph
-  {\bibinfo {booktitle} {Proceedings of the Second Japan--USSR Symposium on
-  Probability Theory}}},\ \bibinfo {series} {Lecture Notes in Mathematics},
-  Vol.\ \bibinfo {volume} {330}\ (\bibinfo  {publisher} {Springer},\ \bibinfo
-  {year} {1973})\ pp.\ \bibinfo {pages} {104--119}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Lodewyck}\ \emph {et~al.}(2007)\citenamefont
   {Lodewyck}, \citenamefont {Bloch}, \citenamefont {Garc\'{\i}a-Patr\'on},
   \citenamefont {Fossier}, \citenamefont {Karpov}, \citenamefont {Diamanti},
@@ -485,16 +494,6 @@
   {https://doi.org/10.1103/hq32-x7gt} {\bibfield  {journal} {\bibinfo
   {journal} {Phys. Rev. Research}\ }\textbf {\bibinfo {volume} {8}},\ \bibinfo
   {pages} {013185} (\bibinfo {year} {2026})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Nielsen}\ and\ \citenamefont
-  {Chuang}(2010)}]{Nielsen:bk:2010}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~A.}\ \bibnamefont
-  {Nielsen}}\ and\ \bibinfo {author} {\bibfnamefont {I.~L.}\ \bibnamefont
-  {Chuang}},\ }\href@noop {} {{\selectlanguage {english}\emph {\bibinfo {title}
-  {Quantum Computation and Quantum Information}}}},\ \bibinfo {edition} {10th}\
-  ed.\ (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
-  {NY},\ \bibinfo {year} {2010})\ p.\ \bibinfo {pages} {676}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {Zhang}\ \emph {et~al.}(2020)\citenamefont {Zhang},
   \citenamefont {Huang}, \citenamefont {Chen}, \citenamefont {Li},
   \citenamefont {Yu},\ and\ \citenamefont {Guo}}]{Zhang2020OneTimeCalibration}%

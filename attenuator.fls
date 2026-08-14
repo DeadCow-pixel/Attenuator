@@ -177,6 +177,8 @@ INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx09
 OUTPUT attenuator.pdf
 INPUT C:\Users\Ася\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\cm-super\cm-super-t1.enc
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti1000.tfm
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx1000.tfm
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
@@ -320,8 +322,12 @@ INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfbx0900.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfbx0900.pfb
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfbx1000.pfb
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfbx1000.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfbx1200.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfbx1200.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfrm0600.pfb
@@ -336,3 +342,5 @@ INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfrm1000.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfti0900.pfb
 INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfti0900.pfb
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfti1000.pfb
+INPUT C:\Users\Ася\AppData\Local\Programs\MiKTeX\fonts\type1\public\cm-super\sfti1000.pfb

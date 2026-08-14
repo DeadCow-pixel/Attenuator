@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.3)  11 AUG 2026 20:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.3)  14 AUG 2026 15:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -831,94 +831,92 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 152.
  (C:\Users\Ася\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-Overfull \vbox (0.77296pt too high) has occurred while \output is active []
-
- [1{C:/Users/Ася/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
+) [1{C:/Users/Ася/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
 
 pdfTeX warning: pdflatex (file ./schemes/homodyne.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<schemes/homodyne.pdf, id=26, 273.57108pt x 288.20071pt>
+<schemes/homodyne.pdf, id=27, 273.57108pt x 288.20071pt>
 File: schemes/homodyne.pdf Graphic file (type pdf)
 <use schemes/homodyne.pdf>
-Package pdftex.def Info: schemes/homodyne.pdf  used on input line 320.
+Package pdftex.def Info: schemes/homodyne.pdf  used on input line 315.
 (pdftex.def)             Requested size: 191.37321pt x 201.60205pt.
 
 
 pdfTeX warning: pdflatex (file ./schemes/double-homodyne.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<schemes/double-homodyne.pdf, id=27, 377.61676pt x 384.56874pt>
+<schemes/double-homodyne.pdf, id=28, 377.61676pt x 384.56874pt>
 File: schemes/double-homodyne.pdf Graphic file (type pdf)
 <use schemes/double-homodyne.pdf>
-Package pdftex.def Info: schemes/double-homodyne.pdf  used on input line 327.
+Package pdftex.def Info: schemes/double-homodyne.pdf  used on input line 322.
 (pdftex.def)             Requested size: 197.9579pt x 201.60205pt.
-[3 <./schemes/homodyne.pdf> <./schemes/double-homodyne.pdf>] [4]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 468.
+[3] [4 <./schemes/homodyne.pdf> <./schemes/double-homodyne.pdf>]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 463.
  (C:\Users\Ася\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [5] [6] [7]
-<pics/homodyne/chi_cf.pdf, id=87, 235.19534pt x 255.04372pt>
+<pics/homodyne/chi_cf.pdf, id=90, 235.19534pt x 255.04372pt>
 File: pics/homodyne/chi_cf.pdf Graphic file (type pdf)
 <use pics/homodyne/chi_cf.pdf>
-Package pdftex.def Info: pics/homodyne/chi_cf.pdf  used on input line 758.
+Package pdftex.def Info: pics/homodyne/chi_cf.pdf  used on input line 753.
 (pdftex.def)             Requested size: 139.44232pt x 151.2041pt.
-<pics/homodyne/r_cf.pdf, id=88, 224.75957pt x 255.04372pt>
+<pics/homodyne/r_cf.pdf, id=91, 224.75957pt x 255.04372pt>
 File: pics/homodyne/r_cf.pdf Graphic file (type pdf)
 <use pics/homodyne/r_cf.pdf>
-Package pdftex.def Info: pics/homodyne/r_cf.pdf  used on input line 765.
+Package pdftex.def Info: pics/homodyne/r_cf.pdf  used on input line 760.
 (pdftex.def)             Requested size: 133.25517pt x 151.2041pt.
-<pics/homodyne/r(l)_cf.pdf, id=89, 228.826pt x 255.04372pt>
+<pics/homodyne/r(l)_cf.pdf, id=92, 228.826pt x 255.04372pt>
 File: pics/homodyne/r(l)_cf.pdf Graphic file (type pdf)
 <use pics/homodyne/r(l)_cf.pdf>
-Package pdftex.def Info: pics/homodyne/r(l)_cf.pdf  used on input line 772.
+Package pdftex.def Info: pics/homodyne/r(l)_cf.pdf  used on input line 767.
 (pdftex.def)             Requested size: 135.66608pt x 151.2041pt.
  [8 <./pics/homodyne/chi_cf.pdf> <./pics/homodyne/r_cf.pdf> <./pics/homodyne/r(l)_cf.pdf>]
-<pics/double-homodyne/Sab.pdf, id=206, 284.1735pt x 275.21645pt>
+<pics/double-homodyne/Sab.pdf, id=209, 284.1735pt x 275.21645pt>
 File: pics/double-homodyne/Sab.pdf Graphic file (type pdf)
 <use pics/double-homodyne/Sab.pdf>
-Package pdftex.def Info: pics/double-homodyne/Sab.pdf  used on input line 830.
+Package pdftex.def Info: pics/double-homodyne/Sab.pdf  used on input line 825.
 (pdftex.def)             Requested size: 284.17279pt x 275.21576pt.
-<pics/double-homodyne/1.0.pdf, id=207, 300.57515pt x 276.20067pt>
+<pics/double-homodyne/1.0.pdf, id=210, 300.57515pt x 276.20067pt>
 File: pics/double-homodyne/1.0.pdf Graphic file (type pdf)
 <use pics/double-homodyne/1.0.pdf>
-Package pdftex.def Info: pics/double-homodyne/1.0.pdf  used on input line 866.
+Package pdftex.def Info: pics/double-homodyne/1.0.pdf  used on input line 861.
 (pdftex.def)             Requested size: 229.49844pt x 210.89244pt.
-<pics/double-homodyne/1.25.pdf, id=208, 300.57515pt x 276.20067pt>
+<pics/double-homodyne/1.25.pdf, id=211, 300.57515pt x 276.20067pt>
 File: pics/double-homodyne/1.25.pdf Graphic file (type pdf)
 <use pics/double-homodyne/1.25.pdf>
-Package pdftex.def Info: pics/double-homodyne/1.25.pdf  used on input line 873.
+Package pdftex.def Info: pics/double-homodyne/1.25.pdf  used on input line 868.
 (pdftex.def)             Requested size: 229.49844pt x 210.89244pt.
-<pics/double-homodyne/chi_cf.pdf, id=209, 229.69533pt x 265.9565pt>
+ [9]
+<pics/double-homodyne/chi_cf.pdf, id=215, 229.69533pt x 265.9565pt>
 File: pics/double-homodyne/chi_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/chi_cf.pdf>
-Package pdftex.def Info: pics/double-homodyne/chi_cf.pdf  used on input line 891.
+Package pdftex.def Info: pics/double-homodyne/chi_cf.pdf  used on input line 886.
 (pdftex.def)             Requested size: 145.09435pt x 168.0pt.
-<pics/double-homodyne/r_cf.pdf, id=210, 230.25957pt x 265.9565pt>
+<pics/double-homodyne/r_cf.pdf, id=216, 230.25957pt x 265.9565pt>
 File: pics/double-homodyne/r_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/r_cf.pdf>
-Package pdftex.def Info: pics/double-homodyne/r_cf.pdf  used on input line 898.
+Package pdftex.def Info: pics/double-homodyne/r_cf.pdf  used on input line 893.
 (pdftex.def)             Requested size: 145.45078pt x 168.0pt.
-<pics/double-homodyne/r(l)_cf.pdf, id=211, 232.50969pt x 265.9565pt>
+<pics/double-homodyne/r(l)_cf.pdf, id=217, 232.50969pt x 265.9565pt>
 File: pics/double-homodyne/r(l)_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/r(l)_cf.pdf>
-Package pdftex.def Info: pics/double-homodyne/r(l)_cf.pdf  used on input line 905.
+Package pdftex.def Info: pics/double-homodyne/r(l)_cf.pdf  used on input line 900.
 (pdftex.def)             Requested size: 146.87213pt x 168.0pt.
- [9] [10 <./pics/double-homodyne/Sab.pdf>] [11 <./pics/double-homodyne/1.0.pdf> <./pics/double-homodyne/1.25.pdf> <./pics/double-homodyne/chi_cf.pdf> <./pics/double-homodyne/r_cf.pdf> <./pics/double-homodyne/r(l)_cf.pdf>] [12] [13] [14] (attenuator.bbl [15]) [16] (attenuator.aux)
+ [10 <./pics/double-homodyne/Sab.pdf>] [11 <./pics/double-homodyne/1.0.pdf> <./pics/double-homodyne/1.25.pdf> <./pics/double-homodyne/chi_cf.pdf> <./pics/double-homodyne/r_cf.pdf> <./pics/double-homodyne/r(l)_cf.pdf>] [12] [13] [14] (attenuator.bbl [15]) [16] (attenuator.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 8870 strings out of 468132
- 144971 string characters out of 5430208
- 594193 words of memory out of 5000000
- 37338 multiletter control sequences out of 15000+600000
- 647300 words of font info for 103 fonts, out of 8000000 for 9000
+ 8876 strings out of 468132
+ 145075 string characters out of 5430208
+ 590194 words of memory out of 5000000
+ 37342 multiletter control sequences out of 15000+600000
+ 648762 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,22n,79p,1414b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Ася\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0600.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti0900.pfb>
-Output written on attenuator.pdf (16 pages, 1184938 bytes).
+ 71i,22n,79p,1594b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Ася\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0600.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti0900.pfb><C:/Users/Ася/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on attenuator.pdf (16 pages, 1223076 bytes).
 PDF statistics:
- 529 PDF objects out of 1000 (max. 8388607)
+ 544 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
