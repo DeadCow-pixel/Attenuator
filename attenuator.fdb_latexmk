@@ -1,17 +1,18 @@
 # Fdb version 4
-["bibtex attenuator"] 1786830015.27301 "attenuator.aux" "attenuator.bbl" "attenuator" 1786830018.24105 0
-  "./attenuatorNotes.bib" 1786830016.76169 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex attenuator"] 1786975500.33957 "attenuator.aux" "attenuator.bbl" "attenuator" 1786975504.49882 0
+  "./attenuatorNotes.bib" 1786975502.38467 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "./homodyne.bib" 1786713507.26981 44951 1269261e30caa5aa8600d70e932367e8 ""
   "./math.bib" 1786713507.27236 27595 3b9b5a701feb6e90ee46f59bfc0b2618 ""
   "./quant.bib" 1786716721.89774 350506 641668235bcf9c1d5ed484a1adcd7580 ""
-  "./refs.bib" 1786716307.11447 41061 2092402134cc7e8b762b69b351c4ae7d ""
+  "./refs.bib" 1786974424.5529 42583 00efc042d60967b1821ee6792cc6b476 ""
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/revtex/apsrev4-2.bst" 1601932770 69609 e9dea59f0e753ccda3ddc8f5806d846d ""
-  "attenuator.aux" 1786830016.75723 13303 a60bd0b2edbe7f4342a0c548f99c8aa0 "pdflatex"
+  "attenuator.aux" 1786975502.37661 13790 1607c3888131f6833e4635b198681f26 "pdflatex"
   (generated)
   "attenuator.bbl"
   "attenuator.blg"
   (rewritten before read)
-["pdflatex"] 1786830015.55465 "attenuator.tex" "attenuator.pdf" "attenuator" 1786830018.24153 0
+["pdflatex"] 1786975500.69562 "/Users/goncharov/Documents/itmo/science/cv/work/articles/Attenuator/attenuator.tex" "attenuator.pdf" "attenuator" 1786975504.49936 0
+  "/Users/goncharov/Documents/itmo/science/cv/work/articles/Attenuator/attenuator.tex" 1786974522.03023 90135 bd16cd335815ba84eeca4f20460b5a6d ""
   "/Users/goncharov/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1786453415.95475 6964 a262820f101749583034feb79eb27292 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -88,6 +89,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1248133631 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb" 1248133631 39386 0bb525d495ceab21fe797301a586e0d7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb" 1215737283 143961 201304b65f97bc643fbd0bcf0685d1fe ""
@@ -160,9 +162,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749628289 5523539 8d6e8d8e81a37755b9c81704ecca2859 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1749628907 3599397 dc0287df055cbbd5e8dcbe29b25d61a1 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "attenuator.aux" 1786830016.75723 13303 a60bd0b2edbe7f4342a0c548f99c8aa0 "pdflatex"
-  "attenuator.bbl" 1786830015.54886 29253 943b9c547c097f62ae0b47096c657932 "bibtex attenuator"
-  "attenuator.tex" 1786830005.66586 88588 9dee68dc7664f101a966091bd44d9732 ""
+  "attenuator.aux" 1786975502.37661 13790 1607c3888131f6833e4635b198681f26 "pdflatex"
+  "attenuator.bbl" 1786975500.68992 31789 fd568a333533ad4fb618ea37c8261aae "bibtex attenuator"
+  "attenuator.tex" 1786974522.03023 90135 bd16cd335815ba84eeca4f20460b5a6d ""
   "pics/double-homodyne/1.0.pdf" 1786713507.28182 259778 8ce31bb21c9c50c2cb87481cb69ded83 ""
   "pics/double-homodyne/1.25.pdf" 1786713507.28324 260017 78f563b7069e76493a4347ee774c88a2 ""
   "pics/double-homodyne/Sab.pdf" 1786713507.28973 262294 7f9a4285ab1b396821484b183732cf63 ""
