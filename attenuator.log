@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  14 AUG 2026 17:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  16 AUG 2026 00:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -840,7 +840,7 @@ File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/babel/locale/ru/babel-russian.t
 ex)
 Package babel Info: Importing data for russian
-(babel)             from babel-ru.ini. Reported on input line 192.
+(babel)             from babel-ru.ini. Reported on input line 207.
 )
 \openout1 = `attenuator.aux'.
 
@@ -903,7 +903,7 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 15
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr
 /local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 165
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 169
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/bbm-macros/ubbm.fd
@@ -915,7 +915,7 @@ F version <1.7>, but at most version <1.5> allowed
 <schemes/homodyne.pdf, id=29, 273.57108pt x 288.20071pt>
 File: schemes/homodyne.pdf Graphic file (type pdf)
 <use schemes/homodyne.pdf>
-Package pdftex.def Info: schemes/homodyne.pdf  used on input line 324.
+Package pdftex.def Info: schemes/homodyne.pdf  used on input line 328.
 (pdftex.def)             Requested size: 191.37321pt x 201.60205pt.
 
 
@@ -924,65 +924,66 @@ ound PDF version <1.7>, but at most version <1.5> allowed
 <schemes/double-homodyne.pdf, id=30, 377.61676pt x 384.56874pt>
 File: schemes/double-homodyne.pdf Graphic file (type pdf)
 <use schemes/double-homodyne.pdf>
-Package pdftex.def Info: schemes/double-homodyne.pdf  used on input line 331.
+Package pdftex.def Info: schemes/double-homodyne.pdf  used on input line 335.
 (pdftex.def)             Requested size: 197.9579pt x 201.60205pt.
 [3] [4 <./schemes/homodyne.pdf> <./schemes/double-homodyne.pdf>] [5] [6]
 [7]
-<pics/homodyne/chi_cf.pdf, id=89, 235.19534pt x 255.04372pt>
+<pics/homodyne/chi_cf.pdf, id=91, 235.19534pt x 255.04372pt>
 File: pics/homodyne/chi_cf.pdf Graphic file (type pdf)
 <use pics/homodyne/chi_cf.pdf>
-Package pdftex.def Info: pics/homodyne/chi_cf.pdf  used on input line 767.
+Package pdftex.def Info: pics/homodyne/chi_cf.pdf  used on input line 780.
 (pdftex.def)             Requested size: 139.44232pt x 151.2041pt.
-<pics/homodyne/r_cf.pdf, id=90, 224.75957pt x 255.04372pt>
+<pics/homodyne/r_cf.pdf, id=92, 224.75957pt x 255.04372pt>
 File: pics/homodyne/r_cf.pdf Graphic file (type pdf)
 <use pics/homodyne/r_cf.pdf>
-Package pdftex.def Info: pics/homodyne/r_cf.pdf  used on input line 774.
+Package pdftex.def Info: pics/homodyne/r_cf.pdf  used on input line 787.
 (pdftex.def)             Requested size: 133.25517pt x 151.2041pt.
-<pics/homodyne/r(l)_cf.pdf, id=91, 228.826pt x 255.04372pt>
+<pics/homodyne/r(l)_cf.pdf, id=93, 228.826pt x 255.04372pt>
 File: pics/homodyne/r(l)_cf.pdf Graphic file (type pdf)
 <use pics/homodyne/r(l)_cf.pdf>
-Package pdftex.def Info: pics/homodyne/r(l)_cf.pdf  used on input line 781.
+Package pdftex.def Info: pics/homodyne/r(l)_cf.pdf  used on input line 794.
 (pdftex.def)             Requested size: 135.66608pt x 151.2041pt.
- [8 <./pics/homodyne/chi_cf.pdf> <./pics/homodyne/r_cf.pdf> <./pics/homodyne/r(
-l)_cf.pdf>]
-<pics/double-homodyne/Sab.pdf, id=209, 284.1735pt x 275.21645pt>
+ [8]
+<pics/double-homodyne/Sab.pdf, id=97, 284.1735pt x 275.21645pt>
 File: pics/double-homodyne/Sab.pdf Graphic file (type pdf)
 <use pics/double-homodyne/Sab.pdf>
-Package pdftex.def Info: pics/double-homodyne/Sab.pdf  used on input line 839.
+Package pdftex.def Info: pics/double-homodyne/Sab.pdf  used on input line 851.
 (pdftex.def)             Requested size: 284.17279pt x 275.21576pt.
-<pics/double-homodyne/1.0.pdf, id=210, 300.57515pt x 276.20067pt>
+ [9 <./pics/homodyne/chi_cf.pdf> <./pics/homodyne/r_cf.pdf> <./pics/homodyne/r(
+l)_cf.pdf>]
+<pics/double-homodyne/1.0.pdf, id=215, 300.57515pt x 276.20067pt>
 File: pics/double-homodyne/1.0.pdf Graphic file (type pdf)
 <use pics/double-homodyne/1.0.pdf>
-Package pdftex.def Info: pics/double-homodyne/1.0.pdf  used on input line 875.
+Package pdftex.def Info: pics/double-homodyne/1.0.pdf  used on input line 887.
 (pdftex.def)             Requested size: 229.49844pt x 210.89244pt.
-<pics/double-homodyne/1.25.pdf, id=211, 300.57515pt x 276.20067pt>
+<pics/double-homodyne/1.25.pdf, id=216, 300.57515pt x 276.20067pt>
 File: pics/double-homodyne/1.25.pdf Graphic file (type pdf)
 <use pics/double-homodyne/1.25.pdf>
-Package pdftex.def Info: pics/double-homodyne/1.25.pdf  used on input line 882.
+Package pdftex.def Info: pics/double-homodyne/1.25.pdf  used on input line 894.
 
 (pdftex.def)             Requested size: 229.49844pt x 210.89244pt.
- [9]
-<pics/double-homodyne/chi_cf.pdf, id=215, 229.69533pt x 265.9565pt>
+ [10 <./pics/double-homodyne/Sab.pdf>]
+<pics/double-homodyne/chi_cf.pdf, id=255, 229.69533pt x 265.9565pt>
 File: pics/double-homodyne/chi_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/chi_cf.pdf>
-Package pdftex.def Info: pics/double-homodyne/chi_cf.pdf  used on input line 90
+Package pdftex.def Info: pics/double-homodyne/chi_cf.pdf  used on input line 91
 0.
 (pdftex.def)             Requested size: 145.09435pt x 168.0pt.
-<pics/double-homodyne/r_cf.pdf, id=216, 230.25957pt x 265.9565pt>
+<pics/double-homodyne/r_cf.pdf, id=256, 230.25957pt x 265.9565pt>
 File: pics/double-homodyne/r_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/r_cf.pdf>
-Package pdftex.def Info: pics/double-homodyne/r_cf.pdf  used on input line 907.
+Package pdftex.def Info: pics/double-homodyne/r_cf.pdf  used on input line 917.
 
 (pdftex.def)             Requested size: 145.45078pt x 168.0pt.
-<pics/double-homodyne/r(l)_cf.pdf, id=217, 232.50969pt x 265.9565pt>
+<pics/double-homodyne/r(l)_cf.pdf, id=257, 232.50969pt x 265.9565pt>
 File: pics/double-homodyne/r(l)_cf.pdf Graphic file (type pdf)
 <use pics/double-homodyne/r(l)_cf.pdf>
 Package pdftex.def Info: pics/double-homodyne/r(l)_cf.pdf  used on input line 9
-14.
+24.
 (pdftex.def)             Requested size: 146.87213pt x 168.0pt.
- [10 <./pics/double-homodyne/Sab.pdf>] [11 <./pics/double-homodyne/1.0.pdf> <./
-pics/double-homodyne/1.25.pdf> <./pics/double-homodyne/chi_cf.pdf> <./pics/doub
-le-homodyne/r_cf.pdf> <./pics/double-homodyne/r(l)_cf.pdf>]
+ [11 <./pics/double-homodyne/1.0.pdf> <./pics/double-homodyne/1.25.pdf> <./pics
+/double-homodyne/chi_cf.pdf> <./pics/double-homodyne/r_cf.pdf> <./pics/double-h
+omodyne/r(l)_cf.pdf>]
 [12] [13] [14] (./attenuator.bbl [15]) [16] (./attenuator.aux)
  ***********
 LaTeX2e <2025-06-01>
@@ -990,13 +991,13 @@ L3 programming layer <2025-05-26>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 8988 strings out of 467886
- 145846 string characters out of 5434039
- 600883 words of memory out of 5000000
- 37394 multiletter control sequences out of 15000+600000
- 647986 words of font info for 104 fonts, out of 8000000 for 9000
+ 8983 strings out of 467886
+ 145784 string characters out of 5434039
+ 600627 words of memory out of 5000000
+ 37390 multiletter control sequences out of 15000+600000
+ 647220 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,22n,79p,1400b,639s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,22n,79p,1400b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/goncharov/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/
 bbm10.600pk></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/c
@@ -1008,32 +1009,34 @@ pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
 b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/202
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-
-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2022/texmf-di
-st/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist
-/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2022/texmf-dist/f
-onts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2022/texmf-dist/fon
-ts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
-ype1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
-e1/public/cm-super/sfti0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
-/public/cm-super/sfti1000.pfb>
-Output written on attenuator.pdf (16 pages, 1025067 bytes).
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pf
+b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texliv
+e/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/202
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/202
+2/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2022/texm
+f-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2022/texmf-dist
+/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/f
+onts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2022/texmf-dist/fon
+ts/type1/public/cm-super/sfti1000.pfb>
+Output written on attenuator.pdf (16 pages, 1038433 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 434 compressed objects within 5 object streams
+ 550 PDF objects out of 1000 (max. 8388607)
+ 440 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
