@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{47}%
+\begin{thebibliography}{49}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -206,6 +206,24 @@
   ed.\ (\bibinfo  {publisher} {CRC Press, Taylor \& Francis Group},\ \bibinfo
   {address} {Boca Raton},\ \bibinfo {year} {2023})\ p.\ \bibinfo {pages}
   {362}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Yuen}\ and\ \citenamefont
+  {Chan}(1983)}]{Yuen:ol:1983}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.~P.}\ \bibnamefont
+  {Yuen}}\ and\ \bibinfo {author} {\bibfnamefont {V.~W.~S.}\ \bibnamefont
+  {Chan}},\ }\bibfield  {title} {{\selectlanguage {english}\bibinfo {title}
+  {Noise in homodyne and heterodyne detection}},\ }\href
+  {https://doi.org/10.1364/OL.8.000177} {\bibfield  {journal} {\bibinfo
+  {journal} {Opt. Lett.}\ }\textbf {\bibinfo {volume} {8}},\ \bibinfo {pages}
+  {177} (\bibinfo {year} {1983})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Vogel}\ and\ \citenamefont
+  {Welsch}(2006)}]{vogel2006quantum}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
+  {Vogel}}\ and\ \bibinfo {author} {\bibfnamefont {D.-G.}\ \bibnamefont
+  {Welsch}},\ }\href@noop {} {\emph {\bibinfo {title} {Quantum optics}}}\
+  (\bibinfo  {publisher} {John Wiley \& Sons},\ \bibinfo {year}
+  {2006})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Pereira}\ \emph {et~al.}(2021)\citenamefont
   {Pereira}, \citenamefont {Almeida}, \citenamefont {Facão}, \citenamefont
   {Pinto},\ and\ \citenamefont {Silva}}]{Pereira2021}%
