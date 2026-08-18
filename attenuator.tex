@@ -144,56 +144,34 @@ superscriptaddress,
 
 \date{\today}
 
-\begin{abstract}
-    We study the security of continuous-variable quantum key distribution (CV-QKD) under asymmetric coherent detection within an untrusted-detector model. We analyze the attenuator channel and the additive-noise channel. For both homodyne and double-homodyne detection, we derive the corresponding channel parameters and compare the resulting Holevo information and asymptotic secret fraction.
-  
-  For the parameter sets considered, receiver asymmetry degrades the protocol performance for both channel models, but neither model gives uniformly more or less pessimistic security estimates. For homodyne detection, the attenuator model gives a lower secret fraction at higher transmittance but retains a positive secret fraction over a longer distance.
 
-  In the double-homodyne case, the channel parameters and the Holevo information, and hence the resulting secret fraction, depend on the squeezing parameter $r$ that defines ideal measurements. %, whereas the Alice-Bob mutual information calculated from the calibrated receiver statistics does not.
-  For the parameter sets considered, the Holevo information as a function of $r$ is concave for the additive-noise channel and convex for the attenuator channel. It follows that both the choice of $r$ and the channel representation affect the resulting secret fraction.
+\begin{abstract}
+We study the security of continuous-variable quantum key distribution (CV-QKD) with imperfect coherent receivers when the receiver noise is treated as untrusted. For each detection scheme, we construct additive-noise and attenuator channels that, together with a rank-one reference POVM and an invertible deterministic rescaling of the outcomes, reproduce the same noisy POVM. We derive the channel parameters and compare the resulting Holevo information and asymptotic secret fraction.
+
+For the parameter sets considered, the receiver imperfections reduce the asymptotic secret fraction relative to ideal detection for both channel choices. The channel giving the lower secret fraction depends on the receiver parameters and the communication-channel transmittance. For homodyne detection, the attenuator channel gives a lower secret fraction at high transmittance. Its secret fraction remains positive over a longer distance.
+
+For double-homodyne detection, the channel parameters, Holevo information, and asymptotic secret fraction depend on the squeezing parameter $r$ that specifies the reference POVM. The Alice-Bob mutual information is independent of the channel choice and $r$ because all admissible choices reproduce the same receiver statistics. For the parameter sets considered, the Holevo information is concave in $r$ for the additive-noise channel and convex in $r$ for the attenuator channel. The channel choice and the value of $r$ therefore affect the asymptotic secret fraction.
 \end{abstract}
- 
- \maketitle
+
+\maketitle
 
 \section{Introduction}
-%Homodyne and double-homodyne detection are the workhorse coherent measurement schemes in quantum optics~\cite{vogel2006quantum} and continuous-variable (CV) quantum information~\cite{Weed:rmp:2012,RevModPhys.84.621, Nielsen:bk:2010}, meant for phase-sensitivity measurement of light fields's quadrature. Its' application range is wide, from CV quantum key distribution (CV-QKD)~\cite{PhysRevLett.88.057902,Weedbrook:prl:2004,e17096072,Zhang:apr:2024, rusca2020fast, gehring2021homodyne, hu2023progress} to quantum state tomography~\cite{d2003quantum, Lvovsky:rmp:2009} and quantum state preparation~\cite{Zhang_2019}. 
+%Homodyne and double-homodyne detection are the workhorse coherent measurement schemes in quantum optics~\cite{vogel2006quantum} and continuous-variable (CV) quantum information~\cite{Weed:rmp:2012,RevModPhys.84.621, Nielsen:bk:2010}, meant for phase-sensitivity measurement of light fields's quadrature. Its' application range is wide, from CV quantum key distribution (CV-QKD)~\cite{PhysRevLett.88.057902,Weedbrook:prl:2004,e17096072,Zhang:apr:2024, rusca2020fast, gehring2021homodyne, hu2023progress} to quantum state tomography~\cite{d2003quantum, Lvovsky:rmp:2009} and quantum state preparation~\cite{Zhang_2019}.
 
-%Homodyne and double homodyne -- characterize the measurement scheme, importance, applications : tomography and QKD
+%Homodyne and double homodyne - characterize the measurement scheme, importance, applications : tomography and QKD
 %summarize the main theoretical concepts with references
 
-Homodyne and double-homodyne (heterodyne) detection are standard coherent-detection schemes in quantum optics and continious-variable (CV) quantum information~\cite{Leonhardt:bk:1997,Braunstein:rmp:2005,RevModPhys.84.621}. Homodyne detection implements a Gaussian measurement of a single field quadrature, whereas double-homodyne detection performs a joint but necessarily noisy measurement of two conjugate quadratures.
-These schemes find wide application across various domains, ranging from quantum state tomography~\cite{d2003quantum, Lvovsky:rmp:2009} and quantum state preparation~\cite{Zhang_2019} to a broad class of quantum communication protocols, including continuous-variable quantum key distribution (CV-QKD)~\cite{PhysRevLett.88.057902,Pirandola:20,Zhang:apr:2024}.
-
 % Measurement imperfections give rise to noisy POVMs~\cite{Ali1974, Ali2009, Serafini:bk:2023}.
-In the limit of a strong local oscillator, these coherent measurement schemes function as Gaussian measurements, yielding a Gaussian probability distribution of outcomes for any input Gaussian state~\cite{Giedke:pra:2002,Fiurasek:pra:2007,Serafini:bk:2023}.
-In an ideal, noiseless setup, homodyne detection implements projective measurements onto quadrature eigenstates, whereas double homodyne detection realizes a generalized measurement described by a rank-one positive operator-valued measure (POVM) onto coherent states~\cite{Yuen:ol:1983,Yuen:ol:1983,vogel2006quantum, Serafini:bk:2023}.
-However, a practical coherent receiver is characterized by a wide range of imperfections, such as non-unit photodetector efficiencies, electronic noise, beam-splitter imbalance, and mismatched responses of the detection branches~\cite{Pereira2021,Barchielli_2022,PRXQuantum.3.010341,hajomer2025finite,Bartlett:25}. Under these realistic conditions, the measurements retain their Gaussian statistics but are more generally described by Gaussian positive operator-valued measures (POVMs)~\cite{Ali1974, Ali2009, Serafini:bk:2023}.
-
 
 %^ links
 % more works abt homodyne noise
 
-\textcolor{magenta}{SOMEWHERE in HERE should be historical lit rev ABOUT noisy coherent measurements}
-
 %%channel rep
-%To describe these imperfect measurements, the formalism of quantum channels is employed. 
-Since quantum channels generally describe the evolution of open quantum systems, they provide a natural framework for modeling the physical degradation of information during the measurement process~\cite{Davies1970,HOLEVO1977273,Holevo1973Statistical, Ali1974, Ozawa1984}. Mathematically, a quantum channel $\mathcal{C}$ is a linear, completely positive, and trace-preserving (CPTP) map that transforms an input density matrix $\rho$ into an output state according to the Kraus representation:
-\begin{equation}
-  \mathcal{C}(\rho )=\sum _{k}E_{k}\rho E_{k}^{\dag },
-\end{equation}
-where the Kraus operators satisfy the completeness relation $\sum_k E_k^\dagger E_k = \mathbb{I}$~\cite{Nielsen:bk:2010}. In this framework, the statistics of noisy measurements can be represented either by applying a CPTP channel to the incoming state prior to an ideal measurement, or, equivalently, by applying the dual map $\mathcal{C}^{*}$ to the ideal POVM~\cite{Serafini:bk:2023}.
+%To describe these imperfect measurements, the formalism of quantum channels is employed.
 
-%The same physical degradation that transforms a pure state into a mixed state inside a practical receiver can be mathematically embedded directly into the transmission channel $\mathcal{C}$ that describes the quantum communication link.
-This channel representation is particularly powerful in CV-QKD because it treats the physical mechanisms responsible for non-unitary evolution -- such as optical losses and coupling to the environment -- on an equal footing, regardless of whether they occur during propagation (due to communication channel) or on the sender (Alice)/receiver (Bob) side.  Consequently, various channel models are available to capture different physical situations~\cite{Caruso2006}. In CV-QKD, the most prominent are the attenuator (beam-splitter) channel~\cite{laudenbach2018continuous}, which is used for modeling physical losses and thermal environments, and the additive-noise channel~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, which effectively captures electronic noise or phase jitter. With a suitable choice of parameters, these channel models reproduce the exact same conditional outcome distributions after a proper rescaling of the measurement data.
+%The same physical degradation that transforms a pure state into a mixed state inside a practical receiver can be mathematically embedded directly into the transmission channel \(\mathcal{C}\) that describes the quantum communication link.
 
 %the statistics are the same but the security bounds are not ~\cite{Staffieri_2026}
-The choice of channel model directly dictates the resulting security bounds in CV-QKD, as different representations distribute quantum information to unobserved degrees of freedom in distinct ways (\textcolor{magenta}{or \emph{estimate intruder's (Eve) information differently}; \textbf{choose 1}}). This difference in estimaion is alike to security paradigm adopted for the calibrated receiver noise.
-\textcolor{red}{In a trusted-detector model, the degrees of freedom associated with calibrated receiver noise are assumed to remain safely inside Bob's laboratory~\cite{Lodewyck:pra:2007,Usenko:entropy:2016,Laudenbach:aqt:2018,Laudenbach:aqt:2019,Namiki2018DetectionChannel}. In the untrusted-detector model these environmental modes are fully assigned to Eve. Under this untrusted noise paradigm, different mathematically equivalent channels yield identical calibrated statistics and mutual information, yet they generate different shared Alice-Bob states and different environmental outputs. This choice of channel model directly alters the resulting security bounds. In the untrusted-noise scenario, selecting an inappropriate or overly conservative channel model leads to vastly different values of the Holevo information, dictating a much more pessimistic performance and strictly limiting the key rate. More recent works further refine this dichotomy by considering intermediate levels of trust for loss and noise, separating Eve's knowledge of detector noise from her ability to control it~\cite{PirandolaTrustLevels2021,Pan:pra:2025,Zuo2026ThreatModels}. Since the purifications of a fixed state are related by an isometry on the purifying system~\cite{Nielsen:bk:2010}, applying alternative channels to the incoming state alters the effective Alice-Bob state prior to the ideal measurement, cementing the choice of channel representation as a fundamental physical assumption rather than a mere mathematical convenience.
-Representing calibrated detector noise as an effective loss has
-previously been used in trusted and protocol-specific receiver models
-~\cite{Zhang2020OneTimeCalibration,Zou:optexp:2022,
-Yamano2023GaussianTrustedNoise,Wu2026OneTimeCalibration}. Such equivalence at the level of receiver statistics does not by itself determine
-whether the corresponding environmental mode is accessible to Eve.}
 
 %However, equivalence at the level of measurement statistics does not make different channels interchangeable. With suitable parameter choices and, where necessary, a deterministic invertible rescaling of the outcomes, distinct channels may reproduce the same calibrated receiver statistics% and hence the same Alice-Bob mutual information
 %. Nevertheless, these channels need not be equivalent, so the environmental systems available to an eavesdropper may differ. This distinction is relevant to both untrusted- and trusted-receiver models. In an untrusted-receiver model, the environmental output of the channel is conservatively included in Eve's system. In a trusted-receiver model, the corresponding environmental modes remain inside Bob's laboratory and are inaccessible to Eve. Thus, the trust assignment can change the Holevo information even when the observed receiver statistics remain unchanged~\cite{usenko2016trusted,laudenbach2018continuous,laudenbach2019analysis,Yamano2023GaussianTrustedNoise,Pan_2025}. As has been highlighted in a recent work~\cite{Staffieri_2026}, the channel choice, while describing the same physical reality, will significantly alter security estimates.
@@ -203,25 +181,21 @@ whether the corresponding environmental mode is accessible to Eve.}
 
 %In our previous work~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we derived the Gaussian POVMs that account for beam-splitter imbalance and photodetector-efficiency mismatch, collectively referred to as \textit{asymmetry effects}, in homodyne and double-homodyne receivers. We represented the resulting measurement noise through an additive-noise channel. For double-homodyne detection, the ideal Gaussian POVM was represented by a family of pure squeezed states, with the admissible interval of squeezing parameters fixed by the positivity of the excess-noise covariance matrix. Within the untrusted-noise model, this nonuniqueness made the Holevo information dependent on the squeezing parameter. Although mathematically direct, the additive-noise channel is not tied to a specific optical coupling mechanism and is not the only Gaussian channel compatible with the same noisy POVM.
 
-To address this issue, the goal of this work is to quantify the fundamental discrepancy in security bounds that arises purely from the mathematical representation of receiver imperfections. We aim to show that even with identical raw data and mutual information, the choice of the quantum channel representation introduces non-trivial physical assumptions about Eve's coupling, which can drastically alter the final security guarantees of the system.
+% The channels considered here, therefore, serve as a representation of a fixed noisy measurement rather than as alternatives to the physical communication link.
+%Finite-size effects, composable-security corrections, active detector attacks, and uncertainties in equipment calibration are outside the scope of the present work.
 
-To this end, we construct and analyze an attenuator channel of the imperfect homodyne and double-homodyne POVMs and compare it with the additive-noise channel. The channel parameters are obtained by requiring the dual channel to map the ideal POVM onto the target noisy POVM. For homodyne detection, the environmental mode is chosen to be in the vacuum state, so the attenuator takes the form of a pure-loss channel. For double-homodyne detection, the generally anisotropic measurement noise is reproduced using a pure Gaussian environmental state with unequal quadrature variances.% The channels considered here, therefore, serve as a representation of a fixed noisy measurement rather than as alternatives to the physical communication link.
-We compare both channels within the Gaussian-modulated coherent-state (GMCS) protocol~\cite{Grosshans:prl:2002} with reverse reconciliation in the asymptotic regime and evaluate the asymptotic secret fraction under collective Gaussian attacks~\cite{Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}. In the security model adopted here, receiver asymmetry is treated as untrusted; accordingly, the environmental output of the selected channel is assigned to Eve. %Finite-size effects, composable-security corrections, active detector attacks, and uncertainties in equipment calibration are outside the scope of the present work.
-
-This paper is organized as follows. In Sec.~\ref{sec:POVMs}, we briefly discuss the formalism behind POVMs of imperfect homodyne and double homodyne measurement schemes.  In Sec.~\ref{sec:channels}, we model these noisy coherent detection schemes using the attenuator and additive-noise quantum channels.
-%we establish equivalence between the attenuator-channel model and the additive-noise channel model, and derive the coefficients of those Gaussian channels. 
-In Sec.~\ref{sec:protocol}, we calculate informational quantities defining asymptotic secret fraction in the GMCS protocol for both channel models and both coherent-measurement schemes and compare the results. Finally, in Sec.~\ref{sec:conclusion}, we provide a discussion of the results as well as concluding remarks.
+%we establish equivalence between the attenuator-channel model and the additive-noise channel model, and derive the coefficients of those Gaussian channels.
 
 %Quantum Channels. How imperfect measurements are described via channels. POVMS.
 %In the context of practical quantum information processing, real-world detection setups inevitably suffer from experimental imperfections, such as non-unity quantum efficiency and electronic dark noise, which must be rigorously modeled using the formalism of quantum channels. Mathematically, these imperfect measurement schemes can no longer be described by ideal Von Neumann projections; instead, they are formulated as Positive Operator-Valued Measures (POVMs), which generalize standard quantum measurements to account for statistical noise and loss. To analyze the impact of these technical imperfections on CV-QKD and tomography, a physically intuitive approach is to map the noisy measurement process onto an equivalent quantum channel that precedes an ideal, lossless detector. Within this framework, the physical degradation of the signal quadratures is mathematically represented as a completely positive, trace-preserving (CPTP) map. This channel-based representation allows researchers to treat detector-induced impairments as part of the overall quantum channel, setting the stage for a formal comparison between different noise-modelling paradigms.
 
-%Quantum channels are important in CV QKD. This is because there's communication channel -- to describe optical losses, -- and channel models used in security analysis (purification etc.)
+%Quantum channels are important in CV QKD. This is because there's communication channel - to describe optical losses, - and channel models used in security analysis (purification etc.)
 
-%The mathematical representation of quantum channels is of paramount importance in the security analysis of CV-QKD protocols, where it serves a dual purpose. On one hand, it accurately describes the physical communication channel -- typically an optical fiber or a free-space link -- accounting for realistic optical losses and preparation noise that degrade the transmitted quantum states. On the other hand, channel models are indispensable for the theoretical framework of security proofs, particularly when evaluating the secret key rate against arbitrary collective attacks. In this context, the channel parameters are directly utilized to perform state purification, enabling Alice and Bob to upper-bound the information accessible to an eavesdropper (Eve) by assuming she controls the entire environment purifying the system. Consequently, selecting the appropriate channel representation is not merely a matter of mathematical convenience; it dictates how experimental noise is mapped onto the shared covariance matrix, thereby directly affecting the tightness of the security bounds and the calculated key.
+%The mathematical representation of quantum channels is of paramount importance in the security analysis of CV-QKD protocols, where it serves a dual purpose. On one hand, it accurately describes the physical communication channel - typically an optical fiber or a free-space link - accounting for realistic optical losses and preparation noise that degrade the transmitted quantum states. On the other hand, channel models are indispensable for the theoretical framework of security proofs, particularly when evaluating the secret key rate against arbitrary collective attacks. In this context, the channel parameters are directly utilized to perform state purification, enabling Alice and Bob to upper-bound the information accessible to an eavesdropper (Eve) by assuming she controls the entire environment purifying the system. Consequently, selecting the appropriate channel representation is not merely a matter of mathematical convenience; it dictates how experimental noise is mapped onto the shared covariance matrix, thereby directly affecting the tightness of the security bounds and the calculated key.
 
 %In homodyne detection~\cite{vogel2006quantum}, a signal mode is interfered with a strong local oscillator on a balanced beam splitter and a single quadrature is measured via photocurrent difference, implementing an (approximately) projective Gaussian measurement of a field quadrature. Double-homodyne detection extends this principle by mixing the signal with two phase-shifted local oscillator modes and reading out two photocurrents, realizing a joint Gaussian measurement of both conjugate quadratures. In the limit of strong local oscillator and perfect detectors, these coherent measurement schemes implement Gaussian measurements that preserve the Gaussian character of measured states and are naturally described within the formalism of first and second moments~\cite{Serafini:bk:2023}. Both of these schemes have been extensively studied, see reviews~\cite{Welsch:progopt:1999, Lvovsky:rmp:2009}.
 
-%Real coherent detection, however, is never ideal: detectors have finite quantum efficiency, splitting ratio is not equal, and optical coupling is imperfect~\cite{Scarani:rmp:2009,Xu:rmp:2020}. These imperfections alter the statistics of the measurement outcomes and must be carefully modeled whenever quantitative predictions or security guarantees are required~\cite{Jouguet:pra:2012, Wang:prappl:2019, hajomer2025finite}. 
+%Real coherent detection, however, is never ideal: detectors have finite quantum efficiency, splitting ratio is not equal, and optical coupling is imperfect~\cite{Scarani:rmp:2009,Xu:rmp:2020}. These imperfections alter the statistics of the measurement outcomes and must be carefully modeled whenever quantitative predictions or security guarantees are required~\cite{Jouguet:pra:2012, Wang:prappl:2019, hajomer2025finite}.
 
 %A particularly convenient viewpoint is to treat noisy coherent detection as an ideal Gaussian measurement preceded by a suitable Gaussian quantum channel acting on the optical mode~\cite{Serafini:bk:2023}. In this representation, all imperfections of the detection scheme and other noise sources can be bundled into a completely positive, trace-preserving map on the incoming quantum state, measured by an ideal coherent detection positive operator-valued measure (POVM).
 
@@ -231,56 +205,104 @@ In Sec.~\ref{sec:protocol}, we calculate informational quantities defining asymp
 %~\cite{Staffieri_2026}. In CV-QKD, homodyne and double-homodyne detection are used to extract data from quantum statesstates, and the secret key rate is computed from the observed quadrature statistics~\cite{Grosshans:prl:2002,Weed:rmp:2012,laudenbach2018continuous}.
 %The channel representation of noisy detection allows one to shift detector imperfections into an effective quantum channel preceding an ideal measurement, thereby enabling a unified treatment in which the same Gaussian formalism describes both propagation through optical fibers and imperfections of coherent receivers. This approach is especially valuable when distinguishing between trusted and untrusted detector noise~\cite{Usenko:entropy:2016}. As has been highlighted in a recent work~\cite{Staffieri_2026}, Gaussian channel representation choice, while describing the same physical reality, will significantly alter security estimates.
 
-%In our recent work~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we established a POVM-based framework to characterize the effects induced in coherent detection schemes by unbalanced beam splitters and mismatched detector quantum efficiencies, collectively referred to as \textit{asymmetry effects}. 
+%In our recent work~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we established a POVM-based framework to characterize the effects induced in coherent detection schemes by unbalanced beam splitters and mismatched detector quantum efficiencies, collectively referred to as \textit{asymmetry effects}.
 %In Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we successfully derived, under the strong local oscillator (LO) approximation, the positive operator-valued measures (POVMs) and Q symbols for both homodyne and double-homodyne detection schemes.
-%The results were subsequently applied to the security analysis of the Gaussian-modulated coherent-state (GMCS) continuous-variable quantum key distribution (CV-QKD) protocol~\cite{Grosshans:prl:2002} within an untrusted-noise scenario~\cite{usenko2016trusted}. To model the untrusted measurement asymmetry, we utilized an additive-noise channel model~\cite{Serafini:bk:2023}, which allowed for the convenient construction of POVMs covariance matrices but lacked a clear physical interpretation. 
+%The results were subsequently applied to the security analysis of the Gaussian-modulated coherent-state (GMCS) continuous-variable quantum key distribution (CV-QKD) protocol~\cite{Grosshans:prl:2002} within an untrusted-noise scenario~\cite{usenko2016trusted}. To model the untrusted measurement asymmetry, we utilized an additive-noise channel model~\cite{Serafini:bk:2023}, which allowed for the convenient construction of POVMs covariance matrices but lacked a clear physical interpretation.
 %yielded extremely pessimistic bounds for the asymptotic secret key rate
 %In this paper, we will build upon this foundation by revisiting the modeling of asymmetric coherent measurements. Specifically, we employ the virtual beam splitter model instead of additive-noise channel model used in~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. We will compare the results for informational quantities in the GMCS protocol given by these two models.
 
 
 
-%measurements -- homodyne and double homodyne
+%measurements - homodyne and double homodyne
 
 %Gaussian measurements
 
 %channel representations
 
-%our previous work -- we applied additive-noise channel representation in untrusted noise scenario and got results; we will now extend for attenuator channel which is more commonly used in CV QKD security analysis
+%our previous work - we applied additive-noise channel representation in untrusted noise scenario and got results; we will now extend for attenuator channel which is more commonly used in CV QKD security analysis
 
 %lit rev
 %CV QKD is prosperous etc.
-%Continuous-variable quantum key distribution (CV-QKD) protocols establish secure cryptographic keys by encoding information into the continuous quadratures of the quantized electromagnetic field~\cite{Grosshans:prl:2002,Weed:rmp:2012,Pirandola:advopt:2020, Zhang:apr:2024}. In experimental implementations, however, the components of the detection subsystem -- typically, coherent detection schemes (homodyne and heterodyne detection) are imployed --  inevetably suffer deficiencies, which must be accounted for to prevent security loopholes and accurately evaluate the secret key rate~\cite{Scarani:rmp:2009,Xu:rmp:2020}. Due to the presence of imperfections~\cite{Chi:njp:2011,Jouguet:pra:2012,Wang:prappl:2019,Lupo:prxq:2022,Semenov:pra:2024,hajomer2025finite,Oruganti:qst:2025}, real-world homodyne and heterodyne configurations fail to perform ideal projective measurements on the incoming optical states. Consequently, quantitative analysis of these imperfect detection schemes requires generalizing the ideal quadrature projections to the formalism of positive operator-valued measures (POVMs).
+%Continuous-variable quantum key distribution (CV-QKD) protocols establish secure cryptographic keys by encoding information into the continuous quadratures of the quantized electromagnetic field~\cite{Grosshans:prl:2002,Weed:rmp:2012,Pirandola:advopt:2020, Zhang:apr:2024}. In experimental implementations, however, the components of the detection subsystem - typically, coherent detection schemes (homodyne and heterodyne detection) are imployed -  inevetably suffer deficiencies, which must be accounted for to prevent security loopholes and accurately evaluate the secret key rate~\cite{Scarani:rmp:2009,Xu:rmp:2020}. Due to the presence of imperfections~\cite{Chi:njp:2011,Jouguet:pra:2012,Wang:prappl:2019,Lupo:prxq:2022,Semenov:pra:2024,hajomer2025finite,Oruganti:qst:2025}, real-world homodyne and heterodyne configurations fail to perform ideal projective measurements on the incoming optical states. Consequently, quantitative analysis of these imperfect detection schemes requires generalizing the ideal quadrature projections to the formalism of positive operator-valued measures (POVMs).
 
 %Focus on channel choice
-%usually attenuator channel is employed 
+%usually attenuator channel is employed
 
 
 
 %This paper is organized as follows. In Sec.~\ref{sec:POVMs}, we briefly recall the formalism behind POVMs of asymmetrical homodyne and double homodyne measurement schemes established in Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. In Sec.~\ref{sec:channels}, we establish equivalence between attenuator channel model primarly used in this work and additive-noise channel model used in Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, and derive the coefficients of those Gaussian channels. In Sec.~\ref{sec:protocol}, we derive informational quantities defining asymptotic secret fraction in the GMCS protocol for both channel models and both coherent measurements schemes and compare the results. Finally, in Sec.~\ref{sec:conclusion}, we provide a discussion of the results as well as concluding remarks.
 
 %Due to mathematical constraints, we must extend the standard vacuum ancilla to an arbitrary state, effectively formulating it as an attenuator channel~\cite{Serafini:bk:2023}. We also provide a direct comparison between the results of both approaches.
+Homodyne and double-homodyne detection are standard coherent detection schemes in quantum optics and continuous-variable quantum information~\cite{Braunstein:rmp:2005,Weed:rmp:2012}. Here, double-homodyne detection denotes the two-branch receiver conventionally used to implement heterodyne measurement. In the limit of a strong local oscillator, an ideal homodyne receiver implements a projective measurement of one field quadrature. An ideal balanced double-homodyne receiver implements a joint noisy measurement of two conjugate quadratures described by the coherent-state positive operator-valued measure (POVM), with POVM density proportional to $\ket{\alpha}\bra{\alpha}$~\cite{Weed:rmp:2012,HolevoGaussianObservable2021}. Both schemes are Gaussian measurements and produce Gaussian outcome distributions for Gaussian input states. They are used in quantum state tomography~\cite{d2003quantum,Lvovsky:rmp:2009}, quantum state preparation~\cite{Zhang_2019}, and continuous-variable quantum key distribution (CV-QKD)~\cite{Grosshans:prl:2002,Pirandola:20,Zhang:apr:2024}.
 
-\section{Imperfect Gaussian measurements}\label{sec:POVMs}
-We begin with a brief discussion of asymmetrical coherent measurements, schematically depicted in Fig.~\ref{fig:scheme}. Asymmetry effects are induced by imbalance (unequal transmission and reflection coefficients) of the beam splitters and unequal quantum efficiency of the detectors. For detailed derivations of the expressions in this section see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}.
+Practical receivers may have detector quantum efficiencies below unity, detector-efficiency mismatch, and beam-splitter imbalance. Within the Gaussian approximation to the photon-count statistics in the strong local oscillator limit, these receiver imperfections produce noisy Gaussian POVMs~\cite{lahti2010realistic,Barchielli_2022,naumchik2025asymmetryeffectshomodyneheterodyne}. They also affect CV-QKD parameter estimation and the asymptotic secret fraction~\cite{Pereira2021,PRXQuantum.3.010341,Mi2024BiasedDetection}. We use \emph{receiver imperfections} for all these deviations from ideal detection and reserve \emph{receiver asymmetry} for beam-splitter imbalance and detector-efficiency mismatch; Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} refers to this combination as \emph{asymmetry effects}. For each detection scheme, the receiver parameters determine a noisy Gaussian POVM, which we call the target POVM. We denote the sender, receiver, and eavesdropper by Alice, Bob, and Eve, respectively.
 
-The $Q$ symbol of the POVM describing noisy homodyne measurements (see Fig.~\ref{subfig:homodyne}) is
+General quantum measurement theory separates the outcome statistics from the measurement-induced state changes. A POVM determines the outcome probabilities. A quantum instrument also specifies the conditional state changes. Davies and Lewis introduced instruments to describe general measurements and successive-measurement statistics~\cite{Davies1970}. Holevo showed that every POVM admits a statistically equivalent projection-valued measurement on an extended system containing an auxiliary system in a fixed state; such Naimark extensions are generally nonunique~\cite{Holevo1973Statistical}. Ozawa subsequently established that physically realizable measurements are described by completely positive instruments and admit indirect measurement models~\cite{Ozawa1984}. A target POVM therefore fixes the outcome probabilities.
+
+Measurement noise can enter through classical processing of the outcomes or through a quantum channel preceding the measurement. Ali and Emch described finite resolution by smearing a sharp observable with a resolution function, which yields a fuzzy observable represented by a POVM~\cite{Ali1974}. Martens and de Muynck later formalized measurement nonideality through a partial order on POVMs~\cite{MartensMuynck1990}. Quantum preprocessing applies a channel to the input state; equivalently, the dual channel acts on the POVM effects. The corresponding preprocessing order was studied in Ref.~\cite{BuscemiClean2005}. The induced POVM fixes the outcome statistics for every input state. Several preprocessing channels and channel dilations may induce the same POVM.
+
+In coherent optical detection, Yuen and Chan calculated the mean-square fluctuation spectra of homodyne and heterodyne receivers for arbitrary signal and local-oscillator states and separated the contributions of signal quantum fluctuations and local-oscillator excess noise~\cite{Yuen:ol:1983}. Holevo described bosonic communication channels through coupling to an auxiliary bosonic system and introduced the linear attenuator as a channel model for signal attenuation~\cite{Holevo:problemy:1972}. Later classifications place the attenuator and additive-noise channels in different canonical classes of one-mode Gaussian channels~\cite{Caruso2006,HolevoGaussianChannels2007}.
+
+We reserve \emph{communication channel} for the physical Alice-to-Bob link. We use \emph{receiver channel} for an effective one-mode Gaussian channel acting on Bob's mode after the communication channel and before a rank-one reference Gaussian POVM. Both channels considered here admit the same $X,Y$ parametrization:
+\begin{align}
+  \boldsymbol{r}
+  &\mapsto
+  X\boldsymbol{r},
+  &
+  \Sigma
+  &\mapsto
+  X\Sigma X^{\ind{T}}+Y,
+  \\
+  X_{\Phi}
+  &=
+  \mathbbm{1},
+  &
+  Y_{\Phi}
+  &\succeq
+  0,
+  \\
+  X_{\mathcal{E}}
+  &=
+  \cos\theta\,\mathbbm{1},
+  &
+  Y_{\mathcal{E}}
+  &=
+  \sin^2\theta\,\Sigma_{\ind{env}}.
+\end{align}
+The additive-noise channel has unit gain. Applied to Bob's mode, it preserves the first moments and the Alice-Bob correlation block while increasing Bob's local covariance by $Y_{\Phi}$. The attenuator scales the first moments and the Alice-Bob correlation block by $\cos\theta$; its environmental input contributes $\sin^2\theta\,\Sigma_{\ind{env}}$ to Bob's local covariance.
+
+After the reference POVM is measured, an invertible deterministic rescaling of the outcomes compensates the factor $\cos\theta$ in the classical first moments. This rescaling leaves the output quantum state unchanged. Suitable choices of $Y_{\Phi}$, $\theta$, and $\Sigma_{\ind{env}}$ allow the two channels to reproduce the same target POVM for every input state. Here, a \emph{channel representation} of the target POVM means the channel, the rank-one reference Gaussian POVM measured at its output, and the invertible deterministic rescaling of the outcomes.
+
+Our previous work derived the target POVMs for asymmetric homodyne and double-homodyne receivers and reproduced them using additive-noise channels~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. For double-homodyne detection, the reference POVM belongs to a family of rank-one Gaussian POVMs whose effects are proportional to projectors onto displaced squeezed states. The squeezing parameter $r$ labels this family, and $r=0$ gives the coherent-state POVM of conventional double-homodyne detection. Complete positivity of the additive-noise channel restricts $r$ to an interval determined by the receiver parameters. In the security analysis of Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, Eve was assumed to purify the Alice-Bob state after the receiver channel. The resulting Holevo information depends on $r$. A fixed target POVM can therefore be reproduced by several choices of channel and reference POVM that give the same receiver statistics and different Alice-Bob states.
+
+In this paper, we construct attenuator channels for the same target homodyne and double-homodyne POVMs and compare them with the corresponding additive-noise channels. For each detection scheme, we choose the channel parameters and the reference POVM so that the dual map, followed by an invertible deterministic rescaling of the outcomes, reproduces the target POVM. This equality holds for every input state. The Alice-Bob mutual information is therefore independent of the channel choice and, for double-homodyne detection, the value of $r$. We compare the resulting Holevo information and asymptotic secret fraction for the Gaussian-modulated coherent-state (GMCS) protocol with reverse reconciliation under collective Gaussian attacks~\cite{Grosshans:prl:2002,Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}.
+
+The security interpretation depends on the trust assigned to the receiver noise. In a model with trusted receiver noise, Eve has no access to the environmental output of the receiver~\cite{Lodewyck:pra:2007,Usenko:entropy:2016,Laudenbach:aqt:2019,Namiki2018DetectionChannel}. For a fixed Alice-Bob-Eve state before that channel, any two choices that reproduce the same target POVM produce the same joint classical-quantum state of Eve and Bob's rescaled outcome. They therefore give the same Holevo information. In the model with untrusted receiver noise used here, Eve purifies the Alice-Bob state after the receiver channel. The additive-noise and attenuator channels generally produce different Alice-Bob states and hence different Holevo information and asymptotic secret fractions. Selecting the channel therefore specifies a physical assumption in the security analysis.
+
+This paper is organized as follows. Section~\ref{sec:POVMs} defines the target homodyne and double-homodyne POVMs. Section~\ref{sec:channels} constructs the corresponding additive-noise and attenuator channels. Section~\ref{sec:protocol} evaluates the Alice-Bob mutual information, Holevo information, and asymptotic secret fraction. Section~\ref{sec:conclusion} discusses the results.
+
+\section{Target Gaussian POVMs}\label{sec:POVMs}
+We now specify the target homodyne and double-homodyne POVMs produced by the receiver imperfections considered in this work, as shown in Fig.~\ref{fig:scheme}. Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} gives the detailed derivations used in this section.
+
+For the homodyne receiver, $\hat a$ is the annihilation operator of the signal mode, $\alpha$ and $\alpha_L$ are the coherent amplitudes of the signal and local oscillator (LO), and $C$ and $S$ are real beam-splitter amplitude coefficients satisfying $C^2+S^2=1$. The photodetectors have quantum efficiencies $\eta_1$ and $\eta_2$, and $\mu=m_1-m_2$ is their photon-count difference.
+
+The $Q$ symbol of the target homodyne POVM (see Fig.~\ref{subfig:homodyne}) is
 \begin{align}
   &\label{eq:Pgood-w-def}
-    {\prob}_G^{(\ind{H})}(x)=\frac{1}{\sqrt{2\pi\sigma_G}}
+    {\prob}_G^{(\ind{H})}(x)=\frac{1}{\sqrt{2\pi\sigma_x}}
     \exp \left[-\frac{(x-\avr{\hat{x}_\phi})^2}{2\sigma_x}\right],\\
   &\label{eq:avr-x-phi}
-  \avr{\hat{x}_\phi}\equiv \bra{\alpha}\hat{x}_\phi\ket{\alpha}={2\Re\alpha e^{-i\phi}},
+  \avr{\hat{x}_\phi}\equiv \bra{\alpha}\hat{x}_\phi\ket{\alpha}=2\Re(\alpha e^{-i\phi}),
   \quad \phi=\arg\alpha_L,\\
     &\label{eq:quad-op}
-    \hat{x}_\phi=\hat{a}e^{-i\phi}+\hat{a}^\dag e^{i\phi}
+    \hat{x}_\phi=\hat{a}e^{-i\phi}+\hat{a}^\dag e^{i\phi},
 \end{align}
-where $\alpha$ ($\alpha_L$) is the complex amplitude of signal (LO) mode, $\hat{x}_\phi$ is the phase-rotated quadrature operator;
-$x$ is the quadrature variable
+where $\hat{x}_\phi$ is the phase-rotated quadrature operator. The rescaled quadrature variable is
 \begin{align}
   \label{eq:x-def}
-  x\equiv\frac{\mu}{(\eta_1+\eta_2)CS\left|\alpha_L\right|}-\frac{\eta_1S^2-\eta_2C^2}{\left(\eta_1+\eta_2\right)CS}\left|\alpha_L\right|
+  x\equiv\frac{\mu}{(\eta_1+\eta_2)CS\left|\alpha_L\right|}-\frac{\eta_1S^2-\eta_2C^2}{\left(\eta_1+\eta_2\right)CS}\left|\alpha_L\right|,
 \end{align}
-and $\sigma_x$ is the quadrature variance
+and its variance is
 \begin{align}
   &
         \label{eq:sigma-x}
@@ -290,23 +312,36 @@ and $\sigma_x$ is the quadrature variance
     }.
 \end{align}
 
-By computing inverse Forier transform of $Q$ symbol~\eqref{eq:Pgood-w-def}, we obtain anti-normal ordered characteristic function~\cite{Serafini:bk:2023}. From this characteristic function we can deduce the covariance matrix of the noisy homodyne measurements as follows %(see also Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} for derivation)
+Taking the inverse Fourier transform of the $Q$~symbol~\eqref{eq:Pgood-w-def} gives the antinormally ordered characteristic function and determines the target covariance matrix $\Sigma_m^{(\ind{H})}$~\cite{Serafini:bk:2023}. The reference homodyne POVM is the ideal projective quadrature measurement. We retain the subscript $\ind{id}$ used in Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} to denote the noiseless reference POVMs. We use an auxiliary squeezing parameter $s$ to write the homodyne measurement as an infinite-squeezing limit. The target and reference covariance matrices are
 \begin{align}
     &\label{eq:Sigma-H-m}
-    \Sigma_{m}^{(\ind{H})}= \lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r}+\sigma_N,e^{2r})\,\tcnj{R}(\phi)
-    %=\Sigma_{\ind{id}}^{(\ind{H})}+\Sigma_{N}^{(\ind{H})}
-    ,\\
+    \Sigma_{m}^{(\ind{H})}
+    =
+    \lim_{s\to+\infty}
+    R(\phi)\,
+    \diag(e^{-2s}+\sigma_N,e^{2s})\,
+    \tcnj{R}(\phi),\\
     &\label{eq:Sigma-H-id}
-    \Sigma_{\ind{id}}^{(\ind{H})}=\lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r},e^{2r})\,{R}^{\ind{T}}(\phi)%\\
-    %&\label{eq:Sigma-N-H}
-    %\Sigma_{N}^{(\ind{H})}=R(\phi)\,\ind{diag}(\sigma_N,0)\,\tcnj{R}(\phi)
-    ,
+    \Sigma_{\ind{id}}^{(\ind{H})}
+    =
+    \lim_{s\to+\infty}
+    R(\phi)\,
+    \diag(e^{-2s},e^{2s})\,
+    \tcnj{R}(\phi),
 \end{align}
-where $\Sigma_{\ind{id}}^{(\ind{H})}$ is the covariance matrix of ideal homodyne measurement, $R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi& \cos\phi\end{pmatrix}$ is the rotation matrix; $\sigma_N$ is the excess noise variance that accounts for asymmetry effects is given by
+where
 \begin{align}
-  &
+  R(\phi)
+  =
+  \begin{pmatrix}
+    \cos\phi&-\sin\phi\\
+    \sin\phi&\cos\phi
+  \end{pmatrix}
+\end{align}
+is the rotation matrix and $\sigma_N$ is the receiver excess-noise variance,
+\begin{align}
   \label{eq:sgm_N}
-     \sigma_N=\sigma_x-1.
+  \sigma_N=\sigma_x-1.
 \end{align}
 
 \begin{figure}
@@ -331,23 +366,20 @@ where $\Sigma_{\ind{id}}^{(\ind{H})}$ is the covariance matrix of ideal homodyne
   \label{fig:scheme}
 \end{figure}
 
-For double homodyne detection, $Q$ symbol is given by
+For double-homodyne detection, $(C_S,S_S)$ and $(C_L,S_L)$ are the real amplitude coefficients of the signal and LO beam splitters, while $(C_i,S_i)$ are those of homodyne branch $i\in\{1,2\}$. Each pair obeys $C_j^2+S_j^2=1$ for $j\in\{S,L,1,2\}$. The quantities $\eta_k^{(i)}$ and $m_k^{(i)}$ are the quantum efficiency and photon count of detector $k\in\{1,2\}$ in branch $i$, and $\mu_i=m_1^{(i)}-m_2^{(i)}$.
+
+The $Q$ symbol of the target double-homodyne POVM is
 \begin{align}
   \label{eq:P_G-x1x2}
   &
     \prob_G^{(\ind{DH})}(x_1,x_2)
-    =\frac{1}{2\pi\sqrt{\sigma_G^{(1)}\sigma_G^{(2)}}}
+    =\frac{1}{\pi\sqrt{\sigma_1\sigma_2}}
     \exp\biggl[
-    -\frac{(x_1-\Re\alpha e^{-i\phi})^2}{\sigma_1}
-    -\frac{(x_2-\Im\alpha e^{-i\phi})^2}{\sigma_2}
-    \biggr],\\
-    &
-    \label{eq:sigma_G-i}
-    \sigma_G^{(i)}=
-    (\eta_1^{(i)}S_i^2+\eta_2^{(i)}C_i^2) |\alpha_L^{(i)}|^2,\quad
-    \alpha_L^{(1)}=C_L\alpha_L,\quad \alpha_L^{(2)}=-iS_L\alpha_L,
+    -\frac{[x_1-\Re(\alpha e^{-i\phi})]^2}{\sigma_1}
+    -\frac{[x_2-\Im(\alpha e^{-i\phi})]^2}{\sigma_2}
+    \biggr],
 \end{align}
-where $\sigma_G^{(i)}$ is the variance of the photon count difference before rescaling and $x_i$ are the quadrature variables given by
+where $\alpha_L^{(1)}=C_L\alpha_L$ and $\alpha_L^{(2)}=-iS_L\alpha_L$ are the local-oscillator amplitudes in the two homodyne branches, and $x_i$ are the rescaled quadrature variables:
 \begin{align}
   \label{eq:x-1}
   x_1&=
@@ -361,9 +393,9 @@ where $\sigma_G^{(i)}$ is the variance of the photon count difference before res
   \frac{1}{2(\eta_1^{(2)}+\eta_2^{(2)})C_2S_2S_S}
   \left\{
   \frac{\mu_2}{|\alpha_L^{(2)}|}-(\eta_1^{(2)}S_2^2-\eta_2^{(2)}C_2^2) |\alpha_L^{(2)}|
-    \right\},
+    \right\}.
 \end{align}
-and relations
+The parameters $\sigma_i$ are defined by
 \begin{align}
   &
   \label{eq:sigm-i}
@@ -375,11 +407,11 @@ and relations
     \label{eq:sigm-x-i}
     \sigma_x^{(i)}=\frac{\eta_1^{(i)}S_i^2+\eta_2^{(i)}C_i^2}{
     \left[(\eta_1^{(i)}+\eta_2^{(i)})C_i S_i\right]^2
-    }
+    }.
 \end{align}
-give the quadrature variances $\sigma_1$ and $\sigma_2$.
+Thus, for fixed input amplitude $\alpha$, the conditional outcome variances are $\operatorname{Var}(x_i\mid\alpha)=\sigma_i/2$.
 
-Following the same procedure used to derive Eq.~\eqref{eq:Sigma-H-m}, we obtain the covariance matrix of the double homodyne POVM,
+Following the same procedure used to derive Eq.~\eqref{eq:Sigma-H-m}, we obtain the covariance matrix of the target double-homodyne POVM,
 \begin{align}
 \label{eq:Sigma_m-DH}
   &
@@ -390,17 +422,21 @@ Following the same procedure used to derive Eq.~\eqref{eq:Sigma-H-m}, we obtain 
     \delta_i=2\sigma_i-1.
 \end{align}
 
-The POVM that describes ideal double-homodyne measurements uses the set of squeezed states,
+For a complex outcome $z=z_1+iz_2$, we define the effects of the rank-one reference Gaussian POVM by
+\begin{align}
+  \hat\Pi_{\ind{id}}^{(z)}
+  =\frac{1}{\pi}\ket{z,r,\phi}\bra{z,r,\phi},
+  \qquad z_1,z_2\in\mathbb{R},
+\end{align}
+where
 \begin{align}
   \label{eq:squeezed-def}
   \ket{z,r,\phi}=\hat{R}(\phi)\hat{D}(z)\hat{S}(r)\ket{0}=
   \hat{D}(z e^{i\phi})\hat{S}(r e ^{2i\phi})\ket{0},
 \end{align}
-where $z$ is the coherent state amplitude, $r$ is real-valued squeezing parameter, and $\phi$ is squeezing phase,
-$\hat{D}(z) =
-e^{z\hcnj{\hat{a}}-z^*\hat{a}}$ is the displacement operator, and $\hat{S}(r)=e^{\frac{1}{2}\left(r\hat{a}^{\dag2}-r^*\hat{a}^2\right)}$ is the squeezing operator.
+and $r\in\mathbb{R}$ is the squeezing parameter. The operators are $\hat R(\phi)=e^{i\phi\hat a^\dagger\hat a}$, $\hat D(z)=e^{z\hat a^\dagger-z^*\hat a}$, and $\hat S(\zeta)=e^{[\zeta\hat a^{\dagger2}-\zeta^*\hat a^2]/2}$ for $\zeta\in\mathbb{C}$. At $r=0$, the reference Gaussian POVM reduces to the coherent-state POVM implemented by conventional ideal double-homodyne detection.
 
-The covariance matrix of squeezed states reads
+For fixed $r$ and $\phi$, the displaced squeezed states in Eq.~\eqref{eq:squeezed-def} have covariance matrix
 \begin{align}
   \label{eq:Sigma-id-DH}
   &
@@ -412,7 +448,7 @@ The covariance matrix of squeezed states reads
     \tcnj{R}(\phi).
 \end{align}
 
-An important point is that, for the difference between covariance matrices of noisy and ideal double-homodyne measurements, given by Eq.~\eqref{eq:Sigma_m-DH} and Eq.~~\eqref{eq:Sigma-id-DH} respectively, is positive semi-definite, the squeezing parameter $r$ must be ranged in the interval defined by parameters of the scheme (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne})
+Complete positivity of the additive-noise channel considered below requires $\Sigma_m^{(\ind{DH})}-\Sigma_{\ind{id}}^{(\ind{DH})}\succeq0$. Equations~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigma-id-DH} therefore restrict $r$ to the interval fixed by the receiver parameters~\cite{naumchik2025asymmetryeffectshomodyneheterodyne},
 \begin{align}
   \label{eq:r1-r2}
   &
@@ -422,77 +458,163 @@ An important point is that, for the difference between covariance matrices of no
     r_2=\ln\delta_2^{-1/2}.
 \end{align}
 
-\section{Gaussian channels modeling imperfect measurements}\label{sec:channels}
-For arbitrary state $\hat{\rho}$ and POVM ${\hat{\Pi}^{(x)}}$, the outcome probability is~\cite{Nielsen:bk:2010}
+\section{Gaussian channels for the target POVMs}
+\label{sec:channels}
+
+Throughout this section, we consider Gaussian channels with zero displacement and zero-mean noise and use units in which the vacuum covariance matrix is $\mathbbm{1}$. For measurement type $\gamma\in\{\ind{H},\ind{DH}\}$, where $\ind{H}$ and $\ind{DH}$ denote homodyne and double-homodyne detection, respectively, let $\mathcal{C}_{\gamma}$ denote the effective one-mode Gaussian channel, hereafter the receiver channel.
+
+A Gaussian channel $\mathcal{C}_{\gamma}$ is characterized by real matrices $X_{\mathcal{C}}^{(\gamma)}$ and $Y_{\mathcal{C}}^{(\gamma)}$. It transforms the first-moment vector $\boldsymbol{r}_G$ and covariance matrix $\Sigma_G$ of a Gaussian state as~\cite{Weed:rmp:2012}
 \begin{align}
-p(x|\hat{\rho})=\Tr\left(\hat{\rho}\,\hat{\Pi}^{(x)}\right).
+  &\boldsymbol{r}_G
+  \mapsto
+  X_{\mathcal{C}}^{(\gamma)}\boldsymbol{r}_G,
+  \notag\\
+  \label{eq:X,Y-action}
+  &\Sigma_G
+  \mapsto
+  X_{\mathcal{C}}^{(\gamma)}
+  \Sigma_G
+  \left[X_{\mathcal{C}}^{(\gamma)}\right]^{\ind{T}}
+  +Y_{\mathcal{C}}^{(\gamma)}.
 \end{align}
 
-The measurement statistics of Gaussian states with noisy Gaussian measurements can be calculated by applying the noise map $\mathcal{C}$ to $\rho_G$, or the dual map $\mathcal{C}^*$ to the ideal POVM $\hat{\Pi}_{\ind{id}}$~\cite{Caruso2006, Serafini:bk:2023}, i.e.
+For an arbitrary state $\hat{\rho}$ and POVM density
+$\hat{\Pi}^{(\boldsymbol{u})}$, the outcome probability density
+is~\cite{Nielsen:bk:2010}
+\begin{align}
+  p(\boldsymbol{u}|\hat{\rho})
+  =
+  \Tr\left[
+    \hat{\rho}\,
+    \hat{\Pi}^{(\boldsymbol{u})}
+  \right].
+\end{align}
+
+We reproduce the target POVM by applying $\mathcal{C}_{\gamma}$ to the input state before measuring the reference Gaussian POVM. Equivalently, the dual map $\mathcal{C}_{\gamma}^{*}$ acts on the reference POVM:
 \begin{align}
   \label{eq:channel-motiv}
-  p(x|\hat\rho_G)=\Tr\left\{\mathcal{C}(\hat\rho_G)\,\hat\Pi_{\ind{id}}^{(x)}\right\}
-  =\Tr\left\{\hat\rho_G\,\mathcal{C}^{*}\left(\hat\Pi_{\ind{id}}^{(x)}\right)\right\}.
+  p_{\mathcal{C}_{\gamma}}(\boldsymbol{u}|\hat{\rho})
+  &=
+  \Tr\left[
+    \mathcal{C}_{\gamma}(\hat{\rho})\,
+    \hat{\Pi}_{\ind{id}}^{(\boldsymbol{u})}
+  \right]
+  \notag\\
+  &=
+  \Tr\left[
+    \hat{\rho}\,
+    \mathcal{C}_{\gamma}^{*}
+    \left(
+      \hat{\Pi}_{\ind{id}}^{(\boldsymbol{u})}
+    \right)
+  \right].
 \end{align}
 
-An important property is that the same measurement statistics can be described by different Gaussian channels $\mathcal{C}$, provided their dual maps $\mathcal{C}^{*}$ yield the same covariance matrix. While the first moments will differ, it is not as crucial due to being able to rescale them.
-
-Note that, as measurements are specified to be Gaussian, the channels $\mathcal{C}$ and $\mathcal{C}^*$ will be Gaussian as well. It follows that the channel $\mathcal{C}$ is fully characterized by matrices $X_{\mathcal{C}}$ and $Y_{\mathcal{C}}$, transforming the first and second moments of Gaussian state $\rho_G$, $\boldsymbol{r}_G$ and $\Sigma_G$ respectively, as follows~\cite{Weed:rmp:2012}
+For the channels considered below, we write
 \begin{align}
-  &\boldsymbol{r}_G\mapsto X_{\mathcal{C}}\boldsymbol{r}_G,\notag\\
-  \label{eq:X,Y-action}
-  &\Sigma_G\mapsto X_{\mathcal{C}}\Sigma_G X_{\mathcal{C}}^{\ind{T}}+Y_{\mathcal{C}}.
+  X_{\mathcal{C}}^{(\gamma)}
+  =
+  \kappa_{\mathcal{C}}^{(\gamma)}\mathbbm{1},
+  \qquad
+  \kappa_{\Phi}^{(\gamma)}=1,
+  \qquad
+  \kappa_{\mathcal{E}}^{(\gamma)}=\cos\theta_{\gamma}.
 \end{align}
-
-The dual channel $\mathcal{C}^*$ transforming the first and second moments as follows
+Let $d_{\ind{H}}=1$ and $d_{\ind{DH}}=2$ denote the number of measured quadratures. We rescale the outcome of the reference POVM according to
 \begin{align}
-  &\boldsymbol{r}_G\mapsto X_{\mathcal{C}}^{-1}\boldsymbol{r}_G,\notag\\
-  &\Sigma_{G}\mapsto  X_{\mathcal{C}}^{-1}\Sigma_{G} \left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}+X_{\mathcal{C}}^{-1}Y_{\mathcal{C}}\left({X_{\mathcal{C}}^{-1}}\right)^{\ind{T}}.
+  \boldsymbol{x}
+  =
+  \frac{\boldsymbol{u}}
+  {\kappa_{\mathcal{C}}^{(\gamma)}}.
 \end{align}
+For double-homodyne detection,
+$\boldsymbol{u}=(z_1,z_2)^{\ind{T}}$, so that
+\begin{align}
+  z
+  =
+  \kappa_{\mathcal{C}}^{(\ind{DH})}
+  (x_1+i x_2).
+\end{align}
+The resulting POVM density with respect to
+$\dd^{d_{\gamma}}\boldsymbol{x}$ is
+\begin{align}
+  \label{eq:rescaled-povm}
+  \hat{\Pi}_{\mathcal{C}_{\gamma}}^{(\boldsymbol{x})}
+  =
+  \left[
+    \kappa_{\mathcal{C}}^{(\gamma)}
+  \right]^{d_{\gamma}}
+  \mathcal{C}_{\gamma}^{*}
+  \left(
+    \hat{\Pi}_{\ind{id}}^{
+      \left(
+        \kappa_{\mathcal{C}}^{(\gamma)}
+        \boldsymbol{x}
+      \right)
+    }
+  \right).
+\end{align}
+The prefactor in Eq.~\eqref{eq:rescaled-povm} is the Jacobian of the outcome rescaling and preserves the POVM normalization. A channel representation reproduces the target POVM if
+\begin{align}
+  \hat{\Pi}_{\mathcal{C}_{\gamma}}^{(\boldsymbol{x})}
+  =
+  \hat{\Pi}_{m}^{(\boldsymbol{x})}
+\end{align}
+for every outcome $\boldsymbol{x}$.
 
-In what follows, we will consider two distinct quantum channels to describe the imperfect measurements, namely additive-noise channel and attenuator channel. In accordance with Eq.~\eqref{eq:channel-motiv}, channel $\mathcal{C}$ will be defined in a way that its' dual channel $\mathcal{C}^*$ will transform the covariance matrix of ideal measurement $\Sigma_{\ind{id}}$ into the covariance matrix of noisy Gaussian measurement $\Sigma_{m}$,
+At the covariance-matrix level, this condition becomes
 \begin{align}
   \label{eq:C-gen}
-  \mathcal{C}^*:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}
+  \Sigma_m^{(\gamma)}
+  =
+  \left[
+    \kappa_{\mathcal{C}}^{(\gamma)}
+  \right]^{-2}
+  \left(
+    \Sigma_{\ind{id}}^{(\gamma)}
+    +
+    Y_{\mathcal{C}}^{(\gamma)}
+  \right).
 \end{align}
+Because the channels have zero displacement and
+$X_{\mathcal{C}}^{(\gamma)}$ is proportional to the identity, the outcome rescaling restores the input-dependent first moments. Equation~\eqref{eq:C-gen}, together with the Jacobian in Eq.~\eqref{eq:rescaled-povm}, therefore establishes equality with the normalized target Gaussian POVM.
 
 \subsection{Additive-noise channel}
-First, we consider additive-noise (classical mixing) channel~\cite{Serafini:bk:2023} $\Phi_{\gamma}$, characterized by matrices
+First, we consider the additive-noise channel $\Phi_{\gamma}$, characterized by the matrices~\cite{Serafini:bk:2023}
 \begin{align}
     \label{eq:X,Y-phi}
-    X_{\Phi}^{(\gamma)}=\mathbbm{1}, \quad Y_{\Phi}^{(\gamma)}\geq0, \quad \gamma\in\{\ind{H}, \ind{DH}\}.
+    X_{\Phi}^{(\gamma)}=\mathbbm{1}, \quad Y_{\Phi}^{(\gamma)}\succeq0, \quad \gamma\in\{\ind{H}, \ind{DH}\}.
 \end{align}
-This is a self-dual channel,
-$\cnj{\Phi}_\gamma=\Phi_\gamma$, that does not affect the first moment and changes the second moment as follows
+The additive-noise channel is self-dual, $\Phi_\gamma^{*}=\Phi_\gamma$. It leaves the first moment unchanged and transforms the covariance matrix as
 \begin{align}
   \Phi_\gamma:
   \Sigma\mapsto
   \Sigma+Y_{\Phi}^{(\gamma)}.
 \end{align}
 
-To find matrices $Y_{\Phi}^{(\gamma)}$ so that (see Eq.~\eqref{eq:C-gen})
+Equation~\eqref{eq:C-gen} requires
 \begin{align}
   \label{eq:add-act}
   \Phi_{\gamma}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_m^{(\gamma)}=\Sigma_{\ind{id}}^{(\gamma)}+Y_{\Phi}^{(\gamma)},
 \end{align}
-we need to find the difference between covariance matrices of noisy and ideal measurements, i.e.
+and therefore
 \begin{align}
   Y_{\Phi}^{(\gamma)}=\Sigma_{m}^{(\gamma)}-\Sigma_{\ind{id}}^{(\gamma)}\equiv \Sigma_{N}^{(\gamma)},
 \end{align}
-where we defined the covariance matrix of excess noise $\Sigma_{N}^{(\gamma)}$.
+where $\Sigma_{N}^{(\gamma)}$ is the receiver excess-noise covariance matrix.
 
-For homodyne detection, from Eq.~\eqref{eq:Sigma-H-id} and~\eqref{eq:Sigma-H-m}, we have
+For homodyne detection, Eqs.~\eqref{eq:Sigma-H-id} and~\eqref{eq:Sigma-H-m} give
 \begin{align}
     &
     \label{eq:Sigma-N-H}
     \Sigma_{N}^{(\ind{H})}=
     \Sigma_{m}^{(\ind{H})}-\Sigma_{\ind{id}}^{(\ind{H})}= R(\phi)
-    \ind{diag}(\sigma_N, 0)
-    \tcnj{R}(\phi)\ge 0,
+    \diag(\sigma_N, 0)
+    \tcnj{R}(\phi)\succeq 0,
 \end{align}
 where $\sigma_N$ is given by Eq.~\eqref{eq:sgm_N}.
 
-For double homodyne detection, from Eq.~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigma-id-DH}, we have
+For double-homodyne detection, Eqs.~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigma-id-DH} give
 \begin{align}
   &
     \label{eq:Sigma-N-DH}
@@ -501,82 +623,82 @@ For double homodyne detection, from Eq.~\eqref{eq:Sigma_m-DH} and~\eqref{eq:Sigm
 \begin{pmatrix}
       \sigma_N^{(1)}(r) &0\\0&\sigma_N^{(2)}(r)
     \end{pmatrix}
-    \tcnj{R}(\phi)\ge 0,\\
+    \tcnj{R}(\phi)\succeq 0,\\
   \label{eq:sigma_N-sq-2}
   &
     \sigma_N^{(1)}(r)=\delta_1-e^{2r},
     \quad
     \sigma_N^{(2)}(r)=\delta_2-e^{-2r}.
 \end{align}
-Note that the elements of $\Sigma_{N}^{(\ind{DH})}$ are dependent on squeezing parameter that lies in the interval~\eqref{eq:r1-r2}. When $r\in[r_2,r_1]$, it is certain that the covariance matrix of excess noise is positive semi-definite, $\Sigma_{N}^{(\ind{DH})}(r)\geq0$.
+The squeezing parameter $r$ determines the entries of $\Sigma_{N}^{(\ind{DH})}$. For every $r\in[r_2,r_1]$, the excess-noise covariance matrix is positive semidefinite, $\Sigma_{N}^{(\ind{DH})}(r)\succeq0$.
 
 \subsection{Attenuator channel}
-We shall move on to the attenuator channel $\mathcal{E}_{\gamma}$,
-characterized by matrices~\cite{Serafini:bk:2023}
+The attenuator channel $\mathcal{E}_{\gamma}$ is characterized by the matrices~\cite{Serafini:bk:2023}
 \begin{align}
     \label{eq:X,Y}
     X_{\mathcal{E}}^{(\gamma)}=\cos\theta_{\gamma}\mathbbm{1}, \quad Y_{\mathcal{E}}^{(\gamma)}=\sin^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)}, \quad \gamma \in \{\ind{H}, \ind{DH}\},
 \end{align}
-where $\Sigma_{\ind{env}}^{(\gamma)}$ is the covariance matrix of the state decribing the enviroment.
+where $\Sigma_{\ind{env}}^{(\gamma)}$ is the covariance matrix of the environmental input state.
 
-Using Eq.~\eqref{eq:C-gen} together with Eq.~\eqref{eq:X,Y-action}, we construct the dual channel $\mathcal{E}_N^{*(\gamma)}$ so that it transforms the POVM of the ideal measurement into the POVM of the noisy measurements by changing the covariance matrix $\Sigma_{\ind{id}}^{(\gamma)}$ into $\Sigma_{m}^{(\gamma)}$ as follows
+Using Eqs.~\eqref{eq:X,Y-action} and~\eqref{eq:C-gen}, we choose $\mathcal{E}_{\gamma}^{*}$ so that it maps the reference Gaussian POVM to the target POVM. In the rescaled outcome coordinates, its action on the covariance matrix is
 \begin{align}
     \label{eq:psi_ast}
     \mathcal{E}_{\gamma}^{*}:\quad \Sigma_{\ind{id}}^{(\gamma)}\mapsto\Sigma_{m}^{(\gamma)}=\frac{1}{\cos^2\theta_{\gamma}}\Sigma_{\ind{id}}^{(\gamma)}+\tan^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)},
     \quad \gamma\in\{\ind{H},\ind{DH}\}.
 \end{align}
 
-First, we will consider homodyne detection. If the enviroment is decribed by vacuum, i.e.
+For homodyne detection, we take the environmental input state to be the vacuum, with covariance matrix
 \begin{align}
     \label{eq:sigma-anc-h}
-    \Sigma_{\ind{env}}^{(\ind{H})}=\mathbbm{1},
+    \Sigma_{\ind{env}}^{(\ind{H})}=\mathbbm{1}.
 \end{align}
-together with from matrices of ideal~\eqref{eq:Sigma-H-id} and noisy~\eqref{eq:Sigma-H-m} measurements, Eq.~\eqref{eq:psi_ast} takes the form
+The attenuator transforms the measured quadrature according to
 \begin{align}
-  \Sigma_{m}^{(\ind{H})}=\lim_{r\to+\infty}R(\phi)\,\ind{diag}(e^{-2r}+\sigma_N,e^{2r})\,\tcnj{R}(\phi)=\lim_{r\to+\infty}\left\{
-    \frac{1}{\cos^2\theta_{\ind{H}}}R(\phi)\,\ind{diag}(e^{-2r},e^{2r})\,{R}^{\ind{T}}(\phi)
-    +
-    \tan^2\theta_{\ind{H}}\mathbbm{1}
-    \right\}
+  \hat{x}_{\phi,\ind{out}}
+  =\cos\theta_{\ind{H}}\hat{x}_{\phi,\ind{in}}
+  +\sin\theta_{\ind{H}}\hat{x}_{\phi,\ind{env}}.
 \end{align}
-due to the limit $r\to\infty$, we may write
+Let $x_{\ind{raw}}$ denote the outcome associated with $\hat{x}_{\phi,\ind{out}}$. The rescaling $x=x_{\ind{raw}}/\cos\theta_{\ind{H}}$ corresponds to the rescaled observable
 \begin{align}
-    &\frac{1}{\cos^2\theta}\Sigma_{\ind{id}}^{(\ind{H})}\sim
-    \Sigma_{\ind{id}}^{(\ind{H})}, \quad e^{2r}+\ind{const}\sim e^{2r},
+  \frac{\hat{x}_{\phi,\ind{out}}}{\cos\theta_{\ind{H}}}
+  =\hat{x}_{\phi,\ind{in}}
+  +\tan\theta_{\ind{H}}\hat{x}_{\phi,\ind{env}}.
 \end{align}
-it is sufficient to solve for $\tan^2\theta_{\ind{H}}$, i.e.
+Since the vacuum quadrature variance is one, the added variance is $\tan^2\theta_{\ind{H}}$. Exact equality with the target homodyne POVM therefore requires
 \begin{align}
   \label{eq:tan2theta-h}
-  \tan^2\theta_{\ind{H}}=\sigma_N, %\quad\Sigma_{\mathcal{E}_{\ind{H}}}\equiv R(\phi)\,\ind{diag}(\sigma_N,\sigma_N)\,{R}^{\ind{T}}(\phi).
+  \tan^2\theta_{\ind{H}}=\sigma_N. %\quad\Sigma_{\mathcal{E}_{\ind{H}}}\equiv R(\phi)\,\ind{diag}(\sigma_N,\sigma_N)\,{R}^{\ind{T}}(\phi).
 \end{align}
-where $\sigma_N$ is defined by Eq.~\eqref{eq:sgm_N}. Then, $\cos^2\theta_{\ind{H}}$ and $\sin^2\theta_{\ind{H}}$ are given by
+Since $\sigma_x=1+\sigma_N$ by Eq.~\eqref{eq:sgm_N}, Eq.~\eqref{eq:tan2theta-h} gives
 \begin{align}
     \label{eq:cos-theta-h}
     &\cos^2\theta_{\ind{H}}={\frac{1}{\sigma_x}},\quad
     \sin^2\theta_{\ind{H}}={\frac{\sigma_N}{\sigma_x}}.
 \end{align}
 
-For double-homodyne detection with $\delta_1\neq\delta_2$, the environmental state obtained below is generally anisotropic for an arbitrary admissible value of $r$, although it can be isotropic at a special value of $r$. In the attenuator channel model studied here, we restrict the environmental mode to a pure state with $\det\Sigma_{\ind{env}}^{(\ind{DH})}=1$,
+For double-homodyne detection, first suppose that $r_2<r_1$, equivalently $\delta_1\delta_2>1$, and take $r\in(r_2,r_1)$. In the attenuator channel considered here, we take the environmental input state to be a centered pure Gaussian state with covariance matrix
 %For double homodyne detection, first, we note that, since $\Sigma_m^{(\ind{DH})}$ is anisotropic, as generally quadrature variances $\delta_{1,2}$ are not equal, $\delta_1\neq\delta_2$, enviroment state must be anisotropic as well. Without loss of generality, we will consider the enviroment to be in pure state with $\det\Sigma_{\ind{env}}^{(\ind{DH})}=1$,
 \begin{align}
   \label{eq:anc-dh-def}
-    \Sigma_{\ind{env}}^{(\ind{DH})}=R(\phi)\,\ind{diag}\left(a,\frac1a\right)\,{R}^{\ind{T}}(\phi),\quad a\geq0.
+    \Sigma_{\ind{env}}^{(\ind{DH})}(r)
+    =R(\phi)\,\diag\left(a(r),a(r)^{-1}\right)\,\tcnj{R}(\phi),
+    \qquad a(r)>0.
 \end{align}
-Solving Eq.~\eqref{eq:psi_ast} for the case of double homodyne detection, (see Eq.~\eqref{eq:Sigma-id-DH},~\eqref{eq:Sigma_m-DH}),
+Equations~\eqref{eq:psi_ast}, \eqref{eq:Sigma-id-DH}, and~\eqref{eq:Sigma_m-DH} give
 \begin{align}
   \Sigma_{m}^{(\ind{DH})}=
   R(\phi)\diag(\delta_1,\delta_2)\tcnj{R}(\phi)
   =R(\phi)\,\left\{
-    \frac{1}{\cos^2\theta_{\ind{DH}}}\,\ind{diag}(e^{2r},e^{-2r})
+    \frac{1}{\cos^2\theta_{\ind{DH}}(r)}\,\diag(e^{2r},e^{-2r})
     +
-    \tan^2\theta_{\ind{DH}}\,\ind{diag}\left(a,\frac{1}{a}\right)
-    \right\}\,{R}^{\ind{T}}(\phi),
+    \tan^2\theta_{\ind{DH}}(r)\,\diag\left(a(r),a(r)^{-1}\right)
+    \right\}\,\tcnj{R}(\phi),
 \end{align}
 \begin{align}
     \label{eq:system-dh}
     \begin{cases}
-        \delta_1=\frac{e^{2r}}{\cos^2\theta_{\ind{DH}}}+\tan^2\theta_{\ind{DH}} a\\
-        \delta_2=\frac{e^{-2r}}{\cos^2\theta_{\ind{DH}}}+\tan^2\theta_{\ind{DH}} a^{-1}
+        \delta_1=\dfrac{e^{2r}}{\cos^2\theta_{\ind{DH}}(r)}+\tan^2\theta_{\ind{DH}}(r)a(r),\\[2mm]
+        \delta_2=\dfrac{e^{-2r}}{\cos^2\theta_{\ind{DH}}(r)}+\tan^2\theta_{\ind{DH}}(r)a(r)^{-1}
     \end{cases}.
   \end{align}
 Solving the system yields
@@ -591,32 +713,41 @@ Solving the system yields
     %,\\
     %&\sigma_N^{(1)}=\delta_1-e^{2r}, \quad \sigma_N^{(2)}=\delta_2-e^{-2r}.
 \end{align}
+As $r\to r_2^+$ or $r\to r_1^-$, respectively, $a(r)$ or $a(r)^{-1}$ diverges while $\tan^2\theta_{\ind{DH}}(r)\to0$. The products $\tan^2\theta_{\ind{DH}}(r)a(r)$ and $\tan^2\theta_{\ind{DH}}(r)a(r)^{-1}$ approach finite limits. The environmental covariance matrix has no finite endpoint limit, while the channel matrices satisfy
+\begin{align}
+  \lim_{r\to r_2^+}X_{\mathcal{E}}^{(\ind{DH})}(r)&=\mathbbm{1},
+  &
+  \lim_{r\to r_2^+}Y_{\mathcal{E}}^{(\ind{DH})}(r)&=\Sigma_N^{(\ind{DH})}(r_2),\\
+  \lim_{r\to r_1^-}X_{\mathcal{E}}^{(\ind{DH})}(r)&=\mathbbm{1},
+  &
+  \lim_{r\to r_1^-}Y_{\mathcal{E}}^{(\ind{DH})}(r)&=\Sigma_N^{(\ind{DH})}(r_1).
+\end{align}
+We define $\mathcal{E}_{\ind{DH}}(r_2)$ and $\mathcal{E}_{\ind{DH}}(r_1)$ by these one-sided limits. Each endpoint channel equals the corresponding additive-noise channel. If $r_1=r_2$, then $\delta_1\delta_2=1$, the target POVM is rank one, and both channels reduce to the identity channel.
 
-Note that at the ends of the $r$-interval~\eqref{eq:r1-r2}, $r\to r_2$ or $r\to r_1$, either $a(r)$ or $1/a(r)$ tend to infinity, making the ancilla state~\eqref{eq:anc-dh-def} the eigenstate of the quadrature operator~\eqref{eq:quad-op}. By evaluating in this case the equations~\eqref{eq:system-dh}, i.e. resolving indeterminate form $\tan^2\theta_{\ind{DH}} a(r)$ for $r=r_2$ and $\tan^2\theta_{\ind{DH}}/a(r)$ for $r=r_1$, because one of noise variances~\eqref{eq:sigma_N-sq-2} would be $0$, it can be seen that the effect of this channel would be the same as the effect of the additive-noise channel~\eqref{eq:add-act} modeling double homodyne detection with the same $r$. This fact will be used in numerical calculations (see next section and Fig.~\ref{fig:Entropy}).
 \section{Gaussian-modulated coherent-state protocol}\label{sec:protocol}
 In the Gaussian-modulated coherent-state (GMCS) protocol, Alice samples the complex amplitude $\alpha=\alpha_1+i\alpha_2$ from the Gaussian prior:
 \begin{align}
   p_A(\alpha)
-  =\frac{1}{\pi V_{\ind{A}}}\exp\!\left[-\frac{|\alpha|^2}{2V_{\ind{A}}}\right].
+  =\frac{1}{2\pi V_{\ind{A}}}\exp\!\left[-\frac{|\alpha|^2}{2V_{\ind{A}}}\right].
 \end{align}
 She then prepares the coherent state $\ket{\alpha}$.
-The states pass the composite Gaussian channel $\mathcal{N}_{A\to B}=\mathcal{L}_{N}\circ\mathcal{L}_{T_{\ind{ch}}}$, where index indicates pure loss channel transmission coefficient, $T_{\ind{ch}}$ is the channel transmittance, $N=1+\xi_{\ind{ch}}/(1-T_{\ind{ch}})$, and $\xi_{\ind{ch}}$ is the channel excess noise.
-Then, the receiver uses either homodyne or double-homodyne detection to measure the states. Mutual information between legitimate parties in each case is then given by the following expressions (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} for derivation)
+The states pass through the phase-insensitive Gaussian communication channel $\mathcal{N}_{A\to B}$, specified by $X_{\mathcal{N}}=\sqrt{T_{\ind{ch}}}\mathbbm{1}$ and $Y_{\mathcal{N}}=(1-T_{\ind{ch}}+\xi_{\ind{ch}})\mathbbm{1}$, where $T_{\ind{ch}}$ is the channel transmittance and $\xi_{\ind{ch}}$ is the output-referred excess-noise variance~\cite{Laudenbach:aqt:2018}.
+The receiver then uses homodyne or double-homodyne detection. The corresponding Alice-Bob mutual information is~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}
 \begin{align}
   \label{eq:I_H_res}
-  &I_{\ind{AB}}^{(\ind{H})}=\frac{1}{2}\log\left[1+\frac{4T_{\ind{ch}}V_{\ind{A}}}{\sigma_x+\xi_{\ind{ch}}}\right],\\
+  &I_{\ind{AB}}^{(\ind{H})}=\frac{1}{2}\log_2\left[1+\frac{4T_{\ind{ch}}V_{\ind{A}}}{\sigma_x+\xi_{\ind{ch}}}\right],\\
   \label{eq:I_DH_res}
-  &I_{\ind{AB}}^{(\ind{DH})}=\frac{1}{2}\sum_i\log\left[1+\frac{4T_{\ind{ch}}V_{\ind{A}}}
+  &I_{\ind{AB}}^{(\ind{DH})}=\frac{1}{2}\sum_{i=1}^{2}\log_2\left[1+\frac{4T_{\ind{ch}}V_{\ind{A}}}
     {2 \sigma_i+\xi_{\ind{ch}}}\right],
 \end{align}
-where $\sigma_x$ and $\sigma_i$ given by Eqs.~\eqref{eq:sigma-x} and~\eqref{eq:sigm-x-i}, respectively, and upper indices hereinafter stand for homodyne and double-homodyne detection.
+where $\sigma_x$ and $\sigma_i$ are given by Eqs.~\eqref{eq:sigma-x} and~\eqref{eq:sigm-i}, respectively. The superscripts $\ind{H}$ and $\ind{DH}$ label homodyne and double-homodyne detection throughout.
 
-The covariance matrix of TMSV state with the Bob's mode
-transmitted through the noisy channel reads
-(see Ref.~\cite{Laudenbach:aqt:2018})
+For the covariance-matrix calculations below, we work in the local quadrature basis obtained by applying $R(\phi)$ to Alice's coordinates and $R(-\phi)$ to Bob's coordinates. This basis change preserves the diagonal local blocks and the correlation block proportional to $\sigma_z$, while diagonalizing the target and environmental covariance matrices, and it does not change the symplectic eigenvalues or the information quantities. All covariance matrices below are written in this basis.
+
+The covariance matrix of a two-mode squeezed-vacuum (TMSV) state after Bob's mode passes through the communication channel is~\cite{Laudenbach:aqt:2018}
 \begin{align}
-  \label{eq:TMSVS-to-AB}
-  \mathcal{I}_A&\otimes \mathcal{L}_{N}\circ\mathcal{L}_{T_{\ind{ch}}}:
+  \label{eq:TMSV-to-AB}
+  \mathcal{I}_A&\otimes \mathcal{N}_{A\to B}:
 \quad
     \Sigma_{\ind{TMSV}}
   =
@@ -632,10 +763,7 @@ transmitted through the noisy channel reads
         c\sigma_z&V_{\ind{B}}\mathbbm{1}
     \end{pmatrix},
 \end{align}
-where
-$\mathcal{I}_A$ is the identity channel acting on the subsystem $A$
-and the parameters of the covariance matrix
-$\Sigma_{\ind{AB}}$ are given by
+where $\sigma_z=\diag(1,-1)$, $\mathcal{I}_A$ is the identity channel acting on subsystem $A$, and the parameters of $\Sigma_{\ind{AB}}$ are
 \begin{align}
   \label{eq:V-c}
   &
@@ -648,7 +776,7 @@ $\Sigma_{\ind{AB}}$ are given by
 \end{align}
 
 
-We consider local action of either attenuator channel $\mathcal{E}_{\gamma}$~\eqref{eq:X,Y} or additive-noise channel $\Phi_{\gamma}$~\eqref{eq:X,Y-phi}, on second mode of TMSVS shared by Alice and Bob~\eqref{eq:TMSVS-to-AB}. In both cases, mutual information is given by $I_{\ind{AB}}^{(\gamma)}$~\eqref{eq:I_H_res},~\eqref{eq:I_DH_res}, as it is classical.
+We next apply either the additive-noise channel $\Phi_{\gamma}$~\eqref{eq:X,Y-phi} or the attenuator channel $\mathcal{E}_{\gamma}$~\eqref{eq:X,Y} to Bob's mode of the TMSV state~\eqref{eq:TMSV-to-AB}. For each channel, the corresponding reference POVM and outcome rescaling give the mutual information in Eqs.~\eqref{eq:I_H_res} and~\eqref{eq:I_DH_res} because they reproduce the same receiver outcome statistics.
 
 It follows that
 \begin{align}
@@ -657,15 +785,25 @@ It follows that
     \Sigma_{\ind{AB}}\mapsto
      \Sigma_{\ind{AB}}^{(\mathcal{E}_{\gamma})}
      =\begin{pmatrix}
-        V\mathbbm{1}&c\cos\theta_{\gamma}\sigma_z\\
-     c\cos\theta_{\gamma}\sigma_z&\cos^2\theta_{\gamma}
-     \left(V_{\ind{B}}+\tan^2\theta_{\gamma}\Sigma_{\ind{env}}^{(\gamma)}\right)
-    \end{pmatrix},
+        V\mathbbm{1}
+        &
+        c\cos\theta_{\gamma}\sigma_z
+        \\
+        c\cos\theta_{\gamma}\sigma_z
+        &
+        \cos^2\theta_{\gamma}
+        \left(
+          V_{\ind{B}}\mathbbm{1}
+          +
+          \tan^2\theta_{\gamma}
+          \Sigma_{\ind{env}}^{(\gamma)}
+        \right)
+    \end{pmatrix}.
 \end{align}
 \begin{align}
   &
   \label{eq:sigma_m_cov}
-\mathcal{I}_A\otimes \Phi_{N}^{(\gamma)}:
+\mathcal{I}_A\otimes \Phi_{\gamma}:
   \Sigma_{\ind{AB}}\mapsto
   \Sigma_{\ind{AB}}^{(\Phi_{\gamma})}
   =\begin{pmatrix}
@@ -674,20 +812,36 @@ It follows that
 \end{pmatrix},\quad \gamma\in\{\ind{H},\ind{DH}\}.
 \end{align}
 
-When the channel $\mathcal{C}_{\gamma}\in\{\Phi_{\gamma}, \mathcal{E}_{\gamma}\}$ is under control of the eavesdropper, 
-Eve holds a purification of the state
-$\hat{\rho}_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}=\mathcal{I}_A\otimes \mathcal{C}_{\gamma}(\hat{\rho}_{\ind{AB}})$ and the measurements performed by the receiver
-are assumed to be noiseless.
-In this scenario, 
-the difference between the joint and conditional entropies
+In the model with untrusted receiver noise, Eve holds a system $E$ such that
+$\hat{\rho}_{\ind{ABE}}^{\left(\mathcal{C}_{\gamma}\right)}$
+is a purification of
+\begin{align}
+  \hat{\rho}_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}
+  =
+  (\mathcal{I}_A\otimes\mathcal{C}_{\gamma})
+  (\hat{\rho}_{\ind{AB}}).
+\end{align}
+Bob then applies the corresponding rank-one reference POVM. In
+$\chi_{\ind{EB}}$, the label $B$ denotes Bob's rescaled classical outcome; in
+$\hat{\rho}_{\ind{AB}}$ and $\Sigma_{\ind{AB}}$, it denotes Bob's optical mode.
+Since the Alice-Bob-Eve state is pure before Bob's measurement and the reference POVM is rank one, the conditional Alice-Eve state is pure for every outcome. The Holevo information is therefore
 \begin{align}
   \label{eq:chi}
-  &
   \chi_{\ind{EB}} ^{\left(\mathcal{C}_{\gamma}\right)}
     =
-    S_{\ind{E}}-S_{\ind{E}|\ind{B}}=S_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}-S_{\ind{A}|\ind{B}}^{\left(\mathcal{C}_{\gamma}\right)}, \quad \mathcal{C}_{\gamma}\in\{\Phi_{\gamma}, \mathcal{E}_{\gamma}\}
+    S_{\ind{E}}
+    -
+    S_{\ind{E}|\ind{B}}
+    =
+    S_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}
+    -
+    S_{\ind{A}|\ind{B}}^{\left(\mathcal{C}_{\gamma}\right)},
+    \qquad
+    \mathcal{C}_{\gamma}
+    \in
+    \{\Phi_{\gamma},\mathcal{E}_{\gamma}\}.
 \end{align}
-gives the Holevo information.
+
 The joint entropy
 \begin{align}
   &
@@ -695,10 +849,10 @@ The joint entropy
   S_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}=g(\nu_1^{\left(\mathcal{C}_{\gamma}\right)})+g(\nu_2^{\left(\mathcal{C}_{\gamma}\right)}),
   \\
   &\notag
-    g(\nu)=\frac{\nu+1}{2}\log \frac{\nu+1}{2}-
-    \frac{\nu-1}{2}\log\frac{\nu-1}{2}
+    g(\nu)=\frac{\nu+1}{2}\log_2 \frac{\nu+1}{2}-
+    \frac{\nu-1}{2}\log_2\frac{\nu-1}{2}
 \end{align}
-then can be expressed in terms of the symplectic eigenvalues of the covariance matrix~\eqref{eq:sigma_m_cov} given by
+is determined by the symplectic eigenvalues of the covariance matrices in Eqs.~\eqref{eq:psi_action} and~\eqref{eq:sigma_m_cov}:
 \begin{align}
   &
     \label{eq:nu-12-gamma}
@@ -714,38 +868,136 @@ then can be expressed in terms of the symplectic eigenvalues of the covariance m
   \Delta_{\mathcal{C}_{\gamma}}=\det([\Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}]_{11})+\det([\Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}]_{22}) +
   2\det([\Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}]_{12}),
 \end{align}
-where $[\Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}]_{ii}$ ($[\Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}]_{ij}$) are diagonal (off-diagonal) blocks of $\Sigma_{\ind{AB}}^{\left(\mathcal{C}_{\gamma}\right)}$.
+where
+$[\Sigma_{\ind{AB}}^{(\mathcal{C}_{\gamma})}]_{11}$
+and
+$[\Sigma_{\ind{AB}}^{(\mathcal{C}_{\gamma})}]_{22}$
+are the local covariance blocks, while
+$[\Sigma_{\ind{AB}}^{(\mathcal{C}_{\gamma})}]_{12}$
+is the correlation block.
 
-Conditional entropies $S_{\ind{E|B}}=S_{\ind{A|B}}^{(\gamma)}$ are calculated from respective conditional covariance matrices,
+The conditional entropy is
 \begin{align}
-  &
-    \label{eq:S_A1B-gamma}
-    S_{\ind{A|B}}^{(\gamma)}=g(\nu_3^{(\gamma)}),\quad
-    \nu_3^{(\ind{\gamma})}=\sqrt{\det\Sigma_{\ind{A|B}}^{(\gamma)}},\\
-&  \label{eq:serf-a|b}
-  \Sigma_{\ind{A|B}}^{(\gamma)}=
-  V\mathbbm{1}-c^2\sigma_z(V_{\ind{B}}\mathbbm{1}+\Sigma^{(\gamma)}_m)^{-1}\sigma_z.
+  \label{eq:S_A1B-gamma}
+  S_{\ind{A|B}}^{(\gamma)}
+  =
+  g(\nu_3^{(\gamma)}),
+  \qquad
+  \nu_3^{(\gamma)}
+  =
+  \sqrt{\det\Sigma_{\ind{A|B}}^{(\gamma)}}.
 \end{align}
-Direct computations show that these conditional matrices and therefore their symplectic eigenvalues are independent on channel model. Symplectic eigenvalues are given by
+For a reference Gaussian POVM with covariance matrix
+$\Sigma_{\ind{id}}^{(\gamma)}$, the conditional covariance matrix obtained from the state after the channel is
+\begin{align}
+  \Sigma_{\ind{A|B}}^{(\mathcal{C}_{\gamma})}
+  =
+  V\mathbbm{1}
+  -
+  \Gamma_{\mathcal{C}_{\gamma}}
+  \left(
+    B_{\mathcal{C}_{\gamma}}
+    +
+    \Sigma_{\ind{id}}^{(\gamma)}
+  \right)^{-1}
+  \Gamma_{\mathcal{C}_{\gamma}}^{\ind{T}},
+\end{align}
+where
+\begin{align}
+  \Gamma_{\mathcal{C}_{\gamma}}
+  &=
+  \kappa_{\mathcal{C}}^{(\gamma)}
+  c\sigma_z,
+  \\
+  B_{\mathcal{C}_{\gamma}}
+  &=
+  \left[
+    \kappa_{\mathcal{C}}^{(\gamma)}
+  \right]^2
+  V_{\ind{B}}\mathbbm{1}
+  +
+  Y_{\mathcal{C}}^{(\gamma)}.
+\end{align}
+Equation~\eqref{eq:C-gen} gives
+\begin{align}
+  B_{\mathcal{C}_{\gamma}}
+  +
+  \Sigma_{\ind{id}}^{(\gamma)}
+  =
+  \left[
+    \kappa_{\mathcal{C}}^{(\gamma)}
+  \right]^2
+  \left(
+    V_{\ind{B}}\mathbbm{1}
+    +
+    \Sigma_m^{(\gamma)}
+  \right).
+\end{align}
+The factors
+$\kappa_{\mathcal{C}}^{(\gamma)}$
+cancel in the Schur complement. The conditional covariance matrix is therefore independent of the channel choice and the squeezing parameter $r$:
+\begin{align}
+  \label{eq:serf-a|b}
+  \Sigma_{\ind{A|B}}^{(\gamma)}
+  =
+  V\mathbbm{1}
+  -
+  c^2\sigma_z
+  \left(
+    V_{\ind{B}}\mathbbm{1}
+    +
+    \Sigma_m^{(\gamma)}
+  \right)^{-1}
+  \sigma_z.
+\end{align}
+The corresponding symplectic eigenvalues are
 \begin{align}
   \label{eq:nu3-H}
-    &\nu_3^{(\ind{H})}=\sqrt{V\left(V-\frac{c^2}{V_{\ind{B}}+\sigma_N}\right)},\\
-    \label{eq:nu3-DH}
-  &
-    \nu_3^{(\ind{DH})}=V
-    \sqrt{\frac{\left(V_{\ind{B}}  + \delta_1 - \frac{c^{2}}V\right) \left( V_{\ind{B}}  + \delta_2
-    - \frac{c^{2}}V\right)}{
-    \left( V_{\ind{B}} + \delta_1\right) \left(V_{\ind{B}} + \delta_2\right)}},
+  \nu_3^{(\ind{H})}
+  &=
+  \sqrt{
+    V\left(
+      V-\frac{c^2}{V_{\ind{B}}+\sigma_N}
+    \right)
+  },
+  \\
+  \label{eq:nu3-DH}
+  \nu_3^{(\ind{DH})}
+  &=
+  V
+  \sqrt{
+    \frac{
+      \left(
+        V_{\ind{B}}+\delta_1-\frac{c^2}{V}
+      \right)
+      \left(
+        V_{\ind{B}}+\delta_2-\frac{c^2}{V}
+      \right)
+    }{
+      \left(V_{\ind{B}}+\delta_1\right)
+      \left(V_{\ind{B}}+\delta_2\right)
+    }
+  }.
 \end{align}
 
-From mutual information and Holevo information evaluation of the asymptotic secret fraction is done per Devetak-Winter formula~\cite{Devetak:prsa:2005}
+The asymptotic secret fraction is given by the Devetak-Winter formula~\cite{Devetak:prsa:2005}
 \begin{align}
 \label{eq:r}
-K^{\left(\mathcal{C}_{\gamma}\right)}=\beta I_{AB}^{\left(\mathcal{C}_{\gamma}\right)}-\chi_{EB}^{\left(\mathcal{C}_{\gamma}\right)},
-\quad \gamma\in\{\ind{H},\ind{DH}\}, \mathcal{C}_{\gamma}\in\{\Phi_{\gamma}, \mathcal{E}_{\gamma}\}.
+K^{\left(\mathcal{C}_{\gamma}\right)}
+=
+\beta I_{\ind{AB}}^{(\gamma)}
+-
+\chi_{\ind{EB}}^{\left(\mathcal{C}_{\gamma}\right)},
+\quad
+\gamma\in\{\ind{H},\ind{DH}\},
+\quad
+\mathcal{C}_{\gamma}
+\in
+\{\Phi_{\gamma},\mathcal{E}_{\gamma}\}.
 \end{align}
+Here $\beta\in(0,1]$ is the reverse-reconciliation efficiency.
 
-As symplectic eigenvalues for additive-noise channel are calculated per formulas Eq.~\eqref{eq:nu-12-gamma} and do not allow for simplification, in the following sections we focus only on analytic expressions for symplectic eigenvalues for attenuator channel model.
+For the additive-noise channel and the double-homodyne attenuator channel, we evaluate the symplectic eigenvalues using Eq.~\eqref{eq:nu-12-gamma}. The attenuator covariance matrix for homodyne has a simpler standard form, which gives the closed expression below.
 
 \begin{figure}[t]
     \centering
@@ -770,16 +1022,29 @@ As symplectic eigenvalues for additive-noise channel are calculated per formulas
 \label{subfig:h-cf-c}
         \end{subfigure}
         \caption{
-        (a)~Holevo information, $\chi_{\ind{EB}}^{(C_{\ind{H}})}$ and (b)~asymptotic secret fraction, $K^{(C_{\ind{H}})}$, as a function of the beam splitter transmission, $C^2$, of the homodyne receiver computed at different values of
-        the detector efficiencies for additive-noise and attenuator channel models, as indicated in panel title.
-        The parameters are: $V = 5;\, T_{\ind{ch}} = 0.95;\, \xi_{\ind{ch}} = 10^{-2};$ and $\beta = 0.95$.    
-        (c)~$K^{(C_{\ind{H}})}$ versus transmission length $l$ for additive-noise and attenuator channel models.
-        The parameters are:
-        $V=5$;\, $\beta=0.95$;\, $\xi_{\ind{ch}}=10^{-2};$ losses are $20$ dB per $100$ km.}
-        \label{fig:h-comparison-CM}
+        (a)~Holevo information,
+        $\chi_{\ind{EB}}^{(\mathcal{C}_{\ind{H}})}$,
+        and
+        (b)~asymptotic secret fraction,
+        $K^{(\mathcal{C}_{\ind{H}})}$,
+        as functions of the beam-splitter transmittance $C^2$, computed for the additive-noise and attenuator channels at the detector efficiencies specified in the subfigure titles.
+        The parameters are
+        $V=5$,
+        $T_{\ind{ch}}=0.95$,
+        $\xi_{\ind{ch}}=10^{-2}$,
+        and
+        $\beta=0.95$.
+        (c)~$K^{(\mathcal{C}_{\ind{H}})}$
+        versus channel length $l$ for the two channels.
+        The parameters are
+        $V=5$,
+        $\beta=0.95$,
+        and
+        $\xi_{\ind{ch}}=10^{-2}$;
+        the fiber attenuation is $20$~dB per $100$~km.}
 \end{figure}
 \subsection{Homodyne detection}
-For attenuator channel, from Eq.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-h} we have
+For the attenuator channel, Eqs.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-h} give
 \begin{align}
     \label{eq:psi-h-action}
     &\Sigma_{\ind{AB}}^{(\mathcal{E}_{\ind{H}})}=
@@ -796,7 +1061,7 @@ For attenuator channel, from Eq.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-h
     ,\\
     &\tilde{c}\equiv\sqrt{{T}(V^2-1)},
 \end{align}
-where we defined scaled Bob's variance and scaled correlations between Alice and Bob $\tilde{V}_{\ind{B}}$ and $\tilde{c}$, using total channel transmission ${T}$ that consists of channel transmission $T_{\ind{ch}}$ and detection losses $\frac{1}{\sigma_x}$, as well as scaled noise variance $\xi$,
+where $\tilde{V}_{\ind{B}}$ is Bob's scaled variance and $\tilde{c}$ is the scaled Alice-Bob correlation amplitude. The effective transmittance $T$ and excess-noise variance $\xi$ are
 \begin{subequations}
 \label{eq:tot_hom}
 \begin{align}
@@ -807,53 +1072,83 @@ where we defined scaled Bob's variance and scaled correlations between Alice and
 \end{align}
 \end{subequations}
 
-It follows that for homodyne detection the effect of measurement asymmetry is equivalent to scaling both channel transmission~\eqref{eq:T_tot_hom} and channel noise~\eqref{eq:xi_tot_hom} by a factor of $\sigma_x^{-1}$.
+Under the attenuator description of the homodyne receiver, the asymmetry-induced noise scales both the effective transmittance~\eqref{eq:T_tot_hom} and the output-referred excess-noise variance~\eqref{eq:xi_tot_hom} by $\sigma_x^{-1}$.
 
-Symplectic eigenvalues of $\Sigma_{\ind{AB}}^{(\mathcal{E}_{\ind{H}})}$, $\nu_{1,2}^{(\mathcal{E}_{\ind{H}})}$, can be computed using formulas~\cite{Weed:rmp:2012}:
+The symplectic eigenvalues of
+$\Sigma_{\ind{AB}}^{(\mathcal{E}_{\ind{H}})}$
+are~\cite{Weed:rmp:2012}
 \begin{align}
-    \label{eq:lambda12-h}
-    \nu_{1,2}^{(\mathcal{E}_{\ind{H}})}=\frac{z\pm[\tilde{V}_{\ind{B}}-V]}2,\quad z=\sqrt{\left(V+\tilde{V}_{\ind{B}}\right)^2-4{\tilde{c}^2}},
+  \label{eq:lambda12-h}
+  \nu_{1,2}^{(\mathcal{E}_{\ind{H}})}
+  &=
+  \frac{
+    \omega_{\ind{H}}
+    \pm
+    \left(
+      \tilde{V}_{\ind{B}}-V
+    \right)
+  }{2},
+  \\
+  \omega_{\ind{H}}
+  &=
+  \sqrt{
+    \left(
+      V+\tilde{V}_{\ind{B}}
+    \right)^2
+    -
+    4\tilde{c}^{\,2}
+  }.
 \end{align}
-and then substitued in Eq.~\eqref{eq:S_AB-gamma} to calculate joint entropy $S_{\ind{AB}}^{(\mathcal{E}_{\ind{H}})}$.
+These eigenvalues are substituted into Eq.~\eqref{eq:S_AB-gamma} to obtain the joint entropy
+$S_{\ind{AB}}^{(\mathcal{E}_{\ind{H}})}$.
 
-Fig.~\ref{fig:h-comparison-CM} illustrates the effects of homodyne measurement asymmetry on Holevo information~\eqref{eq:chi} and asymptotic secret fraction~\eqref{eq:r} versus beam splitter transmission $C^2$, as well as secret fraction versus transmission length, for both additive-noise~\eqref{eq:sigma_m_cov} and attenuator~\eqref{eq:psi_action} channels.
-While channel noise is reduced in this setup~\eqref{eq:xi_tot_hom}, so is channel transmission~\eqref{eq:T_tot_hom}, and, since transmission is scaled by modulation variance $V\gg1$ in every expression, as well as reduced mutual information with greater asymmetry per Eq.~\eqref{eq:I_H_res}, attenuator channel has negative effect. 
-As shown in Fig.~\ref{subfig:h-cf-a} and~\ref{subfig:h-cf-b}, the attenuator channel results in higher Holevo information, and thus lower secret fraction, at high transmission for fixed asymmetry parameters. However, Fig.~\ref{subfig:h-cf-c} reveals that the attenuator channel achieves significantly greater reach (maximum transmission length at which a positive key rate is obtained) than the additive-noise channel.
+Figure~\ref{fig:h-comparison-CM} shows the Holevo information and asymptotic secret fraction as functions of the receiver beam-splitter transmittance $C^2$, together with the asymptotic secret fraction as a function of channel length, for both channels. The attenuator scales the effective transmittance and excess-noise variance by the same factor~\eqref{eq:tot_hom}. For the parameters shown, the attenuator channel gives higher Holevo information and a lower asymptotic secret fraction at $T_{\ind{ch}}=0.95$. In~(c), its asymptotic secret fraction remains positive up to a greater channel length than for the additive-noise channel.
 
 \subsection{Double-homodyne detection}
 \begin{figure}[t]
     \centering
 \includegraphics[]{pics/double-homodyne/Sab.pdf}
- \caption[]{Holevo information, $\chi_{\ind{EB}}^{(\ind{DH}; C_{\ind{DH}})}$, as a function of the squeezing parameter $r$ at
-    different values of $\delta_{1,2}$. Black dot corresponds to the case of perfect measurements.
-    Solid and dashdotted curves correspond to additive-noise channel model, while dashed and dotted curves are for attenuator channel model.
-    Color-matched white-filled dots mark points where Holevo information is undefined at the boundaries of the $r$ interval~\eqref{eq:r1-r2} (see Eq.~\eqref{eq:a_def} and main text).
-    Values of $\delta_{1,2}$ are: $\delta_{1,2}=1.1$ for solid and dashed curves, $\delta_1=1.75, \delta_2=1.25$ for dashdotted and dotted curves.
-    The channel parameters are: $V=5$; $T_{\ind{ch}}=0.95$; and
+\caption[]{
+    Holevo information,
+    $\chi_{\ind{EB}}^{(\mathcal{C}_{\ind{DH}})}$,
+    as a function of the squeezing parameter $r$ for different values of $\delta_1$ and $\delta_2$.
+    The black dot marks ideal double-homodyne detection.
+    Solid and dash-dotted curves show the additive-noise channel; dashed and dotted curves show the attenuator channel.
+    Color-matched white-filled dots mark the finite endpoint limits of the attenuator curves. At each endpoint, the limiting attenuator channel equals the corresponding additive-noise channel, although the environmental covariance matrix has no finite limit.
+    The parameters are
+    $\delta_1=\delta_2=1.1$
+    for the solid and dashed curves and
+    $\delta_1=1.75$,
+    $\delta_2=1.25$
+    for the dash-dotted and dotted curves.
+    The communication-channel parameters are
+    $V=5$,
+    $T_{\ind{ch}}=0.95$,
+    and
     $\xi_{\ind{ch}}=10^{-2}$.}
   \label{fig:Entropy}
 \end{figure}
 
-For attenuator channel, from Eq.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-dh} we have
+For the attenuator channel, Eqs.~\eqref{eq:psi_action} and~\eqref{eq:cos-theta-dh} give
 \begin{align}
     &\Sigma_{\ind{AB}}^{(\mathcal{E}_{\ind{DH}})}=
     \begin{pmatrix}
-        V\mathbbm{1}&{c}\cos\theta_{\ind{DH}}\sigma_z\\
-        c\cos\theta_{\ind{DH}}\sigma_z&
+        V\mathbbm{1}&{c}\cos\theta_{\ind{DH}}(r)\sigma_z\\
+        c\cos\theta_{\ind{DH}}(r)\sigma_z&
         \begin{matrix}
-      \cos^2\theta_{\ind{DH}}\left({V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta_{\ind{DH}}}\right)&0\\
-      0&\cos^2\theta_{\ind{DH}}\left({V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta_{\ind{DH}}}\right)
+      \cos^2\theta_{\ind{DH}}(r)\left({V_{\ind{B}}}+\delta_1-\frac{e^{2r}}{\cos^2\theta_{\ind{DH}}(r)}\right)&0\\
+      0&\cos^2\theta_{\ind{DH}}(r)\left({V_{\ind{B}}}+\delta_2-\frac{e^{-2r}}{\cos^2\theta_{\ind{DH}}(r)}\right)
     \end{matrix}
-    \end{pmatrix}
+    \end{pmatrix}.
     \end{align}
 
-Symplectic eigenvalues of this matrix can be calculated using invariants similarly to Eq.~\eqref{eq:nu-12-gamma}. It is obvious that these symplectic eigenvalues, and thereby joint entropy, is explicitly depended on squeezing parameter $r$~\eqref{eq:r1-r2}, like in the case of additive-noise channel (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}). 
+The symplectic eigenvalues of this matrix can be calculated using invariants as in Eq.~\eqref{eq:nu-12-gamma}. These eigenvalues, and hence the joint entropy, depend explicitly on the squeezing parameter $r$, as in the additive-noise channel~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}.
 
-Fig.~\ref{fig:Entropy} illustrates dependence of Holevo information on the squeezing parameter, for both additive-noise and attenuator channels. Referring to Fig.~\ref{fig:Entropy}, in the limiting case of ideal double-homodyne detection with $\delta_1=\delta_2=1$, only one value of $r=0$ is allowed (see Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}), with equal values of Holevo information for both channels (black dot on plot).
+Figure~\ref{fig:Entropy} shows the Holevo information as a function of $r$ for both channels. For ideal double-homodyne detection, $\delta_1=\delta_2=1$ and the admissible interval collapses to $r=0$~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. Both effective channels then reduce to the identity channel and give the same Holevo information, shown by the black dot.
 
-When $\delta_1=\delta_2>1$, dependence of Holevo information on squeezing parameter is symmetrical around $r=0$ for both channels. For additive-noise channel, $r=0$ is the point of maximal Holevo information, while for attenuator channel $r=0$ corresponds to minimal Holevo information. Moreover, while Holevo information is unidefined at $r=r_{2,1}$ (see Eq.~\eqref{eq:cos-theta-dh}), the values tend to the same values of joint entropy in the case of additive-noise channel, as signified by color-matched white-filled dots in Fig.~\ref{fig:Entropy}.
+When $\delta_1=\delta_2>1$, the Holevo information is symmetric about $r=0$ for both channels. It is maximal at $r=0$ for the additive-noise channel and minimal there for the attenuator channel. In the continuous extension defined below Eq.~\eqref{eq:a_def}, the attenuator channel equals the corresponding additive-noise channel at $r=r_2$ and $r=r_1$. The Holevo information therefore agrees between the two channels at each endpoint, as shown by the color-matched white-filled dots in Fig.~\ref{fig:Entropy}.
 
-For the asymmetric parameter sets considered, where $\delta_1\neq\delta_2$, the Holevo information for both channel models becomes asymmetric about its extrema, resulting in unequal joint entropies at $r=r_{2,1}$. For these parameter sets, the Holevo information is concave in $r$ for the additive-noise channel and convex in $r$ for the attenuator channel.
+For the asymmetric parameter sets considered, where $\delta_1\neq\delta_2$, neither curve is symmetric in $r$, and the joint entropies at the two endpoints $r=r_2$ and $r=r_1$ are unequal. For these parameter sets, the Holevo information is concave in $r$ for the additive-noise channel and convex in $r$ for the attenuator channel.
 
 \begin{figure}[htb]
         \centering
@@ -871,14 +1166,13 @@ For the asymmetric parameter sets considered, where $\delta_1\neq\delta_2$, the 
 \label{subfig:K-vs-L-q-add-b}
         \end{subfigure}
         \caption{Asymptotic secret fraction $K^{(C_{\ind{DH}})}$ versus channel length $l$, computed for fixed $\sigma_x^{(i)}=1.05$ (see Eq.\eqref{eq:sigm-x-i}) and various imbalance ratios $q\equiv\frac{S_S^2}{C_S^2}$ for additive-noise and attenuator channel models (see Fig.~\ref{fig:Entropy}).
+        % todo: у нас сигма точно 1.05, а не 1.01?
         The parameters are:
         $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2};$ the fiber loss is $20$ dB per $100$ km.}
         \label{fig:K-vs-L-q-add}
 \end{figure}
 
-Fig.~\ref{fig:K-vs-L-q-add} illustrates lower and upper bounds of the asymptotic secret fraction versus transmission length, for both additive-noise~\eqref{eq:sigma_m_cov} and attenuator~\eqref{eq:psi_action} channels. Note that for chosen $\sigma_x^{(i)}$ lower bounds for both channels coincide, because for $\sigma_x^{(i)}\approx1$ maximum of joint entropy for both models is either at $r=r_1$ or $r=r_2$. Moreover, the upper bound for additive-noise channel in Fig.~\ref{subfig:K-vs-L-q-add-a} is very close (0.2 km difference) to the lower bound. 
-
-As seen from Fig.~\ref{fig:K-vs-L-q-add}, difference between lower and upper bound of the asymptotic secret fraction is greater in 
+Figure~\ref{fig:K-vs-L-q-add} shows the ranges of the asymptotic secret fraction obtained by varying $r$ over $[r_2,r_1]$ for both channels. For the parameter sets shown, convexity places the maximum of the continuously extended attenuator Holevo information at an endpoint, where the limiting channel equals the corresponding additive-noise channel. For the near-ideal value $\sigma_x^{(i)}=1.05$, the additive-noise secret-fraction range is narrow, so the lower bounds for the two channels nearly coincide. In Fig.~\ref{subfig:K-vs-L-q-add-a}, the channel lengths at which the upper and lower additive-noise bounds vanish differ by only $0.2$ km. For both values of $q$ shown, the attenuator range is wider than the additive-noise range. Increasing $q$ from $1$ to $1.25$ makes the additive-noise range more pronounced.
 
 \begin{figure}[htb]
     \centering
@@ -903,138 +1197,74 @@ As seen from Fig.~\ref{fig:K-vs-L-q-add}, difference between lower and upper bou
 \label{subfig:dh-cf-c}
         \end{subfigure}
         \caption{
-        (a)~Holevo information, $\chi_{\ind{EB}}^{(C_{\ind{DH}})}$ and (b)~asymptotic secret fraction, $K^{(C_{\ind{DH}})}$, as a function of the signal beam splitter transmission, $C_S^2$, of the double-homodyne receiver computed at different values of
-        the detector efficiencies for additive-noise and attenuator channel models, as indicated in panel title.
-        The parameters are: $V = 5; \,T_{\ind{ch}} = 0.95; \,\xi_{\ind{ch}} = 10^{-2};$ and $\beta = 0.95$.    
-        (c)~$K^{(C_{\ind{DH}})}$ versus transmission length $l$ for additive-noise and attenuator channel models. 
-        The parameters are:
-        $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2};$ losses are $20$ dB per $100$ km..
-        For both channel models $r=\frac{r_2+r_1}{2}$ (see main text).}
+        (a)~Holevo information,
+        $\chi_{\ind{EB}}^{(\mathcal{C}_{\ind{DH}})}$,
+        and
+        (b)~asymptotic secret fraction,
+        $K^{(\mathcal{C}_{\ind{DH}})}$,
+        as functions of the signal beam-splitter transmittance $C_S^2$, computed for the additive-noise and attenuator channels at the detector efficiencies specified in the subfigure titles.
+        The parameters are
+        $V=5$,
+        $T_{\ind{ch}}=0.95$,
+        $\xi_{\ind{ch}}=10^{-2}$,
+        and
+        $\beta=0.95$.
+        (c)~$K^{(\mathcal{C}_{\ind{DH}})}$
+        versus channel length $l$ for the two channels.
+        The parameters are
+        $V=5$,
+        $\beta=0.95$,
+        and
+        $\xi_{\ind{ch}}=10^{-2}$;
+        the fiber attenuation is $20$ dB per $100$ km.
+        For both channels,
+        $r=(r_2+r_1)/2$.
+        The beam splitters in the two homodyne branches are balanced, and detector efficiencies not specified in the subfigure titles are set to unity.}
         \label{fig:dh-comparison-CM}
 \end{figure}
 
-Fig.~\ref{fig:dh-comparison-CM} illustrates the dependence of Holevo information~\eqref{eq:chi} and asymptotic secret fraction~\eqref{eq:r} on the signal beam splitter transmission $C_S^2$, as well as secret fraction versus transmission length if the receiver uses double-homodyne detection, for both additive-noise~\eqref{eq:sigma_m_cov} and attenuator~\eqref{eq:psi_action} channels.
-Unlike the homodyne detection case (see Fig.~\ref{fig:h-comparison-CM}), Holevo information is significantly lower for attenuator channel, except for the ideal measurements case ($\eta_{1,2}^{(1,2)}=1$ and whole $C_S^2$ axis, unlike in homodyne case where ideal measurements are strictly $\eta_{1,2}=1$ and $C^2=0.5$) as both channels have no effect and thereby have equal joint entropies (black curve).
-High difference in Holevo information is due to the dependence of joint entropy on $r$ (see Fig.~\ref{fig:Entropy}) and fixing $r=\frac{r_2+r_1}{2}$ for both curves, effectively minimizing Holevo information for attenuator channel and maximizing it for additive-noise channel. 
-
-Analogously to the case of homodyne detection (see Fig.~\ref{subfig:h-cf-c}), in the case of double-homodyne detection the attenuator channel has greater reach than the additive-noise channel, as illustrated by Fig.~\ref{subfig:dh-cf-c}.
+Figure~\ref{fig:dh-comparison-CM} shows the Holevo information and asymptotic secret fraction as functions of the signal beam-splitter transmittance $C_S^2$, together with the asymptotic secret fraction as a function of channel length, for both channels. For the ideal receiver, $\eta_{1,2}^{(i)}=1$ and $C_i^2=S_i^2=1/2$ for $i\in\{1,2\}$. These conditions give $\sigma_x^{(i)}=1$ and $\delta_1\delta_2=1$ for every $C_S^2$. The target POVM is then rank one, both channels reduce to the identity channel, and the joint entropies coincide, as shown by the black curve. For the detector efficiencies below unity shown in the figure, the attenuator channel gives lower Holevo information than the additive-noise channel. The separation depends on the selected channel and the fixed value $r=(r_1+r_2)/2$. For symmetric measurement noise, the midpoint is $r=0$, which maximizes the additive-noise Holevo information and minimizes the attenuator Holevo information. For the parameters in~(c), the attenuator secret fraction remains positive up to a greater channel length.
 
 %\printbibliography
 \section{Discussion and conclusion}
 \label{sec:conclusion}
 
-In this paper, we have constructed and compared additive-noise and
-attenuator channel representations of noisy homodyne and
-double-homodyne measurements affected by receiver asymmetry. Our approach requires the dual of the selected Gaussian channel, together with a
-deterministic invertible rescaling of the measurement outcomes, to
-reproduce the target noisy Gaussian measurement. At the level of covariance matrices, this condition is expressed by
-Eq.~\eqref{eq:C-gen}. It constrains the channel parameters, which are then determined by the receiver parameters and, for double-homodyne detection, by the squeezing parameter $r$.
+In this paper, we constructed and compared two channel representations of the target homodyne and double-homodyne POVMs generated by the receiver imperfections. Each representation consists of a Gaussian channel, a rank-one reference POVM, and an invertible deterministic rescaling of the outcomes. Equation~\eqref{eq:C-gen} relates the covariance matrices of the target and reference POVMs to the channel matrices. The receiver parameters determine the channel parameters; for double-homodyne detection, these parameters also depend on the squeezing parameter $r$.
 
+The two choices reproduce the same conditional distribution of Bob's rescaled outcomes for every input state and therefore give the same Alice-Bob mutual information. They also give the same conditional covariance matrix in Eq.~\eqref{eq:serf-a|b}. Their Alice-Bob covariance matrices after the receiver channel generally differ. When the receiver noise is treated as untrusted, Eve purifies the corresponding state. The joint entropy and Holevo information can then depend on the selected channel even though Bob's observed statistics are fixed.
 
-After the deterministic invertible rescaling of the measurement
-outcomes, both channels reproduce the same conditional
-statistics of Bob's outcomes. They therefore give the same Alice-Bob mutual information.
-For fixed source and channel parameters, the conditional
-covariance matrix in Eq.~\eqref{eq:serf-a|b}, and hence the conditional
-entropy $S_{A|B}^{(\gamma)}$, are the same for both channels because the
-detector imperfections enter the conditional state through the same
-noisy measurement. The difference between the security estimates originates from the joint state of Alice and Bob. The additive-noise and attenuator channels generally produce different joint covariance matrices and, consequently, different joint entropies. In the untrusted-detector model considered in this paper, the environmental output of the selected channel is assigned to Eve. The corresponding Holevo information~\eqref{eq:chi} therefore depends on the selected channel even when Bob's observed statistics remain unchanged.
+For homodyne detection, the attenuator environment is taken to be in the vacuum state, so the channel is a pure-loss channel. It scales the communication-channel transmittance and the output-referred excess-noise variance by $\sigma_x^{-1}$, as shown in Eq.~\eqref{eq:tot_hom}. For the parameters in Fig.~\ref{fig:h-comparison-CM}, the attenuator channel gives a larger Holevo information and a lower asymptotic secret fraction at high communication-channel transmittance. Its secret fraction remains positive over a greater channel length. The channel giving the lower secret fraction therefore changes with distance.
 
+For double-homodyne detection, a fixed target POVM can be reproduced for a family of reference POVMs indexed by $r$. The receiver parameters fix $\Sigma_m^{(\ind{DH})}$, while $r$ specifies the rank-one reference POVM. Complete positivity restricts $r$ to the interval in Eq.~\eqref{eq:r1-r2}. For the additive-noise channel, changing $r$ redistributes the excess noise between the two quadratures according to Eq.~\eqref{eq:sigma_N-sq-2}. For the attenuator channel, it changes the attenuation coefficient and the covariance matrix of the pure Gaussian environmental input state according to Eqs.~\eqref{eq:cos-theta-dh} and~\eqref{eq:a_def}.
 
-For homodyne detection, we take the environmental mode of the attenuator channel to be in the
-vacuum state, so that the detector imperfections are represented by a
-pure-loss channel. This
-channel rescales both the effective transmission and the
-output-referred excess noise by the same factor, as shown in
-Eq.~\eqref{eq:tot_hom}.
+At each endpoint of a nondegenerate interval, one additive-noise quadrature variance vanishes. The environmental covariance matrix of the attenuator has no finite limit because one quadrature variance vanishes and the conjugate variance diverges. The channel itself has a finite one-sided limit and equals the corresponding additive-noise channel. If the interval collapses to one value, the noisy POVM is rank one and both channels reduce to the identity channel.
 
-The numerical results in Fig.~\ref{fig:h-comparison-CM} show that the additive-noise and
-attenuator channels give different security estimates. At high channel
-transmittance and for the parameters considered, the attenuator
-channel gives a larger Holevo information and a lower asymptotic
-secret fraction. At longer distances, however, the secret fraction remains positive up
-to a greater channel length than in the additive-noise channel. Therefore, neither channel can be described as
-strictly more or less pessimistic.
+For the parameter sets in Fig.~\ref{fig:Entropy}, the Holevo information is concave in $r$ for the additive-noise channel and convex in $r$ for the attenuator channel. With symmetric measurement noise, both curves are symmetric about $r=0$. The coherent-state POVM at $r=0$ maximizes the additive-noise Holevo information and minimizes the attenuator Holevo information. For the asymmetric parameter set, the extrema shift away from zero.
 
-A distinguishing feature of double-homodyne detection is the
-nonuniqueness of the representation of its noisy POVM. The covariance
-matrix of the physical double-homodyne measurement is fixed
-by the receiver parameters and does not depend on the squeezing
-parameter $r$. The effects of the ideal Gaussian POVM are proportional to projectors onto displaced squeezed states and depend on $r$. The noisy POVM is obtained by applying the dual of the selected Gaussian channel to the ideal POVM, together with the outcome rescaling. The requirement that the excess-noise covariance matrix be positive
-semidefinite restricts $r$ to the interval given by
-Eq.~\eqref{eq:r1-r2}.
+Figure~\ref{fig:K-vs-L-q-add} shows the secret-fraction ranges obtained by varying $r$ over its admissible interval. For the near-ideal quadrature variances used there, the additive-noise range is narrow and the lower bounds for the two channels nearly coincide. The attenuator range is wider for both imbalance ratios shown. The additive-noise range becomes more pronounced as $q$ increases from $1$ to $1.25$.
 
-For the additive-noise channel, variation of $r$ redistributes the
-measurement noise between the two conjugate quadratures according to
-Eq.~\eqref{eq:sigma_N-sq-2}. For the attenuator channel, the same variation changes
-both the attenuation coefficient and
-the covariance matrix of the environmental state, as described by
-Eqs.~\eqref{eq:cos-theta-dh} and~\eqref{eq:a_def}. In the attenuator channel considered here, the generally anisotropic
-measurement noise is reproduced by an environmental mode in an anisotropic Gaussian
-state, which was chosen to be pure.
+Figure~\ref{fig:dh-comparison-CM} uses the midpoint $r=(r_1+r_2)/2$. For symmetric measurement noise, this point maximizes the additive-noise Holevo information and minimizes the attenuator Holevo information. The separation between the two secret fractions in that figure therefore reflects the selected channel and the selected value of $r$.
 
-At the boundaries of the admissible interval of the squeezing parameter
-$r$, one of the additive-noise quadrature variances vanishes. In the
-attenuator channel, the environmental state approaches an
-infinitely squeezed limit: one quadrature variance tends to zero,
-whereas the conjugate variance diverges. The boundary points are
-therefore understood as limiting channels in which the attenuator
-result approaches the corresponding additive-noise result.
+The channel model specifies an assumption about the coupling of the optical mode to inaccessible degrees of freedom and Eve's access to them. A security estimate based on one channel is conditional on that assumption. If the physical receiver model does not select a unique compatible choice, a conservative bound within a specified class requires maximizing the Holevo information, or equivalently minimizing the secret fraction, over all channel representations in that class. The present comparison quantifies this dependence for two channel families. A bound independent of the channel choice would require an optimization over a specified class of Gaussian channels compatible with the target POVM.
 
-Figure~\ref{fig:Entropy} shows that the Holevo information depends on
-$r$ in qualitatively different ways for the two channel models.
-For the parameter sets considered, this dependence is concave for
-the additive-noise channel and convex for the attenuator
-channel. When the measurement noise is symmetric between the two
-quadratures, both curves are symmetric about $r=0$. In this case, the coherent state, given by $r=0$, maximizes the Holevo
-information for the additive-noise channel and minimizes it for the
-attenuator channel.
-For the asymmetric case considered, this symmetry is lost and the
-extrema are shifted away from $r=0$.
+The attenuator family considered here uses pure Gaussian environmental input states for $r\in(r_2,r_1)$, together with the endpoint channel limits. Mixed environmental input states and other Gaussian channels compatible with the same noisy POVM remain outside the present comparison.
 
-The lower and upper secret-fraction curves in Fig.~\ref{fig:K-vs-L-q-add} describe the range
-obtained by varying $r$ over its admissible interval for each channel model. For the near-ideal quadrature variances used in
-Fig.~\ref{fig:K-vs-L-q-add}, the lower bounds of both channels nearly coincide
-because the Holevo-information maximum occurs at, or close to, the
-interval boundaries. The upper bounds become more clearly separated
-when the imbalance of the signal beam splitter is increased.
+Appendix~\ref{sec:lossy-bs} shows that independent pure losses in the two output arms of a lossless beam splitter can be absorbed into the detector efficiencies. A general passive lossy two-port transformation need not have attenuation that is diagonal in the output basis. Its quadrature gain, phase, and variance must then be calculated from the full complex scattering matrix.
 
-The comparison shown in Fig.~\ref{fig:dh-comparison-CM} was performed at
-the midpoint of the admissible interval of $r$. In the symmetric case, this value coincides with the
-maximum of the additive-noise Holevo information and the minimum of
-the attenuator Holevo information. The pronounced separation between
-the secret fractions in Fig.~\ref{fig:dh-comparison-CM} therefore reflects both the selected
-channel model and the selected squeezing parameter.
-
-These results clarify the role of the chosen channel representation when receiver noise is treated as untrusted. Although the additive-noise and attenuator channels reproduce the same receiver statistics after outcome rescaling, they generally yield different joint states of Alice and Bob and different environmental outputs assigned to Eve. Choosing a particular channel representation therefore introduces a physical assumption about the coupling between the optical signal and the inaccessible degrees of freedom.
-A security estimate should not be based on a particular channel representation solely because it gives a larger secret fraction. The selected representation should either be justified from the physical structure of the receiver or the dependence of the estimate on the channels included in the analysis should be reported explicitly. The present comparison is restricted to the additive-noise channel and to attenuator channels whose environmental modes are in pure Gaussian states. Mixed environmental states and other Gaussian channel representations compatible with the same receiver statistics were not considered.
-
-Appendix~\ref{sec:lossy-bs} extends the receiver model to include
-independent pure losses at the output ports of a lossless beam splitter.
-These losses can be incorporated into the effective photodetector
-efficiencies. By contrast, a general lossy asymmetric beam splitter
-with unequal complex transmission and reflection amplitudes does not,
-in general, preserve the simple quadrature form of the receiver
-response and cannot be included by merely replacing the detector
-efficiencies.
-
-The security analysis was performed in the asymptotic limit for the GMCS CV-QKD protocol under collective Gaussian attacks,
-with the modeled receiver imperfections treated within an untrusted-detector model. Trusted receiver noise,
-finite-size corrections, active detector attacks, and uncertainties in
-the calibration parameters require separate treatment. Within these
-assumptions, equivalent receiver statistics can lead to different
-estimates of Eve's information when different channel representations are used within the untrusted-detector model.
+Appendix~\ref{sec:fluc-LO} considers small classical amplitude fluctuations of a phase-locked local oscillator. In the linearized approximation, the additional variance generally depends on the input quadrature mean. Such fluctuations cannot, without a further approximation, be absorbed into the state-independent excess-noise covariance matrix used in the main text.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
-The work was supported by the Russian Science Foundation (project No. \textcolor{red}{24-11-00398}).
+The work was supported by the Russian Science Foundation (project No. 24-11-00398).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 \section{Lossy beam splitter}
 \label{sec:lossy-bs}
 In this appendix, %we discuss how the formulas describing homodyne and double-homodyne detection cases relate to the case if beam splitters are lossy.
-we show that applying independent pure loss channels at the output ports of a lossless beam splitter yields the exact same transformation as a single formally defined lossy beam splitter.
+we show that a lossless beam splitter followed by independent pure-loss channels in its two output arms has the scattering matrix
+$\vc{T}_{\ind{BS}}=
+\diag(\sqrt{\tau_1},\sqrt{\tau_2})\vc{U}_{\ind{BS}}$.
 
 First, consider the case of homodyne detection.
 The lossless unbalanced beam splitter mixes the input signal mode $\hat{a}$ and the local oscillator mode $\hat{a}_L$. This transformation is described by the unitary rotation matrix $\vc{U}_{\ind{BS}}$,
@@ -1065,7 +1295,7 @@ The lossless unbalanced beam splitter mixes the input signal mode $\hat{a}$ and 
         -S\hat{a}+C\hat{a}_L
     \end{pmatrix},
 \end{align}
-where $C$ and $S$ are the transmission and reflection coefficients of the beam splitter BS, respectively.
+where $C$ and $S$ are the amplitude transmission and reflection coefficients of the beam splitter BS, respectively.
 
 We model the subsequent losses by passing each intermediate output mode $\hat{a}_{1,2}$ through a virtual beam splitter of transmittance $\tau_{1,2}$. This mixes each signal with an independent environmental vacuum mode $\hat{v}_{1,2}$, where $[\hat{v}_i, \hat{v}_j^\dag] = \delta_{ij}$,
 \begin{align}
@@ -1092,7 +1322,7 @@ We model the subsequent losses by passing each intermediate output mode $\hat{a}
         \hat v_2
     \end{pmatrix}.
 \end{align}
-Tracing out the lost environmental modes $\hat{c}_{1,2}$, the remaining physical output modes $\hat{b}_{1,2}$ expand to
+After tracing out the lost environmental modes $\hat{c}_{1,2}$, the retained output modes $\hat{b}_{1,2}$ satisfy
 \begin{align}
     \label{eq:b1b2-out}
     \begin{pmatrix}
@@ -1114,7 +1344,7 @@ Tracing out the lost environmental modes $\hat{c}_{1,2}$, the remaining physical
         -\sqrt{1-\tau_2}\hat{v}_2
     \end{pmatrix}.
 \end{align}
-From Eq.~\eqref{eq:b1b2-out}, we extract the effective scattering matrix $\vc{T}_{\ind{BS}}$ and the fluctuation noise operators $\hat{F}_{1,2}$ representing the device excitations
+From Eq.~\eqref{eq:b1b2-out}, the effective scattering matrix is
 \begin{align}
     \label{eq:T_eff_extract}
     \vc{T}_{\ind{BS}}
@@ -1124,8 +1354,9 @@ From Eq.~\eqref{eq:b1b2-out}, we extract the effective scattering matrix $\vc{T}
         -\sqrt{\tau_2}S & \sqrt{\tau_2}C
     \end{pmatrix}.
 \end{align}
+The associated noise operators are $\hat F_i=-\sqrt{1-\tau_i}\,\hat v_i$ for $i\in\{1,2\}$.
 
-It is not difficult to show that to preserve the Canonical Commutation Relations for the output fields, $[\hat{b}_i, \hat{b}_j^\dagger] = \delta_{ij}$, the noise operators $\hat{F}_{1,2}$ must satisfy
+Preservation of the canonical commutation relations $[\hat{b}_i, \hat{b}_j^\dagger] = \delta_{ij}$ for the output fields requires
 \begin{align}
   [\hat F_i, \hat F_j^\dagger] = \delta_{ij} - \sum_{k} T_{ik} T_{jk}^*,
 \end{align}
@@ -1142,7 +1373,60 @@ Evaluating this constraint explicitly using the elements of $\vc{T}_{\ind{BS}}$ 
 which matches the commutators calculated from Eq.~\eqref{eq:b1b2-out}.
 
 
-We now connect this setup to the formal, standard mathematical treatment of lossy beam splitters~\cite{Barnett1998,Knll1999}. This framework models loss via an interaction matrix $\vc{A}$ acting on ancillary modes, which must obey the positivity condition $\vc{1}-\vc{A}\hcnj{\vc{A}}\ge 0$ to satisfy unitarity. Note that the extracted scattering matrix $\vc{T}_{\ind{BS}}$~\eqref{eq:T_eff_extract} can be factored into a product of a diagonal scaling matrix and the lossless unitary,
+We now relate this setup to the standard input-output description of passive lossy beam splitters~\cite{Barnett1998,Knll1999}. In this description,
+\begin{align}
+  \hat{\boldsymbol b}
+  =
+  \vc{T}_{\ind{BS}}\hat{\boldsymbol a}
+  +
+  \vc{A}\hat{\boldsymbol v},
+\end{align}
+where
+\begin{align}
+  \hat{\boldsymbol a}
+  &=
+  \begin{pmatrix}
+    \hat a\\
+    \hat a_L
+  \end{pmatrix},
+  &
+  \hat{\boldsymbol b}
+  &=
+  \begin{pmatrix}
+    \hat b_1\\
+    \hat b_2
+  \end{pmatrix},
+  &
+  \hat{\boldsymbol v}
+  &=
+  \begin{pmatrix}
+    \hat v_1\\
+    \hat v_2
+  \end{pmatrix}.
+\end{align}
+Preservation of the canonical commutation relations requires
+\begin{align}
+  \vc{T}_{\ind{BS}}
+  \hcnj{\vc{T}_{\ind{BS}}}
+  +
+  \vc{A}
+  \hcnj{\vc{A}}
+  =
+  \vc{1}.
+\end{align}
+For the scattering matrix in Eq.~\eqref{eq:T_eff_extract},
+\begin{align}
+  \vc{T}_{\ind{BS}}
+  \hcnj{\vc{T}_{\ind{BS}}}
+  &=
+  \diag(\tau_1,\tau_2),
+  \\
+  \vc{A}
+  \hcnj{\vc{A}}
+  &=
+  \diag(1-\tau_1,1-\tau_2).
+\end{align}
+The scattering matrix therefore factors as
 \begin{align}
     \label{eq:R_eff}
     \vc{T}_{\ind{BS}}
@@ -1157,175 +1441,268 @@ We now connect this setup to the formal, standard mathematical treatment of loss
     \end{pmatrix}
     \nonumber\\
     &=
-    \begin{pmatrix}
-        \sqrt{\tau_1} & 0\\
-        0 & \sqrt{\tau_2}
-    \end{pmatrix}
+    \sqrt{
+      \vc{1}
+      -
+      \vc{A}\hcnj{\vc{A}}
+    }\,
     \vc{U}_{\ind{BS}}.
 \end{align}
-By defining the positive semi-definite matrix representing the loss properties as $\vc{A}\hcnj{\vc{A}}=\diag(1-\tau_1,1-\tau_2)$, it follows that:
-\begin{align}
-    \sqrt{\vc{1}-\vc{A}\hcnj{\vc{A}}} = \begin{pmatrix} \sqrt{\tau_1} & 0 \\\\ 0 & \sqrt{\tau_2} \end{pmatrix}.
-\end{align}
-Substituting this back into Eq.~\eqref{eq:R_eff} yields the polar decomposition of the scattering matrix of a lossy beam splitter in its generalized form~\cite{Knll1999}:
-\begin{align}
-  \label{eq:lossy-T}
-  \vc{T}_{\ind{BS}}=\sqrt{\vc{1}-\vc{A}\hcnj{\vc{A}}}\,\vc{U}_{\ind{BS}}.
-\end{align}
-Because the matrix $\vc{A}\hcnj{\vc{A}}$ representing the losses is diagonal, it is straightforward to see that to account for lossy beam splitter in a homodyne setup it is sufficient to simply rescale the quantum efficiencies of detection: $\eta_{1,2}\to\tau_{1,2}\eta_{1,2}$. The same argument would apply in the case of double-homodyne detection.
+Because
+$\vc{A}\hcnj{\vc{A}}$
+is diagonal in the output basis, the two losses can be absorbed into the detector efficiencies as
+$\eta_i\to\tau_i\eta_i$
+for
+$i\in\{1,2\}$.
+The same rescaling applies in each branch of the double-homodyne receiver.
 
-We conclude this appendix by discussing the generalized (asymmetrical) beam splitter model where input ports of the beam splitter are characterized by different set of transmission and reflection coefficients. In this case, the non-unitary scattering matrix is written in the form~\cite{Uppu_2016}
+We finally consider a general passive lossy asymmetric beam splitter with scattering matrix~\cite{Uppu_2016}
 \begin{align}
   \vc{S}
   =
   \begin{pmatrix}
     t & \rho\\
-    r & \tau
+    r_{\ind{BS}} & \tau
   \end{pmatrix},
   \qquad
-  \vc{S}\hcnj{\vc{S}}\leq\vc{1},
+  \vc{S}\hcnj{\vc{S}}
+  \preceq
+  \vc{1},
 \end{align}
-where $t, \tau$ ($r, \rho$) are complex transmission (reflection) coefficients.%, and $\phi_{1,2}$ are the phase shifts. 
-While it can be factored into lossy and unitary parts similarly to~\eqref{eq:lossy-T}, \textcolor{red}{this case cannot be covered by the formulas after some replacement, because it ruins quadrature representation:}
+where $t$ and $\tau$ are complex transmission amplitudes and $\rho$ and $r_{\ind{BS}}$ are complex reflection amplitudes. Such a device cannot be reduced to the lossless beam-splitter model by independent replacements of the two detector efficiencies.
+
+For coherent signal and local-oscillator inputs, the detected output amplitudes are
 \begin{align}
-  %\label{eq:BS}
-  &
-    \ket{\alpha,\alpha_L}\mapsto\ket{\alpha_1,\alpha_2},
+  \ket{\alpha,\alpha_L}
+  &\mapsto
+  \ket{\alpha_{\ind{out},1},\alpha_{\ind{out},2}},
   \\
-  &
-    %\label{eq:amplitudes}
-    \alpha_1=t\alpha+\rho \alpha_L,\quad
-    \alpha_2=r\alpha+\tau\alpha_L,
+  \alpha_{\ind{out},1}
+  &=
+  t\alpha+\rho\alpha_L,
+  \\
+  \alpha_{\ind{out},2}
+  &=
+  r_{\ind{BS}}\alpha+\tau\alpha_L.
 \end{align}
-
+We use the normalized Gaussian probability density
 \begin{align}
-  &
-  %\label{eq:Gaussian}
-    \prob_G(\mu)=G(\mu-\mu_G;\sigma_G),
-    \\
-    \label{eq:sigma_G-general-lossy-bs}
-    \sigma_G
-    &=
-    \eta_1|\alpha_1|^2+\eta_2|\alpha_2|^2
-    \nonumber\\
-    &=
-    \left(
-        \eta_1|\rho|^2+\eta_2|\tau|^2
-    \right)|\alpha_L|^2
+  \label{eq:G-notation}
+  G(x;\sigma)
+  \equiv
+  \frac{1}{\sqrt{2\pi\sigma}}
+  \exp\!\left(
+    -\frac{x^2}{2\sigma}
+  \right).
+\end{align}
+In the Gaussian approximation to the photon-count difference,
+\begin{align}
+  \prob_G(\mu)
+  =
+  G(\mu-\mu_G;\sigma_G),
+\end{align}
+with
+\begin{align}
+  \label{eq:sigma_G-general-lossy-bs}
+  \sigma_G
+  &=
+  \eta_1|\alpha_{\ind{out},1}|^2
+  +
+  \eta_2|\alpha_{\ind{out},2}|^2
+  \nonumber\\
+  &=
+  \left(
+    \eta_1|\rho|^2
     +
-    \left(
-        \eta_1|t|^2+\eta_2|r|^2
-    \right)|\alpha|^2
-    \nonumber\\
-    &\quad
+    \eta_2|\tau|^2
+  \right)
+  |\alpha_L|^2
+  \nonumber\\
+  &\quad
+  +
+  \left(
+    \eta_1|t|^2
     +
-    2\operatorname{Re}
-    \left[
-        \left(
-            \eta_1t\rho^*
-            +
-            \eta_2r\tau^*
-        \right)
-        \alpha\alpha_L^*
-    \right]
-    \nonumber\\
-    &\approx
+    \eta_2|r_{\ind{BS}}|^2
+  \right)
+  |\alpha|^2
+  \nonumber\\
+  &\quad
+  +
+  2\operatorname{Re}
+  \left[
     \left(
-        \eta_1|\rho|^2+\eta_2|\tau|^2
-    \right)|\alpha_L|^2
-    +
-    2\operatorname{Re}
-    \left[
-        \left(
-            \eta_1t\rho^*
-            +
-            \eta_2r\tau^*
-        \right)
-        \alpha\alpha_L^*
-    \right],
-    \\
-    \label{eq:mu_G-general-lossy-bs}
-    \mu_G
-    &=
-    \eta_1|\alpha_1|^2-\eta_2|\alpha_2|^2
-    \nonumber\\
-    &=
+      \eta_1t\rho^*
+      +
+      \eta_2r_{\ind{BS}}\tau^*
+    \right)
+    \alpha\alpha_L^*
+  \right],
+  \\
+  \label{eq:mu_G-general-lossy-bs}
+  \mu_G
+  &=
+  \eta_1|\alpha_{\ind{out},1}|^2
+  -
+  \eta_2|\alpha_{\ind{out},2}|^2
+  \nonumber\\
+  &=
+  \left(
+    \eta_1|\rho|^2
+    -
+    \eta_2|\tau|^2
+  \right)
+  |\alpha_L|^2
+  \nonumber\\
+  &\quad
+  +
+  \left(
+    \eta_1|t|^2
+    -
+    \eta_2|r_{\ind{BS}}|^2
+  \right)
+  |\alpha|^2
+  \nonumber\\
+  &\quad
+  +
+  2\operatorname{Re}
+  \left[
     \left(
-        \eta_1|\rho|^2-\eta_2|\tau|^2
-    \right)|\alpha_L|^2
-    +
-    \left(
-        \eta_1|t|^2-\eta_2|r|^2
-    \right)|\alpha|^2
-    \nonumber\\
-    &\quad
-    +
-    2\operatorname{Re}
-    \left[
-        \left(
-            \eta_1t\rho^*
-            -
-            \eta_2r\tau^*
-        \right)
-        \alpha\alpha_L^*
-    \right]
-    \nonumber\\
-    &\approx
-    \left(
-        \eta_1|\rho|^2-\eta_2|\tau|^2
-    \right)|\alpha_L|^2
-    +
-    2\operatorname{Re}
-    \left[
-        \left(
-            \eta_1t\rho^*
-            -
-            \eta_2r\tau^*
-        \right)
-        \alpha\alpha_L^*
-    \right].
+      \eta_1t\rho^*
+      -
+      \eta_2r_{\ind{BS}}\tau^*
+    \right)
+    \alpha\alpha_L^*
+  \right].
 \end{align}
 
-\section{Fluctuating Local Oscillator} \label{sec:fluc-LO}
-In this Appendix, we extend the theoretical treatment of homodyne measurements to account for classical intensity fluctuations of the local oscillator (LO).% In the main text, the LO amplitude $\vert\alpha_L\vert$ is treated as a fixed constant. Here, we model it as a fluctuating quantity and evaluate its impact on the Gaussian-approximated POVM.
+Let
+$\alpha_L=L e^{i\phi_L}$
+and define
+\begin{align}
+  \Lambda_{\pm}
+  &=
+  \eta_1|\rho|^2
+  \pm
+  \eta_2|\tau|^2,
+  \\
+  \Gamma_{\pm}
+  &=
+  \eta_1t\rho^*
+  \pm
+  \eta_2r_{\ind{BS}}\tau^*.
+\end{align}
+At leading order in the strong local oscillator limit, the variance retains the term of order $L^2$, while the mean retains the offset of order $L^2$ and the signal term of order $L$:
+\begin{align}
+  \sigma_G
+  &\approx
+  \Lambda_+L^2,
+  \\
+  \mu_G
+  &\approx
+  \Lambda_-L^2
+  +
+  L|\Gamma_-|
+  \avr{\hat x_{\phi_{\ind{eff}}}},
+  \\
+  \phi_{\ind{eff}}
+  &=
+  \phi_L-\arg\Gamma_-.
+\end{align}
+Provided $\Gamma_-\neq0$, the rescaled outcome and its variance are
+\begin{align}
+  x
+  &=
+  \frac{
+    \mu-\Lambda_-L^2
+  }{
+    L|\Gamma_-|
+  },
+  \\
+  \sigma_x^{(\ind{gen})}
+  &=
+  \frac{
+    \Lambda_+
+  }{
+    |\Gamma_-|^2
+  }.
+\end{align}
+Thus, a general passive lossy beam splitter still yields a quadrature measurement at leading order in $L$, but the quadrature phase, gain, and variance must be recalculated from its complex scattering amplitudes. The substitutions
+$\eta_i\to\tau_i\eta_i$
+apply only to the diagonal output-loss model in Eq.~\eqref{eq:T_eff_extract}. Retaining the next term in $\sigma_G$ introduces the signal-dependent correction
+\begin{align}
+  2L\operatorname{Re}
+  \left(
+    \Gamma_+\alpha e^{-i\phi_L}
+  \right),
+\end{align}
+which lies beyond the strong local oscillator model with a state-independent measurement covariance used in the main text.
 
-We start from the Gaussian approximation of the photon count difference probability distribution in homodyne scheme~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}
+\section{Fluctuating local oscillator}\label{sec:fluc-LO}
+In this appendix, we extend the homodyne model to include classical amplitude fluctuations of a phase-locked local oscillator (LO).% In the main text, the LO amplitude $\vert\alpha_L\vert$ is treated as a fixed constant. Here, we model it as a fluctuating quantity and evaluate its impact on the Gaussian-approximated POVM.
+
+Let $L=|\alpha_L|$ denote the mean LO amplitude. For fixed $L$, the photon-count-difference distribution in the strong-LO Gaussian approximation is~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}
 \begin{align}
   &
   \label{eq:Gaussian}
-    \prob_G(\mu)=G(\mu-\mu_G;\sigma_G),
+    \prob_G(\mu\mid L)=G(\mu-\mu_G(L);\sigma_G(L)),
     \\
   &
     \label{eq:sigma_G}
-    \sigma_G=\eta_1|\alpha_1|^2+\eta_2|\alpha_2|^2
-    \approx
-    (\eta_1S^2+\eta_2C^2) \left|\alpha_L\right|^2,
+    \sigma_G(L)\approx
+    (\eta_1S^2+\eta_2C^2)L^2,
   \\
   &
     \label{eq:mu_G}
-    \mu_G=\eta_1|\alpha_1|^2-\eta_2|\alpha_2|^2
-    \approx
-    (\eta_1S^2-\eta_2C^2) \left|\alpha_L\right|^2
-    +CS (\eta_1+\eta_2) \left|\alpha_L\right| \avr{\hat{x}_\phi},
+    \mu_G(L)\approx
+    (\eta_1S^2-\eta_2C^2)L^2
+    +CS (\eta_1+\eta_2)L\avr{\hat{x}_\phi}.
 \end{align}
-where
-\begin{align}
-      \label{eq:G-notation}
-    G(x;\sigma)\equiv\frac{1}{\sqrt{2\pi\sigma}}\exp\Bigl(-\frac{x^2}{2\sigma}\Bigr).
-\end{align}
+Here $G$ is defined in Eq.~\eqref{eq:G-notation}.
 
-We assume that the LO amplitude fluctuates around its mean value $\alpha_L$ such that
+We write the instantaneous LO amplitude as $L+\Delta_L$, where $\Delta_L$ is a zero-mean Gaussian random variable:
 \begin{align}
-\alpha_L = \alpha_L + \delta \alpha_L, \quad \delta \alpha_L \sim G(\delta \alpha_L, \sigma_{L})
+  p_L(\Delta_L)=G(\Delta_L;\sigma_L),
+  \qquad \sqrt{\sigma_L}\ll L.
 \end{align}
-where $\sigma_{LO}$ represents the variance of the LO amplitude fluctuations.
+Here $\sigma_L$ is the variance of the LO amplitude fluctuations. Under the small-fluctuation condition, extending the integral over $\Delta_L$ to the full real line introduces a negligible tail with $L+\Delta_L<0$.
 
-To find the total probability distribution $\prob_{\ind{tot}}(\mu)$ that accounts for the local oscillator fluctuations, we perform an ensemble average by integrating the conditional distribution $\prob_G(\mu)$ over the Gaussian prior of the LO amplitude.% We assume the phase $\phi = \arg\alpha_L$ is locked, so that the amplitude fluctiation $\delta\alpha_L$ is real-valued random variable. 
+The unconditional photon-count-difference distribution is the Gaussian mixture:% We assume the phase $\phi = \arg\alpha_L$ is locked, so that the amplitude fluctiation $\delta\alpha_L$ is real-valued random variable.
 \begin{align}
     \label{eq:average-integral}
-    \prob_{\text{total}}(\mu) = \int \mathop{\dd\delta \alpha_L} \prob_G(\mu \vert \delta\alpha_L) \prob_G(\delta\alpha_L) =
+    \prob_{\ind{tot}}(\mu)
+    =\int_{-\infty}^{\infty}\dd\Delta_L\,
+    G(\Delta_L;\sigma_L)\prob_G(\mu\mid L+\Delta_L).
     %\int_{-\infty}^{\infty} \mathop{\dd\delta \alpha_L} G\left(\mu - \mu_G - \frac{\partial \mu_G}{\partial \left|\alpha_L\right|} \delta\alpha_L; \sigma_G\right) G(\delta\alpha_L; \sigma_L),
 \end{align}
+We use a linearized Gaussian approximation: we set $\sigma_G(L+\Delta_L)\approx\sigma_G(L)$ and linearize the conditional mean,
+\begin{align}
+  \mu_G(L+\Delta_L)
+  &\approx \mu_G(L)+\mu_G'(L)\Delta_L,\\
+  \mu_G'(L)
+  &=2(\eta_1S^2-\eta_2C^2)L
+  +CS(\eta_1+\eta_2)\avr{\hat{x}_\phi}.
+\end{align}
+This approximation retains the broadening generated by the linearized conditional mean, freezes the conditional variance at $\sigma_G(L)$, and discards the quadratic term in $\mu_G(L+\Delta_L)$, including its contribution to the mean.
+
+The Gaussian integral then gives
+\begin{align}
+  \prob_{\ind{tot}}(\mu)
+  \approx
+  G\!\left(
+    \mu-\mu_G(L);
+    \sigma_G(L)+[\mu_G'(L)]^2\sigma_L
+  \right).
+\end{align}
+The additional variance depends on
+$\avr{\hat{x}_\phi}$
+through
+$\mu_G'(L)$.
+The linearized mixture therefore cannot, in general, be absorbed into the excess-noise variance
+$\sigma_N$
+or covariance matrix
+$\Sigma_m^{(\ind{H})}$
+used in the main text.
 %where the effective  total variance
 %\begin{align}
 %    \overline{\mu}_G &= (\eta_1S^2-\eta_2C^2) \left|\alpha_L\right|^2 + CS (\eta_1+\eta_2) \left|\alpha_L\right| \avr{\hat{x}_\phi}, \\
@@ -1334,7 +1711,7 @@ To find the total probability distribution $\prob_{\ind{tot}}(\mu)$ that account
 
 %where $\sigma_G$ and $\mu_G$ denote the nominal parameters evaluated at the mean LO amplitude as defined in Eqs.~\eqref{eq:sigma_G} and \eqref{eq:mu_G}. Here, the conditional distribution's mean is linearized to the first order with respect to $\delta\alpha_L$, while its variance is kept to the zeroth order.
 
-S%ubstituting the explicit Gaussian form \eqref{eq:G-notation} into the integral expression yields:
+%ubstituting the explicit Gaussian form \eqref{eq:G-notation} into the integral expression yields:
 %\begin{align}
 %    \prob_{\text{total}}(\mu) = \frac{1}{2\pi \sqrt{\sigma_G \sigma_L}} \int_{-\infty}^{\infty} \exp\left[ -\frac{\left(\mu - \mu_G - \frac{\partial \mu_G}{\partial \left|\alpha_L\right|} \delta\alpha_L\right)^2}{2\sigma_G} - \frac{(\delta\alpha_L)^2}{2\sigma_L} \right] \mathop{\dd\delta \alpha_L}.
 %\end{align}
