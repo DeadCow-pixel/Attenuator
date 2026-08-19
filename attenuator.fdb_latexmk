@@ -1,17 +1,17 @@
 # Fdb version 4
-["bibtex attenuator"] 1787130300.29708 "attenuator.aux" "attenuator.bbl" "attenuator" 1787130419.27753 0
-  "./attenuatorNotes.bib" 1787130416 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex attenuator"] 1787130300.29708 "attenuator.aux" "attenuator.bbl" "attenuator" 1787130814.9587 0
+  "./attenuatorNotes.bib" 1787130811 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "./homodyne.bib" 1751645257 45879 1269261e30caa5aa8600d70e932367e8 ""
   "./math.bib" 1751645257 28710 3b9b5a701feb6e90ee46f59bfc0b2618 ""
   "./quant.bib" 1787048668 362915 641668235bcf9c1d5ed484a1adcd7580 ""
   "./refs.bib" 1787048668 44245 025beabfa63faaa455bae84d46e983e0 ""
   "C:/Users/РђСЃСЏ/AppData/Local/Programs/MiKTeX/bibtex/bst/revtex/apsrev4-2.bst" 0 -1 0 ""
-  "attenuator.aux" 1787130416 13880 d9dfbd515c6dcf34bca60c933f830846 "pdflatex"
+  "attenuator.aux" 1787130811 13880 d9dfbd515c6dcf34bca60c933f830846 "pdflatex"
   (generated)
   "attenuator.bbl"
   "attenuator.blg"
   (rewritten before read)
-["pdflatex"] 1787130412.71097 "c:/Attenuator/attenuator.tex" "attenuator.pdf" "attenuator" 1787130419.27858 0
+["pdflatex"] 1787130808.32822 "c:/Attenuator/attenuator.tex" "attenuator.pdf" "attenuator" 1787130814.95974 0
   "C:/Users/Ася/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1782742441 364441 d431f974a2116ed0377af2de845a40b7 ""
   "C:/Users/Ася/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm10.pk" 1765158983 6984 a42b1e6a44da9c1d62857131064736ee ""
   "C:/Users/Ася/AppData/Local/MiKTeX/fonts/tfm/public/bbm/bbm10.tfm" 1765158717 560 39fd35b5e4a6aca3672660cc548ba860 ""
@@ -159,10 +159,10 @@
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1749468414 10374 2ffd4f27c7f90b8a300608069537743c ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/tex/latex/ucs/utf8x.def" 1700127473 8944 e3433baec74c4b7b278c6b6a547ff9ec ""
   "C:/Users/Ася/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "attenuator.aux" 1787130416 13880 d9dfbd515c6dcf34bca60c933f830846 "pdflatex"
+  "attenuator.aux" 1787130811 13880 d9dfbd515c6dcf34bca60c933f830846 "pdflatex"
   "attenuator.bbl" 1787130300 32788 9dc125d7f45d255096c35b5ab650ae85 "bibtex attenuator"
-  "attenuator.tex" 1787130411 93697 1a20955e9301dccc8635aa02c0ef31c7 ""
-  "c:/Attenuator/attenuator.tex" 1787130411 93697 1a20955e9301dccc8635aa02c0ef31c7 ""
+  "attenuator.tex" 1787130807 93697 22311da6213990bcf47569cd70dc5897 ""
+  "c:/Attenuator/attenuator.tex" 1787130807 93697 22311da6213990bcf47569cd70dc5897 ""
   "pics/double-homodyne/1.0.pdf" 1787128713 259778 3042530b5742fc52ec9b0fc66d2c602a ""
   "pics/double-homodyne/1.25.pdf" 1787128716 260017 ebceda4637b9945c5d1a243b2e02e2b4 ""
   "pics/double-homodyne/Sab.pdf" 1782743612 262294 d61748e891c0e9384f03d1bad77a2b1f ""
