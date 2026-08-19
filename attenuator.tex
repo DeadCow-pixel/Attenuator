@@ -399,16 +399,25 @@ The parameters $\sigma_i$ are defined by
 \begin{align}
   &
   \label{eq:sigm-i}
-    \sigma_1=\frac{\sigma_x^{(1)}}{ 2 C_S^2},
+    \sigma_1=\frac{\sigma_x^{(1)}}{ 2 C_S^2}
+    \textcolor{magenta}{=\sigma_x^{(1)}\frac{q+1}{2}}
+    ,
     \quad
-    \sigma_2=\frac{\sigma_x^{(2)}}{ 2 S_S^2},
+    \sigma_2=\frac{\sigma_x^{(2)}}{ 2 S_S^2}
+    \textcolor{magenta}{=\sigma_x^{(2)}\frac{q^{-1}+1}{2}}
+    ,
+  \\
+  &
+  \label{eq:def-q}
+  q\equiv \frac{S_S^2}{C_S^2},
   \\
   &
     \label{eq:sigm-x-i}
     \sigma_x^{(i)}=\frac{\eta_1^{(i)}S_i^2+\eta_2^{(i)}C_i^2}{
     \left[(\eta_1^{(i)}+\eta_2^{(i)})C_i S_i\right]^2
-    }.
+    },
 \end{align}
+\textcolor{magenta}{where we defined input beampslitter imbalance ratio $q$.}
 Thus, for fixed input amplitude $\alpha$, the conditional outcome variances are $\operatorname{Var}(x_i\mid\alpha)=\sigma_i/2$.
 
 Following the same procedure used to derive Eq.~\eqref{eq:Sigma-H-m}, we obtain the covariance matrix of the target double-homodyne POVM,
@@ -1166,7 +1175,7 @@ For the asymmetric parameter sets considered, where $\delta_1\neq\delta_2$, neit
 \caption[]{$q=1.25$}
 \label{subfig:K-vs-L-q-add-b}
         \end{subfigure}
-        \caption{Asymptotic secret fraction $K^{(C_{\ind{DH}})}$ versus channel length $l$, computed for fixed $\sigma_x^{(i)}=1.05$ (see Eq.\eqref{eq:sigm-x-i}) and various imbalance ratios $q\equiv\frac{S_S^2}{C_S^2}$ for additive-noise and attenuator channel models (see Fig.~\ref{fig:Entropy}).
+        \caption{Asymptotic secret fraction $K^{(C_{\ind{DH}})}$ versus channel length $l$, computed for fixed $\sigma_x^{(i)}=1.01$ (see Eq.\eqref{eq:sigm-x-i}) and various imbalance ratios $q\equiv\frac{S_S^2}{C_S^2}$\eqref{eq:def-q} for additive-noise and attenuator channel models (see Fig.~\ref{fig:Entropy}).
         % todo: у нас сигма точно 1.05, а не 1.01?
         The parameters are:
         $V=5$; $\beta=0.95$; $\xi_{\ind{ch}}=10^{-2};$ the fiber loss is $20$ dB per $100$ km.}
