@@ -179,7 +179,7 @@ For double-homodyne detection, the channel parameters, Holevo information, and a
 %Previous studies have established that receiver imbalance and other nonidealities can bias parameter estimation, reduce the secret-key rate, and create security gaps when omitted from the measurement model~\cite{Pereira2021,PRXQuantum.3.010341,hajomer2025finite,Bartlett:25}.
 %These results motivate an investigation into how the security estimate changes when the same asymmetry-induced POVM is realized through different Gaussian channels. This approach separates the experimentally calibrated measurement model from the additional physical assumptions introduced by a particular channel.
 
-%In our previous work~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we derived the Gaussian POVMs that account for beam-splitter imbalance and photodetector-efficiency mismatch, collectively referred to as \textit{asymmetry effects}, in homodyne and double-homodyne receivers. We represented the resulting measurement noise through an additive-noise channel. For double-homodyne detection, the ideal Gaussian POVM was represented by a family of pure squeezed states, with the admissible interval of squeezing parameters fixed by the positivity of the excess-noise covariance matrix. Within the untrusted-noise model, this nonuniqueness made the Holevo information dependent on the squeezing parameter. Although mathematically direct, the additive-noise channel is not tied to a specific optical coupling mechanism and is not the only Gaussian channel compatible with the same noisy POVM.
+%In our previous work~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we derived the Gaussian POVMs that account for beam-splitter imbalance and photodetector-efficiency mismatch, collectively referred to as \textit{asymmetry effects}, in homodyne and double-homodyne receivers. We represented the resulting measurement noise through an additive-noise channel. For double-homodyne detection, the ideal Gaussian POVM was represented by a family of pure squeezed states, with the admissible interval of squeezing parameters fixed by the positivity of the excess-noise covariance matrix. Within the untrusted-receiver model, this nonuniqueness made the Holevo information dependent on the squeezing parameter. Although mathematically direct, the additive-noise channel is not tied to a specific optical coupling mechanism and is not the only Gaussian channel compatible with the same noisy POVM.
 
 % The channels considered here, therefore, serve as a representation of a fixed noisy measurement rather than as alternatives to the physical communication link.
 %Finite-size effects, composable-security corrections, active detector attacks, and uncertainties in equipment calibration are outside the scope of the present work.
@@ -207,7 +207,7 @@ For double-homodyne detection, the channel parameters, Holevo information, and a
 
 %In our recent work~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we established a POVM-based framework to characterize the effects induced in coherent detection schemes by unbalanced beam splitters and mismatched detector quantum efficiencies, collectively referred to as \textit{asymmetry effects}.
 %In Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, we successfully derived, under the strong local oscillator (LO) approximation, the positive operator-valued measures (POVMs) and Q symbols for both homodyne and double-homodyne detection schemes.
-%The results were subsequently applied to the security analysis of the Gaussian-modulated coherent-state (GMCS) continuous-variable quantum key distribution (CV-QKD) protocol~\cite{Grosshans:prl:2002} within an untrusted-noise scenario~\cite{usenko2016trusted}. To model the untrusted measurement asymmetry, we utilized an additive-noise channel model~\cite{Serafini:bk:2023}, which allowed for the convenient construction of POVMs covariance matrices but lacked a clear physical interpretation.
+%The results were subsequently applied to the security analysis of the Gaussian-modulated coherent-state (GMCS) continuous-variable quantum key distribution (CV-QKD) protocol~\cite{Grosshans:prl:2002} within an untrusted-receiver scenario~\cite{usenko2016trusted}. To model the untrusted measurement asymmetry, we utilized an additive-noise channel model~\cite{Serafini:bk:2023}, which allowed for the convenient construction of POVMs covariance matrices but lacked a clear physical interpretation.
 %yielded extremely pessimistic bounds for the asymptotic secret key rate
 %In this paper, we will build upon this foundation by revisiting the modeling of asymmetric coherent measurements. Specifically, we employ the virtual beam splitter model instead of additive-noise channel model used in~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. We will compare the results for informational quantities in the GMCS protocol given by these two models.
 
@@ -233,53 +233,48 @@ For double-homodyne detection, the channel parameters, Holevo information, and a
 %This paper is organized as follows. In Sec.~\ref{sec:POVMs}, we briefly recall the formalism behind POVMs of asymmetrical homodyne and double homodyne measurement schemes established in Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. In Sec.~\ref{sec:channels}, we establish equivalence between attenuator channel model primarly used in this work and additive-noise channel model used in Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, and derive the coefficients of those Gaussian channels. In Sec.~\ref{sec:protocol}, we derive informational quantities defining asymptotic secret fraction in the GMCS protocol for both channel models and both coherent measurements schemes and compare the results. Finally, in Sec.~\ref{sec:conclusion}, we provide a discussion of the results as well as concluding remarks.
 
 %Due to mathematical constraints, we must extend the standard vacuum ancilla to an arbitrary state, effectively formulating it as an attenuator channel~\cite{Serafini:bk:2023}. We also provide a direct comparison between the results of both approaches.
-Homodyne and double-homodyne detection are standard coherent detection schemes in quantum optics and continuous-variable quantum information~\cite{Braunstein:rmp:2005,Weed:rmp:2012}. Here, double-homodyne detection denotes the two-branch receiver conventionally used to implement heterodyne measurement. In the limit of a strong local oscillator, an ideal homodyne receiver implements a projective measurement of one field quadrature. An ideal balanced double-homodyne receiver implements a joint noisy measurement of two conjugate quadratures described by the coherent-state positive operator-valued measure (POVM), with POVM density proportional to $\ket{\alpha}\bra{\alpha}$~\cite{Weed:rmp:2012,HolevoGaussianObservable2021}. Both schemes are Gaussian measurements and produce Gaussian outcome distributions for Gaussian input states. They are used in quantum state tomography~\cite{d2003quantum,Lvovsky:rmp:2009}, quantum state preparation~\cite{Zhang_2019}, and continuous-variable quantum key distribution (CV-QKD)~\cite{Grosshans:prl:2002,Pirandola:20,Zhang:apr:2024}.
+Homodyne and double-homodyne detection are standard coherent detection schemes in quantum optics and continuous-variable quantum information~\cite{Braunstein:rmp:2005,Weed:rmp:2012}. They are used in quantum state tomography~\cite{d2003quantum,Lvovsky:rmp:2009}, quantum state preparation~\cite{Zhang_2019}, and continuous-variable quantum key distribution (CV-QKD)~\cite{Grosshans:prl:2002,Pirandola:20,Zhang:apr:2024,Lupo:prxq:2022,UsenkoRMP2026}.
 
-Practical receivers may have detector quantum efficiencies below unity, detector-efficiency mismatch, and beam-splitter imbalance. Within the Gaussian approximation to the photon-count statistics in the strong local oscillator limit, these receiver imperfections produce noisy Gaussian POVMs~\cite{lahti2010realistic,Barchielli_2022,naumchik2025asymmetryeffectshomodyneheterodyne}. They also affect CV-QKD parameter estimation and the asymptotic secret fraction~\cite{Pereira2021,PRXQuantum.3.010341,Mi2024BiasedDetection}. We use \emph{receiver imperfections} for all these deviations from ideal detection and reserve \emph{receiver asymmetry} for beam-splitter imbalance and detector-efficiency mismatch; Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} refers to this combination as \emph{asymmetry effects}. For each detection scheme, the receiver parameters determine a noisy Gaussian POVM, which we call the target POVM. We denote the sender, receiver, and eavesdropper by Alice, Bob, and Eve, respectively.
+In a typical CV-QKD protocol, Alice encodes key-bearing variables in optical-field quadratures, sends the prepared state through the physical communication channel, and Bob measures the channel output using a coherent detection scheme. Under collective Gaussian attacks, the link between legitimate parties is modeled as a bosonic Gaussian channel whose dilation specifies the environmental modes available to the eavesdropper (Eve)~\cite{Navascues2006GaussianAttacks,
+GarciaPatron2006GaussianAttacks,
+PirandolaCollectiveGaussian2008}.
 
-General quantum measurement theory separates the outcome statistics from the measurement-induced state changes. A POVM determines the outcome probabilities. A quantum instrument also specifies the conditional state changes. Davies and Lewis introduced instruments to describe general measurements and successive-measurement statistics~\cite{Davies1970}. Holevo showed that every POVM admits a statistically equivalent projection-valued measurement on an extended system containing an auxiliary system in a fixed state; such Naimark extensions are generally nonunique~\cite{Holevo1973Statistical}. Ozawa subsequently established that physically realizable measurements are described by completely positive instruments and admit indirect measurement models~\cite{Ozawa1984}. A target POVM therefore fixes the outcome probabilities.
+The attenuator channel provides the standard model for a lossy
+optical link. The canonical classification of one-mode Gaussian channels
+also includes amplifier and additive-noise channels. Their unitary dilations represent distinct collective Gaussian attacks in
+CV-QKD~\cite{Caruso2006,PirandolaCollectiveGaussian2008}.
+Related analyses have compared secure-key rates across canonical Gaussian models of the physical communication link~\cite{PapanastasiouCanonical2021}.
 
-Measurement noise can enter through classical processing of the outcomes or through a quantum channel preceding the measurement. Ali and Emch described finite resolution by smearing a sharp observable with a resolution function, which yields a fuzzy observable represented by a POVM~\cite{Ali1974}. Martens and de Muynck later formalized measurement nonideality through a partial order on POVMs~\cite{MartensMuynck1990}. Quantum preprocessing applies a channel to the input state; equivalently, the dual channel acts on the POVM effects. The corresponding preprocessing order was studied in Ref.~\cite{BuscemiClean2005}. The induced POVM fixes the outcome statistics for every input state. Several preprocessing channels and channel dilations may induce the same POVM.
+Practical coherent receivers are affected by nonunit and unequal
+photodetector efficiencies, beam-splitter imbalance and optical-coupling
+loss, electronic noise and finite bandwidth, local-oscillator amplitude
+and phase fluctuations, and detector saturation
+~\cite{Chi:njp:2011,Barchielli:pra:2022,Pan:pra:2025,qin2016quantum}.
+These imperfections modify the receiver response and the measured
+quadrature statistics, thereby affecting estimates of the channel
+transmittance and excess noise and, ultimately, the security bound
+~\cite{Jouguet:pra:2012,Pereira:epjqt:2021,Lupo:prxq:2022,
+Mi2024BiasedDetection,hajomer2025finite,Bartlett:25}.
+A consistent security analysis must therefore incorporate these receiver
+imperfections into Bob's measurement model.
 
-In coherent optical detection, Yuen and Chan calculated the mean-square fluctuation spectra of homodyne and heterodyne receivers for arbitrary signal and local-oscillator states and separated the contributions of signal quantum fluctuations and local-oscillator excess noise~\cite{Yuen:ol:1983}. Holevo described bosonic communication channels through coupling to an auxiliary bosonic system and introduced the linear attenuator as a channel model for signal attenuation~\cite{Holevo:problemy:1972}. Later classifications place the attenuator and additive-noise channels in different canonical classes of one-mode Gaussian channels~\cite{Caruso2006,HolevoGaussianChannels2007}.
+Within the Gaussian model considered here, beam-splitter imbalance and detector-efficiency mismatch are encoded in Bob's POVM, which determines the conditional distribution of his outcomes for each input state. A noisy Gaussian POVM may be
+represented by applying an effective one-mode Gaussian channel to Bob's
+mode, measuring the channel output with a rank-one Gaussian POVM, and
+then applying an invertible deterministic rescaling to the outcomes
+~\cite{Serafini:bk:2023}. We refer to the physical Alice-to-Bob link as
+the \emph{communication channel} and to the effective channel used in
+Bob's measurement model as the \emph{receiver channel}. Different receiver channels can reproduce the same POVM while transforming Bob's mode differently and producing different environmental outputs. 
 
-We reserve \emph{communication channel} for the physical Alice-to-Bob link. We use \emph{receiver channel} for an effective one-mode Gaussian channel acting on Bob's mode after the communication channel and before a rank-one reference Gaussian POVM. Both channels considered here admit the same $X,Y$ parametrization:
-\begin{align}
-  \boldsymbol{r}
-  &\mapsto
-  X\boldsymbol{r},
-  &
-  \Sigma
-  &\mapsto
-  X\Sigma X^{\ind{T}}+Y,
-  \\
-  X_{\Phi}
-  &=
-  \mathbbm{1},
-  &
-  Y_{\Phi}
-  &\succeq
-  0,
-  \\
-  X_{\mathcal{E}}
-  &=
-  \cos\theta\,\mathbbm{1},
-  &
-  Y_{\mathcal{E}}
-  &=
-  \sin^2\theta\,\Sigma_{\ind{env}}.
-\end{align}
-The additive-noise channel has unit gain. Applied to Bob's mode, it preserves the first moments and the Alice-Bob correlation block while increasing Bob's local covariance by $Y_{\Phi}$. The attenuator scales the first moments and the Alice-Bob correlation block by $\cos\theta$; its environmental input contributes $\sin^2\theta\,\Sigma_{\ind{env}}$ to Bob's local covariance.
+This distinction affects security estimates depending on whether Bob's receiver noise is treated as trusted or untrusted. When the receiver noise is treated as trusted, the environmental modes associated with receiver imperfections remain inside Bob's laboratory and are inaccessible to Eve. When it is treated as untrusted, Eve is assumed to hold a purification of the Alice-Bob state after the receiver channel~\cite{Lodewyck:pra:2007,Usenko:entropy:2016,Laudenbach:aqt:2019,Namiki2018DetectionChannel,PirandolaTrustLevels2021}. For a fixed source and communication channel, the receiver POVM determines Bob's statistics and the Alice-Bob mutual information, whereas the channel model also determines the Alice-Bob state used to bound Eve's Holevo information. Thus, when the receiver noise is treated as untrusted, the security estimate depends on the receiver channel chosen for the fixed POVM.
 
-After the reference POVM is measured, an invertible deterministic rescaling of the outcomes compensates the factor $\cos\theta$ in the classical first moments. This rescaling leaves the output quantum state unchanged. Suitable choices of $Y_{\Phi}$, $\theta$, and $\Sigma_{\ind{env}}$ allow the two channels to reproduce the same target POVM for every input state. Here, a \emph{channel representation} of the target POVM means the channel, the rank-one reference Gaussian POVM measured at its output, and the invertible deterministic rescaling of the outcomes.
+In our previous work, we represented the noisy POVMs taking into account by beam-splitter imbalance and detector-efficiency mismatch, collectively referred to as asymmetry effects, using an additive-noise receiver channel. In this representation, the receiver contribution is modeled as additive, zero-mean Gaussian noise uncorrelated with the signal~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. For double-homodyne detection, the rank-one reference POVM belongs to a family of displaced squeezed-state POVMs. Within the untrusted-receiver scenario, its squeezing parameter labels compatible representations that reproduce the same receiver statistics but yield different Holevo information.
 
-Our previous work derived the target POVMs for asymmetric homodyne and double-homodyne receivers and reproduced them using additive-noise channels~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. For double-homodyne detection, the reference POVM belongs to a family of rank-one Gaussian POVMs whose effects are proportional to projectors onto displaced squeezed states. The squeezing parameter $r$ labels this family, and $r=0$ gives the coherent-state POVM of conventional double-homodyne detection. Complete positivity of the additive-noise channel restricts $r$ to an interval determined by the receiver parameters. In the security analysis of Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}, Eve was assumed to purify the Alice-Bob state after the receiver channel. The resulting Holevo information depends on $r$. A fixed target POVM can therefore be reproduced by several choices of channel and reference POVM that give the same receiver statistics and different Alice-Bob states.
+In this work, we construct an alternative representation based on an attenuator
+receiver channel, in which Bob's mode is mixed with a Gaussian
+environmental mode at a beam splitter. We keep the communication channel and Bob's POVM fixed and compare the corresponding asymptotic secret fractions for the Gaussian-modulated coherent-state protocol with reverse reconciliation, treating the receiver noise as untrusted~\cite{Grosshans:prl:2002,Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}.
 
-In this paper, we construct attenuator channels for the same target homodyne and double-homodyne POVMs and compare them with the corresponding additive-noise channels. For each detection scheme, we choose the channel parameters and the reference POVM so that the dual map, followed by an invertible deterministic rescaling of the outcomes, reproduces the target POVM. This equality holds for every input state. The Alice-Bob mutual information is therefore independent of the channel choice and, for double-homodyne detection, the value of $r$. We compare the resulting Holevo information and asymptotic secret fraction for the Gaussian-modulated coherent-state (GMCS) protocol with reverse reconciliation under collective Gaussian attacks~\cite{Grosshans:prl:2002,Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}.
-
-The security interpretation depends on the trust assigned to the receiver noise. In a model with trusted receiver noise, Eve has no access to the environmental output of the receiver~\cite{Lodewyck:pra:2007,Usenko:entropy:2016,Laudenbach:aqt:2019,Namiki2018DetectionChannel}. For a fixed Alice-Bob-Eve state before that channel, any two choices that reproduce the same target POVM produce the same joint classical-quantum state of Eve and Bob's rescaled outcome. They therefore give the same Holevo information. In the model with untrusted receiver noise used here, Eve purifies the Alice-Bob state after the receiver channel. The additive-noise and attenuator channels generally produce different Alice-Bob states and hence different Holevo information and asymptotic secret fractions. Selecting the channel therefore specifies a physical assumption in the security analysis.
-
-This paper is organized as follows. Section~\ref{sec:POVMs} defines the target homodyne and double-homodyne POVMs. Section~\ref{sec:channels} constructs the corresponding additive-noise and attenuator channels. Section~\ref{sec:protocol} evaluates the Alice-Bob mutual information, Holevo information, and asymptotic secret fraction. Section~\ref{sec:conclusion} discusses the results.
+The paper is organized as follows. Section~\ref{sec:POVMs} specifies the receiver POVMs, Sec.~\ref{sec:channels} constructs their two channel models, Sec.~\ref{sec:protocol} gives the security analysis, and Sec.~\ref{sec:conclusion} discusses the result.
 
 \section{Target Gaussian POVMs}\label{sec:POVMs}
 We now specify the target homodyne and double-homodyne POVMs produced by the receiver imperfections considered in this work, as shown in Fig.~\ref{fig:scheme}. Ref.~\cite{naumchik2025asymmetryeffectshomodyneheterodyne} gives the detailed derivations used in this section.
