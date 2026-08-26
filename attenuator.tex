@@ -249,12 +249,12 @@ Practical coherent receivers are affected by nonunit and unequal
 photodetector efficiencies, beam-splitter imbalance and optical-coupling
 loss, electronic noise and finite bandwidth, local-oscillator amplitude
 and phase fluctuations, and detector saturation
-~\cite{Chi:njp:2011,Barchielli:pra:2022,Pan:pra:2025,qin2016quantum}.
-These imperfections modify the receiver response and the measured
+~\cite{Chi:njp:2011,Barchielli:pra:2022,Pan:pra:2025,qin2016quantum}. In the strong-local-oscillator limit, nonunit photodetector efficiency broadens the double-homodyne outcome distribution, while unequal efficiencies in an eight-port receiver produce a smearing of the ideal phase-space observable~\cite{Paris:pra:1996,lahti2010realistic}.
+Receiver imperfections modify the receiver response and the measured
 quadrature statistics, thereby affecting estimates of the channel
 transmittance and excess noise and, ultimately, the security bound
 ~\cite{Jouguet:pra:2012,Pereira:epjqt:2021,Lupo:prxq:2022,
-Mi2024BiasedDetection,hajomer2025finite,Bartlett:25}.
+Mi2024BiasedDetection,hajomer2025finite,Bartlett:25}. 
 A consistent security analysis must therefore incorporate these receiver
 imperfections into Bob's measurement model.
 
@@ -268,11 +268,11 @@ Bob's measurement model as the \emph{receiver channel}. Different receiver chann
 
 This distinction affects security estimates depending on whether Bob's receiver noise is treated as trusted or untrusted. When the receiver noise is treated as trusted, the environmental modes associated with receiver imperfections remain inside Bob's laboratory and are inaccessible to Eve. When it is treated as untrusted, Eve is assumed to hold a purification of the Alice-Bob state after the receiver channel~\cite{Lodewyck:pra:2007,Usenko:entropy:2016,Laudenbach:aqt:2019,Namiki2018DetectionChannel,PirandolaTrustLevels2021}. For a fixed source and communication channel, the receiver POVM determines Bob's statistics and the Alice-Bob mutual information, whereas the channel model also determines the Alice-Bob state used to bound Eve's Holevo information. Thus, when the receiver noise is treated as untrusted, the security estimate depends on the receiver channel chosen for the fixed POVM.
 
-In our previous work, we represented the noisy POVMs taking into account by beam-splitter imbalance and detector-efficiency mismatch, collectively referred to as asymmetry effects, using an additive-noise receiver channel. In this representation, the receiver contribution is modeled as additive, zero-mean Gaussian noise uncorrelated with the signal~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. For double-homodyne detection, the rank-one reference POVM belongs to a family of displaced squeezed-state POVMs. Within the untrusted-receiver scenario, its squeezing parameter labels compatible representations that reproduce the same receiver statistics but yield different Holevo information.
+In our previous work, we represented the noisy POVMs induced by beam-splitter imbalance and detector-efficiency mismatch, collectively referred to as asymmetry effects, using an additive-noise receiver channel. In this representation, the receiver contribution is modeled as additive, zero-mean Gaussian noise uncorrelated with the signal~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. For double-homodyne detection, the rank-one reference POVM belongs to a family of displaced squeezed-state POVMs. Within the untrusted-receiver scenario, its squeezing parameter labels compatible representations that reproduce the same receiver statistics but yield different Holevo information.
 
 In this work, we construct an alternative representation based on an attenuator
 receiver channel, in which Bob's mode is mixed with a Gaussian
-environmental mode at a beam splitter. We keep the communication channel and Bob's POVM fixed and compare the corresponding asymptotic secret fractions for the Gaussian-modulated coherent-state protocol with reverse reconciliation, treating the receiver noise as untrusted~\cite{Grosshans:prl:2002,Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}.
+environmental mode at a beam splitter~\cite{Lodewyck:pra:2007,Laudenbach:aqt:2019}. We keep the communication channel and Bob's POVM fixed and compare the corresponding asymptotic secret fractions for the Gaussian-modulated coherent-state protocol with reverse reconciliation, treating the receiver noise as untrusted~\cite{Grosshans:prl:2002,Navascues2006GaussianAttacks,GarciaPatron2006GaussianAttacks}.
 
 The paper is organized as follows. Section~\ref{sec:POVMs} specifies the receiver POVMs, Sec.~\ref{sec:channels} constructs their two channel models, Sec.~\ref{sec:protocol} gives the security analysis, and Sec.~\ref{sec:conclusion} discusses the result.
 
