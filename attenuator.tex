@@ -235,30 +235,34 @@ For double-homodyne detection, the channel parameters, Holevo information, and a
 %Due to mathematical constraints, we must extend the standard vacuum ancilla to an arbitrary state, effectively formulating it as an attenuator channel~\cite{Serafini:bk:2023}. We also provide a direct comparison between the results of both approaches.
 Homodyne and double-homodyne detection are standard coherent detection schemes in quantum optics and continuous-variable quantum information~\cite{Braunstein:rmp:2005,Weed:rmp:2012}. They are used in quantum state tomography~\cite{d2003quantum,Lvovsky:rmp:2009}, quantum state preparation~\cite{Zhang_2019}, and continuous-variable quantum key distribution (CV-QKD)~\cite{Grosshans:prl:2002,Pirandola:20,Zhang:apr:2024,Lupo:prxq:2022,UsenkoRMP2026}.
 
-In a typical CV-QKD protocol, Alice encodes key-bearing variables in optical-field quadratures, sends the prepared state through the physical communication channel, and Bob measures the channel output using a coherent detection scheme. Under collective Gaussian attacks, the link between legitimate parties is modeled as a bosonic Gaussian channel whose dilation specifies the environmental modes available to the eavesdropper (Eve)~\cite{Navascues2006GaussianAttacks,
-GarciaPatron2006GaussianAttacks,
-PirandolaCollectiveGaussian2008}.
-
-The attenuator channel provides the standard model for a lossy
-optical link. The canonical classification of one-mode Gaussian channels
-also includes amplifier and additive-noise channels. Their unitary dilations represent distinct collective Gaussian attacks in
-CV-QKD~\cite{Caruso2006,PirandolaCollectiveGaussian2008}.
-Related analyses have compared secure-key rates across canonical Gaussian models of the physical communication link~\cite{PapanastasiouCanonical2021}.
+In a typical CV-QKD protocol, Alice encodes key-bearing variables in optical-field quadratures, sends the prepared state through the physical communication channel, and Bob measures the channel output using a coherent detection scheme. 
 
 Practical coherent receivers are affected by nonunit and unequal
-photodetector efficiencies, beam-splitter imbalance and optical-coupling
-loss, electronic noise and finite bandwidth, local-oscillator amplitude
+photodetector efficiencies, beam-splitter imbalance, and optical-coupling
+loss, electronic noise, and finite bandwidth, local-oscillator amplitude
 and phase fluctuations, and detector saturation
 ~\cite{Chi:njp:2011,Barchielli:pra:2022,Pan:pra:2025,qin2016quantum}. In the strong-local-oscillator limit, nonunit photodetector efficiency broadens the double-homodyne outcome distribution, while unequal efficiencies in an eight-port receiver produce a smearing of the ideal phase-space observable~\cite{Paris:pra:1996,lahti2010realistic}.
 Receiver imperfections modify the receiver response and the measured
 quadrature statistics, thereby affecting estimates of the channel
-transmittance and excess noise and, ultimately, the security bound
+transmittance and excess noise, and, ultimately, the security bound
 ~\cite{Jouguet:pra:2012,Pereira:epjqt:2021,Lupo:prxq:2022,
 Mi2024BiasedDetection,hajomer2025finite,Bartlett:25}. 
 A consistent security analysis must therefore incorporate these receiver
 imperfections into Bob's measurement model.
 
-Within the Gaussian model considered here, beam-splitter imbalance and detector-efficiency mismatch are encoded in Bob's POVM, which determines the conditional distribution of his outcomes for each input state. A noisy Gaussian POVM may be
+The resulting signal, losses, and noise in the link between legitimate parties are described via a bosonic Gaussian channel~\cite{Navascues2006GaussianAttacks,
+GarciaPatron2006GaussianAttacks,
+PirandolaCollectiveGaussian2008}.
+
+The attenuator channel provides the standard model for a lossy
+optical link. The canonical classification of one-mode Gaussian channels
+also includes amplifier and additive-noise channels. 
+% здесь не вдаваться в разные виды каналов, а написать общими словами, как у Пирандолы 2008
+Their unitary dilations represent distinct collective attacks on
+CV-QKD protocols~\cite{Caruso2006,PirandolaCollectiveGaussian2008}, where the eavesdropper controls environmental modes.
+Related analyses have compared secure-key rates across canonical Gaussian models of the physical communication link~\cite{PapanastasiouCanonical2021}.
+
+Beam-splitter imbalance and detector-efficiency mismatch can be encoded in Bob's positive operator-valued measure (POVM), which determines the conditional distribution of his outcomes for each input state. A noisy Gaussian POVM may be as well
 represented by applying an effective one-mode Gaussian channel to Bob's
 mode, measuring the channel output with a rank-one Gaussian POVM, and
 then applying an invertible deterministic rescaling to the outcomes
