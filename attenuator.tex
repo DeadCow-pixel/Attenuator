@@ -257,10 +257,11 @@ PirandolaCollectiveGaussian2008}.
 The attenuator channel provides the standard model for a lossy
 optical link. The canonical classification of one-mode Gaussian channels
 also includes amplifier and additive-noise channels. 
-% здесь не вдаваться в разные виды каналов, а написать общими словами, как у Пирандолы 2008
+% здесь не вдаваться в разные виды каналов, а написать общими словами, как у Пирандолы 2008, можно упомянуть про эквивалентность и старые работа про усилители
 Their unitary dilations represent distinct collective attacks on
 CV-QKD protocols~\cite{Caruso2006,PirandolaCollectiveGaussian2008}, where the eavesdropper controls environmental modes.
 Related analyses have compared secure-key rates across canonical Gaussian models of the physical communication link~\cite{PapanastasiouCanonical2021}.
+% пару слов можно сказать о дискретной модуляции
 
 Beam-splitter imbalance and detector-efficiency mismatch can be encoded in Bob's positive operator-valued measure (POVM), which determines the conditional distribution of his outcomes for each input state. A noisy Gaussian POVM may be as well
 represented by applying an effective one-mode Gaussian channel to Bob's
@@ -272,7 +273,11 @@ Bob's measurement model as the \emph{receiver channel}. Different receiver chann
 
 This distinction affects security estimates depending on whether Bob's receiver noise is treated as trusted or untrusted. When the receiver noise is treated as trusted, the environmental modes associated with receiver imperfections remain inside Bob's laboratory and are inaccessible to Eve. When it is treated as untrusted, Eve is assumed to hold a purification of the Alice-Bob state after the receiver channel~\cite{Lodewyck:pra:2007,Usenko:entropy:2016,Laudenbach:aqt:2019,Namiki2018DetectionChannel,PirandolaTrustLevels2021}. For a fixed source and communication channel, the receiver POVM determines Bob's statistics and the Alice-Bob mutual information, whereas the channel model also determines the Alice-Bob state used to bound Eve's Holevo information. Thus, when the receiver noise is treated as untrusted, the security estimate depends on the receiver channel chosen for the fixed POVM.
 
-In our previous work, we represented the noisy POVMs induced by beam-splitter imbalance and detector-efficiency mismatch, collectively referred to as asymmetry effects, using an additive-noise receiver channel. In this representation, the receiver contribution is modeled as additive, zero-mean Gaussian noise uncorrelated with the signal~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. For double-homodyne detection, the rank-one reference POVM belongs to a family of displaced squeezed-state POVMs. Within the untrusted-receiver scenario, its squeezing parameter labels compatible representations that reproduce the same receiver statistics but yield different Holevo information.
+In our previous work, we represented the noisy POVMs induced by beam-splitter imbalance and detector-efficiency mismatch, collectively referred to as asymmetry effects, using an additive-noise receiver channel. In this representation, the receiver contribution is modeled as additive, zero-mean Gaussian noise uncorrelated with the signal~\cite{naumchik2025asymmetryeffectshomodyneheterodyne}. 
+% вот эту фразу ниже нужно упростить
+For double-homodyne detection, the ideal Gaussian POVM was represented by a family of squeezed-state POVMs. Within the untrusted-receiver scenario considered there, its squeezing parameter labels compatible representations that reproduce the same receiver statistics but yield different Holevo information.
+% старая фраза
+% For double-homodyne detection, the ideal Gaussian POVM was represented by a family of pure squeezed states, with the admissible interval of squeezing parameters fixed by the positivity of the excess-noise covariance matrix
 
 In this work, we construct an alternative representation based on an attenuator
 receiver channel, in which Bob's mode is mixed with a Gaussian
